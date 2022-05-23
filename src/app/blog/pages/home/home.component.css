@@ -1,3 +1,9 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+.sidenav-container {
+  height: 92%;
+}
+.toolbar-container {
+  height: 8%;
+}

@@ -1,0 +1,13 @@
+.form-container {
+  margin: 2em;
+}
+.mat-form-field {
+  margin: 0 1.5em;
+}
+.textarea-custom {
+  min-width: 40em;
+  min-height: 10em;
+}
+.btn-custom {
+  margin: 0 1.5em;
+}

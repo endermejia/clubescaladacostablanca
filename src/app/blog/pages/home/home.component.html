@@ -1,8 +1,26 @@
-<mat-drawer-container
-  fullscreen
-  class="example-container"
+<mat-toolbar
+  [color]="'primary'"
+  class="toolbar-container">
+  <button
+    mat-icon-button
+    (click)="drawer.toggle()"
+    aria-label="Toggle sidenav">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>
+        Club Escalada Costa Blanca
+      </span>
+  <span
+    class="example-spacer">
+      </span>
+</mat-toolbar>
+<mat-sidenav-container
+  class="sidenav-container"
   [hasBackdrop]="false">
-  <mat-drawer
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <mat-sidenav
     #drawer
     class="example-sidenav"
     mode="side"
@@ -14,6 +32,12 @@
          (click)="drawer.close()">
         <mat-icon>article</mat-icon>
         Blog
+      </a>
+      <a mat-list-item
+         routerLink="/blog"
+         (click)="drawer.close()">
+        <mat-icon>notifications</mat-icon>
+        Noticias
       </a>
       <a mat-list-item
          routerLink="/about"
@@ -32,22 +56,5 @@
         Contacto
       </a>
     </mat-nav-list>
-  </mat-drawer>
-  <mat-drawer-content>
-    <mat-toolbar [color]="'primary'">
-      <button
-        mat-icon-button
-        (click)="drawer.toggle()"
-        aria-label="Toggle sidenav">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>
-        Club Escalada Costa Blanca
-      </span>
-      <span
-        class="example-spacer">
-      </span>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </mat-sidenav>
+</mat-sidenav-container>

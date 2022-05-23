@@ -1,5 +1,5 @@
-<div>
-  <form>
+<div class="form-container">
+  <form class="form-container">
     <mat-form-field>
       <input
         matInput
@@ -9,25 +9,33 @@
     </mat-form-field>
     <mat-form-field>
       <input
+        type="email"
         matInput
         placeholder="Introduce tu email"
         required>
       <mat-icon matSuffix>alternate_email</mat-icon>
     </mat-form-field>
     <mat-form-field>
-      <input type="tel" matInput placeholder="Teléfono" required>
+      <input
+        type="tel"
+        matInput
+        placeholder="Teléfono"
+        required>
       <mat-icon matSuffix>call</mat-icon>
     </mat-form-field>
     <mat-form-field>
-      <input matInput
-             placeholder="Asunto"
-             required>
+      <input
+        matInput
+        placeholder="Asunto"
+        required>
       <mat-icon matSuffix>create</mat-icon>
     </mat-form-field>
-    <mat-form-field>
-      <textarea matInput
-                placeholder="Escribe tu consulta"
-                required></textarea>
+    <mat-form-field class="textarea-custom">
+      <textarea
+        class="textarea-custom"
+        matInput
+        placeholder="Escribe tu consulta"
+        required></textarea>
       <mat-icon matSuffix>message</mat-icon>
     </mat-form-field>
     <button
