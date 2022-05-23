@@ -1,1 +1,11 @@
-<p>list works!</p>
+<ng-container *ngIf="postsData.items">
+  <mat-card
+    *ngFor="let item of postsData.items"
+    class="mat-card-container">
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content [innerHTML]="item.content">
+    </mat-card-content>
+  </mat-card>
+</ng-container>

@@ -23,7 +23,7 @@
   <mat-sidenav
     #drawer
     class="example-sidenav"
-    mode="side"
+    mode="push"
     opened="true">
     <mat-toolbar>Menú</mat-toolbar>
     <mat-nav-list>
@@ -32,12 +32,6 @@
          (click)="drawer.close()">
         <mat-icon>article</mat-icon>
         Blog
-      </a>
-      <a mat-list-item
-         routerLink="/blog"
-         (click)="drawer.close()">
-        <mat-icon>notifications</mat-icon>
-        Noticias
       </a>
       <a mat-list-item
          routerLink="/about"
