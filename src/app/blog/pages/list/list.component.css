@@ -1,13 +1,17 @@
-.mat-card-container {
+.custom-mat-card-container {
   margin: 2em;
   max-width: 60em;
 }
-.mat-card-content {
+.custom-mat-card-content {
   margin: 0 2em;
+  max-height: 10em;
+  overflow: hidden;
 }
-.global-text {
-  text-align: justify;
-}
-.global-image {
-  max-width: 40em;
+.custom-mat-spinner {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 -50% 0 0;
+  transform: translate(-50%, -50%)
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogService} from "../../blog.service";
+import {BlogService} from '../../services/blog.service';
+import {PostList} from '../../models/blogger.model';
 
 @Component({
   selector: 'app-list',
@@ -9,7 +10,11 @@ import {BlogService} from "../../blog.service";
 
 export class ListComponent implements OnInit {
 
-  postsData: any = {};
+  postList: PostList = {
+    etag: '',
+    kind: '',
+    items: []
+  };
 
   constructor(private blogService: BlogService) {
   }
@@ -20,7 +25,11 @@ export class ListComponent implements OnInit {
 
   getPosts() {
     this.blogService.getPostsData().subscribe(
-      (data: any) => { this.postsData = data; });
+      (data: any) => this.postList = data as PostList);
+  }
+
+  dateFormatted(date: string) {
+    return new Date(date).toLocaleDateString();
   }
 
 }

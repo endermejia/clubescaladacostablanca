@@ -5,7 +5,6 @@ import {ContactComponent} from './pages/contact/contact.component';
 import {HomeComponent} from './pages/home/home.component';
 import {ListComponent} from './pages/list/list.component';
 import {PartnerComponent} from './pages/partner/partner.component';
-import {SearchComponent} from './pages/search/search.component';
 import {SingleComponent} from './pages/single/single.component';
 
 const routes: Routes = [
@@ -14,24 +13,20 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'blog',
-        component: ListComponent
+        path: '',
+        component: PartnerComponent
       },
       {
         path: 'about',
         component: AboutComponent
       },
       {
-        path: 'socios',
-        component: PartnerComponent
+        path: 'blog',
+        component: ListComponent
       },
       {
         path: 'contacto',
         component: ContactComponent
-      },
-      {
-        path: 'buscar',
-        component: SearchComponent
       },
       {
         path: 'blog/:id',
@@ -39,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'blog'
+        redirectTo: ''
       }
     ]
   }
