@@ -10,26 +10,18 @@ import {PostList} from '../../models/blogger.model';
 
 export class ListComponent implements OnInit {
 
-  postList: PostList = {
-    etag: '',
-    kind: '',
-    items: []
-  };
+  public postList: PostList = {} as PostList;
 
-  constructor(private blogService: BlogService) {
+  constructor(public blogService: BlogService) {
   }
 
   ngOnInit(): void {
     this.getPosts();
   }
 
-  getPosts() {
+  private getPosts() {
     this.blogService.getPostsData().subscribe(
-      (data: any) => this.postList = data as PostList);
-  }
-
-  dateFormatted(date: string) {
-    return new Date(date).toLocaleDateString();
+      (data: Object) => this.postList = data as PostList);
   }
 
 }

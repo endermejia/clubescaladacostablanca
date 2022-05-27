@@ -6,6 +6,7 @@ import {MaterialModule} from '../material/material.module';
 
 import {AboutComponent} from './pages/about/about.component';
 import {ContactComponent} from './pages/contact/contact.component';
+import {FooterComponent} from './components/footer/footer.component';
 import {HomeComponent} from './pages/home/home.component';
 import {ListComponent} from './pages/list/list.component';
 import {PartnerComponent} from './pages/partner/partner.component';
@@ -16,6 +17,7 @@ import {SingleComponent} from './pages/single/single.component';
   declarations: [
     AboutComponent,
     ContactComponent,
+    FooterComponent,
     HomeComponent,
     ListComponent,
     PartnerComponent,

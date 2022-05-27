@@ -1,16 +1,17 @@
-<ng-container *ngIf="postList.items.length">
+<ng-container *ngIf="postList.items?.length">
   <mat-card
     *ngFor="let item of postList.items"
-    class="custom-mat-card-container">
+    class="custom-mat-card-container"
+    routerLink="/blog/{{item.id}}">
     <mat-card-header>
       <mat-card-title>{{item.title}}</mat-card-title>
-      <mat-card-subtitle>{{dateFormatted(item.published)}}</mat-card-subtitle>
+      <mat-card-subtitle>{{blogService.dateFormatted(item.published)}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <div class="custom-mat-card-content" [innerHTML]="item.content"></div>
     </mat-card-content>
   </mat-card>
 </ng-container>
-<ng-container *ngIf="!postList.items.length">
+<ng-container *ngIf="!postList.items?.length">
   <mat-spinner class="custom-mat-spinner"></mat-spinner>
 </ng-container>

@@ -19,6 +19,7 @@
   [hasBackdrop]="false">
   <mat-sidenav-content>
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   </mat-sidenav-content>
   <mat-sidenav
     #drawer
@@ -30,25 +31,25 @@
       <a mat-list-item
          routerLink=""
          (click)="drawer.close()">
-        <mat-icon>people</mat-icon>
+        <mat-icon class="margin-icon">people</mat-icon>
         Hazte socio
       </a>
       <a mat-list-item
          routerLink="/about"
          (click)="drawer.close()">
-        <mat-icon>info</mat-icon>
+        <mat-icon class="margin-icon">info</mat-icon>
         Información
       </a>
       <a mat-list-item
          routerLink="/blog"
          (click)="drawer.close()">
-        <mat-icon>article</mat-icon>
+        <mat-icon class="margin-icon">article</mat-icon>
         Blog
       </a>
       <a mat-list-item
          routerLink="/contacto"
          (click)="drawer.close()">
-        <mat-icon>mail</mat-icon>
+        <mat-icon class="margin-icon">mail</mat-icon>
         Contacto
       </a>
     </mat-nav-list>

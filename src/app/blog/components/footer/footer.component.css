@@ -1,0 +1,25 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.margin-icon {
+  margin: 0 .5em 0 0;
+}
+.footer {
+  position: sticky;
+  /*position: fixed;*/
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-icons {
+  font-size: 1.5em;
+}
+
+.footer-icon {
+  margin: 1em;
+}
+

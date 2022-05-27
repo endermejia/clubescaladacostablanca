@@ -6,6 +6,13 @@
   margin: 0 2em;
   max-height: 10em;
   overflow: hidden;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0,0,0,1)),
+    to(rgba(0,0,0,0))
+  );
 }
 .custom-mat-spinner {
   width: 50%;
