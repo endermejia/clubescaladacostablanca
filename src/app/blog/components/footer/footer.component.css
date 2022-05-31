@@ -5,14 +5,10 @@
   margin: 0 .5em 0 0;
 }
 .footer {
-  position: sticky;
-  /*position: fixed;*/
-  left: 0;
-  bottom: 0;
-  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
+  max-width: 60em;
 }
 
 .footer-icons {

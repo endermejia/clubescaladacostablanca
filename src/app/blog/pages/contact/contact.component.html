@@ -1,55 +1,69 @@
 <mat-card class="mat-card-container">
   <mat-card-header>
-    <mat-card-title>CONTACTANOS</mat-card-title>
-    <mat-card-subtitle>Contestaremos su consulta lo antes posible</mat-card-subtitle>
+    <mat-card-title>CONTÁCTANOS</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div>
-      <form>
-        <mat-form-field>
-          <input
+    <p class="global-text">
+      Puedes contactar con nosotros enviando un email
+      a la siguiente dirección:
+    </p>
+    <p class="global-text">
+      <a href="mailto:clubescaladacostablanca@gmail.com"
+         class="mat-tab-link">
+        clubescaladacostablanca@gmail.com
+      </a>
+    </p>
+    <p class="global-text">
+      O bien, puedes rellenar el siguiente formulario de contacto.
+    </p>
+
+    <mat-card-subtitle>FORMULARIO DE CONTACTO</mat-card-subtitle>
+    <form
+      action="https://formspree.io/f/moqrrrer"
+      method="POST">
+      <mat-form-field>
+        <input
+          type="name"
+          name="Nombre"
+          matInput
+          placeholder="Nombre"
+          required>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="email"
+          name="Email"
+          matInput
+          placeholder="Introduce tu email"
+          required>
+        <mat-icon matSuffix>alternate_email</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          name="Teléfono"
+          type="tel"
+          matInput
+          placeholder="Teléfono"
+          required>
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+          <textarea
+            name="Mensaje"
             matInput
-            placeholder="Nombre"
-            required>
-          <mat-icon matSuffix>person</mat-icon>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            type="email"
-            matInput
-            placeholder="Introduce tu email"
-            required>
-          <mat-icon matSuffix>alternate_email</mat-icon>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            type="tel"
-            matInput
-            placeholder="Teléfono"
-            required>
-          <mat-icon matSuffix>call</mat-icon>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Asunto"
-            required>
-          <mat-icon matSuffix>create</mat-icon>
-        </mat-form-field>
-        <mat-form-field>
-      <textarea
-        matInput
-        placeholder="Escribe tu consulta"
-        required></textarea>
-          <mat-icon matSuffix>message</mat-icon>
-        </mat-form-field>
-        <button
-          mat-raised-button
-          class="btn-custom">Enviar
-          <mat-icon>send</mat-icon>
-        </button>
-      </form>
-    </div>
+            placeholder="Escribe tu consulta"
+            required></textarea>
+        <mat-icon matSuffix>message</mat-icon>
+      </mat-form-field>
+      <button
+        type="submit"
+        mat-raised-button
+        class="btn-custom">
+        Enviar
+        <mat-icon>send</mat-icon>
+      </button>
+    </form>
   </mat-card-content>
 </mat-card>
 

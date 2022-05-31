@@ -4,9 +4,18 @@
 .sidenav-container {
   height: 92%;
 }
+
 .toolbar-container {
   height: 8%;
 }
 .margin-icon {
   margin: 0 .5em 0 0;
+}
+
+@media (min-width: 700px) {
+  .sidenav-content-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
