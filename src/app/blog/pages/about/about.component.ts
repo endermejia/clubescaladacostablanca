@@ -52,7 +52,7 @@ export class AboutComponent implements OnInit {
       name: 'Perales',
       firstName: 'Alejandro',
       lastName: 'Perales Martínez Quintanilla',
-      address: 'L´Alcoià (Foia de Alcoy y Foia de Castalla)'
+      address: 'L´Alcoià'
     },
     {
       name: '',
@@ -88,7 +88,7 @@ export class AboutComponent implements OnInit {
       name: '',
       firstName: 'Salva',
       lastName: 'Soler Soriano',
-      address: 'La Safor y frontera con Provincia de Valencia'
+      address: 'La Safor'
     },
     {
       name: '',
