@@ -1,4 +1,4 @@
-# Clubescaladacostablanca
+# Club Escalada Costa Blanca
 
 Aplicación web para el Club de Escalada Costa Blanca
 
