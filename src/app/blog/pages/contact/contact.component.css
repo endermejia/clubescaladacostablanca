@@ -1,16 +1,20 @@
 .mat-form-field {
   margin: 0 1.5em;
 }
+
 .btn-custom {
   margin: 0 1.5em;
 }
+
 .mat-card-container {
   margin: 2em;
   max-width: 60em;
 }
+
 .mat-card-content {
-  margin: 0 2em;
+  margin: 0 1em;
 }
+
 .global-text {
   text-align: justify;
 }
