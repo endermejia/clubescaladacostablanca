@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogService} from "../../services/blog.service";
-import {Post} from "../../models/blogger.model";
+import {BlogService} from '../../services/blog.service';
+import {Post} from '../../models/blogger.model';
+import {ActivatedRoute} from '@angular/router';
+import {switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-single',
@@ -12,7 +14,10 @@ export class SingleComponent implements OnInit {
 
   public post: Post = {} as Post;
 
-  constructor(public blogService: BlogService) {
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    public blogService: BlogService
+  ) {
   }
 
   ngOnInit(): void {
@@ -20,12 +25,11 @@ export class SingleComponent implements OnInit {
   }
 
   private getPost() {
-    this.blogService.getPostData(SingleComponent.postId).subscribe(
-      (data: Object) => this.post = data as Post);
-  }
-
-  private static get postId(): string {
-    return window.location.href.split('/').pop() || '';
+    this.activatedRoute.params
+      .pipe(
+        switchMap(({id}) => this.blogService.getPostData(id))
+      )
+      .subscribe(post => this.post = post as Post);
   }
 
 }

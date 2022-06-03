@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {PostList} from "../models/blogger.model";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 const BLOG_ID: string = '6089498837036915886';
 const API_KEY: string = 'AIzaSyC9-oJAL0mL46-F-SEqdIMZ5mqz9kRLieQ'
@@ -28,7 +27,7 @@ export class BlogService {
     return this.http.get(httpOptions.url);
   }
 
-  public dateFormatted(date: string) {
+  public dateFormatted(date: string): string {
     return new Date(date).toLocaleDateString();
   }
 

@@ -2,7 +2,7 @@
   <mat-card
     *ngFor="let item of postList.items"
     class="custom-mat-card-container"
-    routerLink="/blog/{{item.id}}">
+    routerLink="['/blog', item.id]">
     <mat-card-header>
       <mat-card-title>{{item.title}}</mat-card-title>
       <mat-card-subtitle>{{blogService.dateFormatted(item.published)}}</mat-card-subtitle>
