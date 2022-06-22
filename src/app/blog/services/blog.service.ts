@@ -10,7 +10,7 @@ const API_KEY: string = 'AIzaSyC9-oJAL0mL46-F-SEqdIMZ5mqz9kRLieQ'
 })
 export class BlogService {
 
-  constructor( private http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   public getPostsData(): Observable<Object> {
