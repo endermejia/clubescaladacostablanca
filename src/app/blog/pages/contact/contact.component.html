@@ -1,58 +1,56 @@
 <mat-card class="mat-card-container">
   <mat-card-header>
-    <mat-card-title>CONTÁCTANOS</mat-card-title>
+    <mat-card-title>{{contact.title}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p class="global-text">
-      Puedes contactar con nosotros enviando un email
-      a la siguiente dirección:
+      {{contact.firstParagraph}}
     </p>
     <p class="global-text">
-      <a href="mailto:clubescaladacostablanca@gmail.com"
+      <a href="mailto:{{contact.emailCECB}}"
          class="mat-tab-link">
-        clubescaladacostablanca@gmail.com
+        {{contact.emailCECB}}
       </a>
     </p>
     <p class="global-text">
-      O bien, puedes rellenar el siguiente formulario de contacto.
+      {{contact.secondParagraph}}
     </p>
-
-    <mat-card-subtitle>FORMULARIO DE CONTACTO</mat-card-subtitle>
+    <mat-card-subtitle>{{contact.formTitle}}</mat-card-subtitle>
     <form
-      action="https://formspree.io/f/moqrrrer"
+      [action]="contact.formspree"
       method="POST">
       <mat-form-field>
         <input
           type="name"
-          name="Nombre"
+          name="{{contact.name}}"
           matInput
-          placeholder="Nombre"
+          placeholder="{{contact.name}}"
           required>
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
       <mat-form-field>
         <input
           type="email"
-          name="Email"
+          name="{{contact.email}}"
           matInput
-          placeholder="Introduce tu email"
+          placeholder="{{contact.email}}"
           required>
         <mat-icon matSuffix>alternate_email</mat-icon>
       </mat-form-field>
       <mat-form-field>
         <input
-          name="Teléfono"
           type="tel"
+          name="{{contact.phone}}"
           matInput
-          placeholder="Teléfono"
+          placeholder="{{contact.phone}}"
           required>
         <mat-icon matSuffix>call</mat-icon>
       </mat-form-field>
       <mat-form-field>
           <textarea
-            name="Mensaje"
+            name="{{contact.message}}"
             matInput
-            placeholder="Escribe tu consulta"
+            placeholder="{{contact.message}}"
             required></textarea>
         <mat-icon matSuffix>message</mat-icon>
       </mat-form-field>
