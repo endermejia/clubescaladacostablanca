@@ -1,9 +1,9 @@
 <ng-container *ngIf="postList.items?.length">
   <mat-card
     *ngFor="let item of postList.items"
-    class="custom-mat-card-container"
+    class="custom-mat-card-container cursor-pointer"
     routerLink="/blog/{{item.id}}">
-    <mat-card-header>
+    <mat-card-header class="cursor-pointer">
       <mat-card-title>{{item.title}}</mat-card-title>
       <mat-card-subtitle>{{blogService.dateFormatted(item.published)}}</mat-card-subtitle>
     </mat-card-header>

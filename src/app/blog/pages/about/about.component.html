@@ -21,10 +21,10 @@
       class="global-image"
       src="../../../../assets/mapa-alicante.png">
   </mat-card-content>
+  <hr>
   <mat-card-content class="margin-vertical-1em">
     <mat-card-title>Vocales por comarca</mat-card-title>
     <mat-list>
-      <mat-divider></mat-divider>
       <ng-container *ngFor="let partner of partners">
         <ng-container *ngIf="!partner.position">
           <mat-list-item>
@@ -42,10 +42,10 @@
       </ng-container>
     </mat-list>
   </mat-card-content>
+  <hr>
   <mat-card-content class="margin-vertical-1em">
     <mat-card-title>Miembros de la Junta Directiva</mat-card-title>
     <mat-list>
-      <mat-divider></mat-divider>
       <ng-container *ngFor="let partner of partners">
         <ng-container *ngIf="partner.position">
           <mat-list-item>
