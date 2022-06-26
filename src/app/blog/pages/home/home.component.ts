@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDrawer, MatDrawerMode, MatSidenav} from '@angular/material/sidenav';
+import {MatDrawerMode, MatSidenav} from '@angular/material/sidenav';
+import {HomeModel} from '../../models/home.model';
 
 // Sidenav mode constants
 export const SIDENAV_MODE_SIDE: MatDrawerMode = 'side';
@@ -12,6 +13,17 @@ export const SIDENAV_MODE_PUSH: MatDrawerMode = 'push';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  public home: HomeModel = {
+    title: 'Club Escalada Costa Blanca',
+    sidebar: {
+      title: 'Menú',
+      partners: 'Hazte socio',
+      about: 'Información',
+      blog: 'Blog',
+      contact: 'Contacto'
+    }
+  };
 
   constructor() {
   }
