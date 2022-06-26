@@ -1,11 +1,8 @@
-.custom-mat-card-container {
-  margin: 2em;
-  max-width: 60em;
-}
 .custom-mat-card-content {
   margin: 0 2em;
   overflow: hidden;
 }
+
 .custom-mat-spinner {
   width: 50%;
   position: absolute;
