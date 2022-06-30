@@ -4,7 +4,6 @@ export interface HomeModel {
 }
 
 export interface SidebarModel {
-  title: string;
   partners: string;
   about: string;
   blog: string;

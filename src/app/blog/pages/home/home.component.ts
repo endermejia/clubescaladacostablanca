@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   public home: HomeModel = {
     title: 'Club Escalada Costa Blanca',
     sidebar: {
-      title: 'Menú',
       partners: 'Hazte socio',
       about: 'Información',
       blog: 'Blog',
