@@ -16,8 +16,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 60em;
 }
 
+mat-card-title {
+  font-size: 24px !important;
+}
+mat-card-subtitle {
+  font-size: 18px !important;
+}
+
 .mat-card-content {
+  font-size: 16px;
   margin: 0 1em;
+}
+
+.mat-tab-link {
+  font-size: 16px;
 }
 
 .global-text {
