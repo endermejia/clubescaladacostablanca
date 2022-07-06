@@ -9,6 +9,7 @@
     </p>
     <img
       mat-card-image
+      class="padding-vertical-1em"
       style="max-width: 20em"
       src="../../../../assets/LogoBlancoTextoColor.png"
       alt="Club Escalada Costa Blanca">
@@ -20,53 +21,12 @@
   <mat-card-content>
     <!-- TODO: PENDIENTE HACER FORMULARIO -->
     <p class="global-text">
+      <a class="mat-tab-link"
+         href="https://docs.google.com/forms/d/e/1FAIpQLScCtqQuyxm9XyCea-lXEjzWY8BR0XQTMoYIaNkH44keLG9o2g/viewform?pli=1&pli=1"
+         target="_blank">
+        Acceder al formulario
+        <mat-icon mat-list-icon>contact_page</mat-icon>
+      </a>
     </p>
-    <form
-      [action]=""
-      method="POST">
-      <mat-form-field>
-        <input
-          type="name"
-          name="Nombre"
-          matInput
-          placeholder="Nombre"
-          required>
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="email"
-          name="Email"
-          matInput
-          placeholder="Email"
-          required>
-        <mat-icon matSuffix>alternate_email</mat-icon>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          type="tel"
-          name="Teléfono"
-          matInput
-          placeholder="Teléfono"
-          required>
-        <mat-icon matSuffix>call</mat-icon>
-      </mat-form-field>
-      <mat-form-field>
-          <textarea
-            name="Mensaje"
-            rows="3"
-            matInput
-            placeholder="Mensaje"
-            required></textarea>
-        <mat-icon matSuffix>message</mat-icon>
-      </mat-form-field>
-      <button
-        type="submit"
-        mat-raised-button
-        class="btn-custom">
-        Enviar
-        <mat-icon>send</mat-icon>
-      </button>
-    </form>
   </mat-card-content>
 </mat-card>

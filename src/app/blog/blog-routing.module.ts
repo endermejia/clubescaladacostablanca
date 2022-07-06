@@ -13,16 +13,16 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: '',
+        path: 'blog',
+        component: ListComponent
+      },
+      {
+        path: 'socios',
         component: PartnerComponent
       },
       {
         path: 'about',
         component: AboutComponent
-      },
-      {
-        path: 'blog',
-        component: ListComponent
       },
       {
         path: 'contacto',
@@ -34,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: ''
+        redirectTo: 'blog'
       }
     ]
   }

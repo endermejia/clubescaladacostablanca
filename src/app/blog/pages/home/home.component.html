@@ -7,7 +7,9 @@
     aria-label="Toggle sidenav">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>
+  <span
+    routerLink="/"
+    class="cursor-pointer">
     {{home.title}}
   </span>
   <span
@@ -29,7 +31,13 @@
     [mode]="sidenavMode">
     <mat-nav-list>
       <a mat-list-item
-         routerLink=""
+         routerLink="/blog"
+         (click)="closeSidenav(drawer)">
+        <mat-icon mat-list-icon>article</mat-icon>
+        {{home.sidebar.blog}}
+      </a>
+      <a mat-list-item
+         routerLink="/socios"
          (click)="closeSidenav(drawer)">
         <mat-icon mat-list-icon>people</mat-icon>
         {{home.sidebar.partners}}
@@ -39,12 +47,6 @@
          (click)="closeSidenav(drawer)">
         <mat-icon mat-list-icon>info</mat-icon>
         {{home.sidebar.about}}
-      </a>
-      <a mat-list-item
-         routerLink="/blog"
-         (click)="closeSidenav(drawer)">
-        <mat-icon mat-list-icon>article</mat-icon>
-        {{home.sidebar.blog}}
       </a>
       <a mat-list-item
          routerLink="/contacto"
