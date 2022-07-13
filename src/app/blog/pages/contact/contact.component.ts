@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
     emailCECB: 'clubescaladacostablanca@gmail.com',
     secondParagraph: 'O bien, puedes rellenar el siguiente formulario de contacto:',
     formTitle: 'Formulario de contacto',
-    formspree: 'https://formspree.io/f/moqrrrer',
+    formspree: 'https://formspree.io/f/mwkydzgp',
     name: 'Nombre',
     email: 'Email',
     phone: 'Teléfono',
