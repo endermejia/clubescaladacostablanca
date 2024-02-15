@@ -1,0 +1,38 @@
+<ng-container *ngIf="item">
+  <div class="row">
+    <div class="col-3">
+      <div class="mx-3 d-flex align-items-center justify-content-center">
+        <lightgallery
+          [settings]="GALLERY_SETTINGS"
+          [onBeforeSlide]="onBeforeSlide"
+        >
+          <a
+            [attr.href]="item.img.src"
+            [attr.data-lg-size]="item.img.size"
+            [attr.data-sub-html]="'<h4>' + item.title + '</h4>'"
+          >
+            <img
+              [src]="item.img.src"
+              [alt]="item.title"
+              [style.max-width.px]="100"
+            />
+          </a>
+        </lightgallery>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="mx-3">
+        <h3><b>{{ item.title }}</b></h3>
+        <h5>{{ item.description }}</h5>
+        <h6>
+          {{ item.dateFrom | date: 'dd MMMM yyyy' }}
+          <span *ngIf="item.dateFrom && item.dateTo">-</span>
+          {{ item.dateTo === today ? 'Presente' : (item.dateTo | date: 'dd MMMM yyyy') }}
+        </h6>
+        <p *ngFor="let paragraph of item.paragraphs"
+           [innerHTML]="paragraph">
+        </p>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,29 @@
+<section class="main-section">
+  <a routerLink="/">
+    <img
+      src="./assets/header.webp"
+      alt="club escalada costa blanca"
+      width="100%"
+    />
+  </a>
+  <article>
+    <div class="row mt-3">
+      <ng-container *ngFor="let post of blogService.posts">
+        <ng-container *ngIf="post.id === postId">
+          <div class="col-12 cursor-pointer">
+            <div class="mx-3">
+              <h3><b>{{ post.title }}</b></h3>
+              <h5>
+                {{ post.published | date: 'dd MMMM yyyy' }}
+              </h5>
+              <p
+                [innerHTML]="post.content"
+                style="word-wrap: break-word;"
+              ></p>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </article>
+</section>

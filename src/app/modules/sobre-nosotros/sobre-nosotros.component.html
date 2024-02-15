@@ -1,0 +1,73 @@
+<section class="main-section">
+  <article>
+    <div class="row flex-sm-row-reverse mt-lg-3">
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="ps-lg-2">
+          <div class="mb-lg-5 mb-3">
+            <h1><b>
+              <span class="text-primary text-gradient">{{ profile.title }}</span>🧗
+            </b></h1>
+            <h3><b> {{ profile.description.title }}.</b></h3>
+          </div>
+          <p *ngFor="let paragraph of profile.description.paragraphs"
+             [innerHTML]="paragraph">
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <lightgallery
+          [settings]="GALLERY_SETTINGS"
+          [onBeforeSlide]="onBeforeSlide"
+        >
+          <a
+            [attr.href]="profile.img.src"
+            [attr.data-lg-size]="profile.img.size"
+            [attr.data-sub-html]="profile.img.subHtml"
+          >
+            <img
+              [src]="profile.img.thumbnail"
+              [alt]="profile.title"
+              [style.max-width.%]="100"
+            />
+          </a>
+        </lightgallery>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-6">
+        <div class="ps-lg-2">
+          <div class="mb-lg-5 mb-3">
+            <h2><b>
+              <span class="text-primary text-gradient">Junta Directiva</span>
+            </b></h2>
+          </div>
+          <ng-container *ngFor="let item of profile.directive">
+            <div class="mb-5">
+              <app-item-card [item]="item"></app-item-card>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex align-items-center">
+        <img
+          width="100%"
+          [src]="profile.description.img"
+          [alt]="profile.description.title">
+      </div>
+      <div class="mt-5 ps-lg-2">
+        <div class="mb-lg-5 mb-3">
+          <h2><b>
+            <span class="text-primary text-gradient">Vocales por comarca</span>
+          </b></h2>
+        </div>
+        <div class="row">
+          <ng-container *ngFor="let item of profile.members">
+            <div class="mb-5 col-lg-6">
+              <app-item-card [item]="item"></app-item-card>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

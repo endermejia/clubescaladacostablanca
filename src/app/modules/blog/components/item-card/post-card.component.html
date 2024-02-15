@@ -1,0 +1,31 @@
+<ng-container *ngIf="item">
+  <div class="row">
+    <div class="col-3 d-flex align-items-center justify-content-center">
+      <lightgallery
+        [settings]="GALLERY_SETTINGS"
+        [onBeforeSlide]="onBeforeSlide"
+      >
+        <a
+          [attr.href]="item.img.src"
+          [attr.data-lg-size]="item.img.size"
+          [attr.data-sub-html]="'<h4>' + item.title + '</h4>'"
+        >
+          <img
+            [src]="item.img.src"
+            [alt]="item.title"
+            [style.max-height.em]="15"
+            [style.max-width.%]="100"
+          />
+        </a>
+      </lightgallery>
+    </div>
+    <div class="col-9 cursor-pointer" routerLink="post/{{item.id}}">
+      <div class="mx-3">
+        <h3><b>{{ item.title }}</b></h3>
+        <h5>
+          {{ item.date | date: 'dd MMMM yyyy' }}
+        </h5>
+      </div>
+    </div>
+  </div>
+</ng-container>

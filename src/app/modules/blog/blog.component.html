@@ -1,0 +1,60 @@
+<section class="main-section">
+  <article>
+    <img
+      src="./assets/header.webp"
+      alt="club escalada costa blanca"
+      width="100%"
+    />
+    <div class="row mt-3">
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="ps-lg-2">
+          <div class="mb-lg-5 mb-3 text-center">
+            <h2><b>
+              {{ hazteSocio.title }}
+            </b></h2>
+            <h3>{{ hazteSocio.description.title }}</h3>
+            <ng-container *ngFor="let paragraph of hazteSocio.description.paragraphs">
+              <p>{{ paragraph }}</p>
+            </ng-container>
+            <a
+              [href]="hazteSocio.link"
+              target="_blank"
+              class="btn btn-primary mt-3">
+              {{ hazteSocio.button }}
+            </a>
+          </div>
+          <p>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img
+          width="100%"
+          [src]="hazteSocio.img"
+          [alt]="hazteSocio.title">
+      </div>
+    </div>
+  </article>
+  <article>
+    <h2 class="text-center mb-5">
+      <b>
+        {{ blog.title }}
+      </b>
+    </h2>
+    <div class="row mt-3">
+      <ng-container *ngFor="let post of blogService.posts">
+        <div class="col-md-6 col-12 py-2">
+          <app-post-card
+            [item]="{
+            title: post.title,
+            img: {src: post.images[0]?.url ?? './assets/logo.webp'},
+            date: post?.published,
+            description: post.author.displayName,
+            id: post.id
+          }">
+          </app-post-card>
+        </div>
+      </ng-container>
+    </div>
+  </article>
+</section>

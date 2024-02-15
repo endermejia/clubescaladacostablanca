@@ -1,0 +1,96 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+//bootstap icons
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@import 'lightgallery/scss/lightgallery';
+
+$angle: 150deg;
+$primary-color: #202020;
+$secondary-color: #2c2c2c;
+
+.btn {
+  border: none !important;
+  background: linear-gradient(
+      $angle,
+      $primary-color,
+      $secondary-color
+  );
+
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &[type="button"] {
+    @extend .text-gradient;
+  }
+
+}
+
+p {
+  font-size: 1.2em;
+  @media (min-width: 768px) {
+    text-align: justify;
+  }
+}
+
+.main-section {
+  padding: 1em;
+  @media (min-width: 768px) {
+    padding: 2em;
+  }
+}
+
+.footer-icon {
+  @extend .text-gradient;
+  margin: 0 0.5em 0 0.5em;
+  font-size: 2.5em;
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(
+      $angle,
+      $primary-color,
+      $secondary-color
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.nav-link {
+  text-transform: uppercase;
+}
+
+.nav-link.active {
+  border-image-source: linear-gradient(
+      $angle,
+      $primary-color,
+      $secondary-color
+  );
+  border-image-slice: 1;
+  border-bottom: 5px solid transparent;
+}
+
+.form-control {
+  margin-bottom: 1em;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
