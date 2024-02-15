@@ -4,10 +4,8 @@
       <div class="col-lg-6 d-flex align-items-center">
         <div class="ps-lg-2">
           <div class="mb-lg-5 mb-3">
-            <h1><b>
-              <span class="text-primary text-gradient">{{ profile.title }}</span>🧗
-            </b></h1>
-            <h3><b> {{ profile.description.title }}.</b></h3>
+            <h1 class="text-primary text-gradient fw-bold">{{ profile.title }}</h1>
+            <h3 class="fw-bold">{{ profile.description.title }}</h3>
           </div>
           <p *ngFor="let paragraph of profile.description.paragraphs"
              [innerHTML]="paragraph">

@@ -1,14 +1,23 @@
-<header class="sticky-md-top bg-white">
+<section class="d-flex align-items-center justify-content-center m-2">
+  <a routerLink="/">
+    <img
+      src="./assets/header.webp"
+      alt="club escalada costa blanca"
+      width="100%"
+      [style.max-width.em]="35"
+    />
+  </a>
+</section>
+
+<header class="sticky-top bg-white">
   <nav class="navbar navbar-expand">
     <div class="container justify-content-center">
-      <ul class="navbar-nav navbar-expand fw-bold gap-3 align-items-center">
+      <ul class="navbar-nav navbar-expand fw-bold gap-lg-3 align-items-center">
         <li class="nav-item">
           <a class="nav-link"
-             title="Club Escalada Costa Blanca"
+             routerLinkActive="active"
              routerLink="/blog">
-            <img src="assets/logo-header.webp"
-                 width="50"
-                 alt="club escalada costa blanca">
+            Blog
           </a>
         </li>
         <li class="nav-item">

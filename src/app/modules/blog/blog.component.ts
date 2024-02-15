@@ -29,7 +29,7 @@ export class BlogComponent implements OnDestroy {
       title: 'Por una escalada compatible con el medio.',
       paragraphs: [
         'Si compartes nuestra pasión por la escalada y el respeto por el medio ambiente, te invitamos a unirte a nuestra comunidad.',
-        'Juntos, podemos asegurar que las zonas naturales donde practicamos se mantengan en perfectas condiciones para las futuras generaciones.',
+        'Juntos, podemos asegurar que las zonas naturales donde lo practicamos se mantengan en perfectas condiciones para las futuras generaciones.',
         'Hazte socio y únete a nosotros en nuestra búsqueda de aventura consciente y respetuosa en la hermosa Costa Blanca.',
       ],
     },

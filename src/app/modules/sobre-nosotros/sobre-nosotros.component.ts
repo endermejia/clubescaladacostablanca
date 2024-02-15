@@ -32,11 +32,11 @@ export class SobreNosotrosComponent {
       subHtml: `<h4>Junta Directiva en el Puig Campana</h4>`,
     },
     description: {
-      title: 'Por una escalada compatible con el medio',
+      title: 'Por una escalada compatible con el medio.',
       img: './assets/mapa-alicante.webp',
       paragraphs: [
         'Somos una comunidad comprometida con la escalada responsable y el respeto por el medio ambiente.',
-        'Nuestra pasión por este deporte va de la mano con el cuidado de las zonas naturales donde practicamos. Colaborando con organizaciones locales y autoridades para asegurar un equilibrio entre el disfrute de la escalada y la preservación del entorno.',
+        'Nuestra pasión por este deporte va de la mano con el cuidado de las zonas naturales donde lo practicamos. Colaborando con organizaciones locales y autoridades para asegurar un equilibrio entre el disfrute de la escalada y la preservación del entorno.',
         'Únete a nosotros en nuestra búsqueda de aventura consciente y respetuosa en la hermosa Costa Blanca.',
       ],
     },
@@ -44,6 +44,14 @@ export class SobreNosotrosComponent {
       {
         title: 'Roberto López Santodomingo',
         description: 'Presidente',
+        img: {
+          src: './../assets/logo-header.webp',
+          size: '941-828',
+        },
+      },
+      {
+        title: 'Miguel Anta',
+        description: 'Vicepresidente',
         img: {
           src: './../assets/logo-header.webp',
           size: '941-828',
@@ -149,7 +157,7 @@ export class SobreNosotrosComponent {
       },
       {
         title: 'Miguel Anta',
-        description: 'Contacto con la FEDMECV',
+        description: 'Contacto con la FEMECV',
         img: {
           src: './../assets/logo-header.webp',
           size: '941-828',
