@@ -3,7 +3,6 @@ import {BeforeSlideDetail} from "lightgallery/lg-events";
 
 export type GalleryImage = {
   src: string;
-  size: string;
   thumbnail: string;
   subHtml: string;
 };

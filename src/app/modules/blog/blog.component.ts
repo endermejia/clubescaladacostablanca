@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { BlogService } from './blog.service';
 import { Subscription } from 'rxjs';
-import { BlogData, Post } from '../../models/blogger.model';
+import { Post } from '../../models/blogger.model';
 
 export interface HazteSocioModel {
   title: string;

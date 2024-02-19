@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../blog.service';
 import { Post } from '../../../../models/blogger.model';
 import { Subscription } from 'rxjs';
-import {GALLERY_SETTINGS, onBeforeSlide} from "../../../../models/gallery";
 
 @Component({
   selector: 'app-post',
@@ -30,7 +29,4 @@ export class PostComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
-
-  protected readonly onBeforeSlide = onBeforeSlide;
-  protected readonly GALLERY_SETTINGS = GALLERY_SETTINGS;
 }

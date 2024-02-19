@@ -27,7 +27,6 @@ export class SobreNosotrosComponent {
     title: 'Club Escalada Costa Blanca',
     img: {
       src: `./assets/image.png`,
-      size: '941-828',
       thumbnail: `./assets/image.png`,
       subHtml: `<h4>Junta Directiva en el Puig Campana</h4>`,
     },
@@ -44,128 +43,87 @@ export class SobreNosotrosComponent {
       {
         title: 'Roberto López Santodomingo',
         description: 'Presidente',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Miguel Anta',
         description: 'Vicepresidente',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Yolanda López López',
         description: 'Secretaria',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Alexander Tristán González Milovic',
         description: 'Tesorero',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
     ],
     members: [
       {
         title: 'Roy De Valera Paseca',
         description: 'Vocal de la Marina Alta',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Jose Martin Anaya Ruiz',
         description: 'Vocal de la Marina Baixa',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Miguel Ángel Vilaplana Torregrosa',
         description: 'Vocal del Comtat y Foia de Alcoy',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Alejandro Perales Martínez Quintanilla',
         description: 'Vocal de L´Alcoià',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Miguel Angel Navarro Hernández',
         description: 'Vocal del Alto Vinalopó',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Francisco José Rubio Díaz, (Patxi)',
         description: 'Vocal del Medio Vinalopó',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Daniel Fernández Castello',
         description: 'Vocal del Bajo Vinalopó',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Roberto López Santodomingo',
         description: 'Vocal del Alacantí',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Fabián Gómiz López',
         description: 'Vocal de la Vega Baja',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Salva Soler Soriano',
         description: 'Vocal de la Safor',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
       {
         title: 'Miguel Anta',
         description: 'Contacto con la FEMECV',
-        img: {
-          src: './../assets/logo-header.webp',
-          size: '941-828',
-        },
+        img: './../assets/logo-header.webp',
       },
     ],
   };
 
   protected readonly GALLERY_SETTINGS = GALLERY_SETTINGS;
   protected readonly onBeforeSlide = onBeforeSlide;
+
+  constructor() {
+    window.scrollTo(0, 0);
+  }
 }

@@ -7,12 +7,11 @@
           [onBeforeSlide]="onBeforeSlide"
         >
           <a
-            [attr.href]="item.img.src"
-            [attr.data-lg-size]="item.img.size"
+            [attr.href]="item.img"
             [attr.data-sub-html]="'<h4>' + item.title + '</h4>'"
           >
             <img
-              [src]="item.img.src"
+              [src]="item.img"
               [alt]="item.title"
               [style.max-width.px]="100"
             />

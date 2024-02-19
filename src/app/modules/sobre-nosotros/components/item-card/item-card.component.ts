@@ -3,10 +3,7 @@ import { GALLERY_SETTINGS, onBeforeSlide } from '../../../../models/gallery';
 
 export interface ItemCardModel {
   title: string;
-  img: {
-    src: string;
-    size?: string;
-  };
+  img: string;
   description?: string;
   dateFrom?: string;
   dateTo?: string;

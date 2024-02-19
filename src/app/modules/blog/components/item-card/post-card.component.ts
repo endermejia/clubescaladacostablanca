@@ -19,7 +19,6 @@ export interface PostCardModel {
 export class PostCardComponent {
   @Input() public item: PostCardModel | undefined;
 
-  public today: string = new Date().toISOString().split('T')[0];
   protected readonly GALLERY_SETTINGS = GALLERY_SETTINGS;
   protected readonly onBeforeSlide = onBeforeSlide;
 }

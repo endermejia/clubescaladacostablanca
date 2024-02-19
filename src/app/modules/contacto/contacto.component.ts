@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 
 interface ContactModel {
   title: string;
-  show: boolean;
   email: string;
   phone?: string;
 }
 
 interface ContactFormModel {
   title: string;
-  show: boolean;
   formspree: string;
   name: string;
   namePlaceholder: string;
@@ -29,13 +27,11 @@ interface ContactFormModel {
 export class ContactoComponent {
   public readonly contact: ContactModel = {
     title: 'Puedes contactar con nosotros ...',
-    show: true,
     email: 'clubescaladacostablanca@gmail.com',
   };
 
   public readonly contactForm: ContactFormModel = {
     title: '... o enviando un mensaje',
-    show: true,
     formspree: 'https://formspree.io/f/mwkydzgp',
     name: 'Nombre',
     namePlaceholder: '',
@@ -47,4 +43,8 @@ export class ContactoComponent {
     messagePlaceholder: '',
     sendButton: 'Enviar mensaje',
   };
+
+  constructor() {
+    window.scrollTo(0, 0);
+  }
 }
