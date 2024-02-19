@@ -61,7 +61,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Yolanda López López',
           description: 'Secretaria',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/yolanda.webp',
         },
         {
           title: 'Alexander Tristán González Milovic',
@@ -91,7 +91,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Alejandro Perales Martínez Quintanilla',
           description: 'Vocal de L´Alcoià',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/perales.webp',
         },
         {
           title: 'Miguel Angel Navarro Hernández',
@@ -101,7 +101,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Francisco José Rubio Díaz, (Patxi)',
           description: 'Vocal del Medio Vinalopó',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/patxi.webp',
         },
         {
           title: 'Daniel Fernández Castello',

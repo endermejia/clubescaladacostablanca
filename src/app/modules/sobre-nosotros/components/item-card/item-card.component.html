@@ -1,7 +1,7 @@
 <ng-container *ngIf="item">
   <div class="row">
-    <div class="col-3">
-      <div class="mx-3 d-flex align-items-center justify-content-center">
+    <div class="col-6">
+      <div class="d-flex align-items-center justify-content-center">
         <lightgallery
           [settings]="GALLERY_SETTINGS"
           [onBeforeSlide]="onBeforeSlide"
@@ -13,25 +13,23 @@
             <img
               [src]="item.img"
               [alt]="item.title"
-              [style.max-width.px]="100"
+              [style.max-width.%]="100"
             />
           </a>
         </lightgallery>
       </div>
     </div>
-    <div class="col-9">
-      <div class="mx-3">
-        <h3 class="fw-bold">{{ item.title }}</h3>
-        <h5>{{ item.description }}</h5>
-        <h6>
-          {{ item.dateFrom | date: 'dd MMMM yyyy' }}
-          <span *ngIf="item.dateFrom && item.dateTo">-</span>
-          {{ item.dateTo === today ? 'Presente' : (item.dateTo | date: 'dd MMMM yyyy') }}
-        </h6>
-        <p *ngFor="let paragraph of item.paragraphs"
-           [innerHTML]="paragraph">
-        </p>
-      </div>
+    <div class="col-6">
+      <h3 class="fw-bold">{{ item.title }}</h3>
+      <h5>{{ item.description }}</h5>
+      <h6>
+        {{ item.dateFrom | date: 'dd MMMM yyyy' }}
+        <span *ngIf="item.dateFrom && item.dateTo">-</span>
+        {{ item.dateTo === today ? 'Presente' : (item.dateTo | date: 'dd MMMM yyyy') }}
+      </h6>
+      <p *ngFor="let paragraph of item.paragraphs"
+         [innerHTML]="paragraph">
+      </p>
     </div>
   </div>
 </ng-container>

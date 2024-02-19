@@ -12,7 +12,7 @@
           <img
             [src]="postCard.img.src"
             [alt]="postCard.title"
-            [style.max-height.em]="15"
+            [style.max-height.rem]="15"
             [style.max-width.%]="100"
           />
         </a>
@@ -21,12 +21,10 @@
     <div class="col-9 cursor-pointer"
          (click)="openPost()"
     >
-      <div class="mx-3">
-        <h3 class="fw-bold">{{ postCard.title }}</h3>
-        <h5>
-          {{ postCard.date | date: 'dd MMMM yyyy' }}
-        </h5>
-      </div>
+      <h3 class="fw-bold">{{ postCard.title }}</h3>
+      <h5>
+        {{ postCard.date | date: 'dd MMMM yyyy' }}
+      </h5>
     </div>
   </div>
 </ng-container>
