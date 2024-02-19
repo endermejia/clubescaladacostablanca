@@ -6,7 +6,7 @@ import {
   onBeforeSlide,
 } from '../../models/gallery';
 
-export interface ProfileModel {
+export interface AboutModel {
   title: string;
   img: GalleryImage;
   description: {
@@ -14,8 +14,14 @@ export interface ProfileModel {
     img: string;
     paragraphs: string[];
   };
-  directive: ItemCardModel[];
-  members: ItemCardModel[];
+  directive: {
+    title: string;
+    members: ItemCardModel[];
+  };
+  vowels: {
+    title: string;
+    members: ItemCardModel[];
+  };
 }
 
 @Component({
@@ -23,7 +29,7 @@ export interface ProfileModel {
   templateUrl: './sobre-nosotros.component.html',
 })
 export class SobreNosotrosComponent {
-  public readonly profile: ProfileModel = {
+  public readonly about: AboutModel = {
     title: 'Club Escalada Costa Blanca',
     img: {
       src: `./assets/image.png`,
@@ -39,85 +45,91 @@ export class SobreNosotrosComponent {
         'Únete a nosotros en nuestra búsqueda de aventura consciente y respetuosa en la hermosa Costa Blanca.',
       ],
     },
-    directive: [
-      {
-        title: 'Roberto López Santodomingo',
-        description: 'Presidente',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Miguel Anta',
-        description: 'Vicepresidente',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Yolanda López López',
-        description: 'Secretaria',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Alexander Tristán González Milovic',
-        description: 'Tesorero',
-        img: './../assets/logo-header.webp',
-      },
-    ],
-    members: [
-      {
-        title: 'Roy De Valera Paseca',
-        description: 'Vocal de la Marina Alta',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Jose Martin Anaya Ruiz',
-        description: 'Vocal de la Marina Baixa',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Miguel Ángel Vilaplana Torregrosa',
-        description: 'Vocal del Comtat y Foia de Alcoy',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Alejandro Perales Martínez Quintanilla',
-        description: 'Vocal de L´Alcoià',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Miguel Angel Navarro Hernández',
-        description: 'Vocal del Alto Vinalopó',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Francisco José Rubio Díaz, (Patxi)',
-        description: 'Vocal del Medio Vinalopó',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Daniel Fernández Castello',
-        description: 'Vocal del Bajo Vinalopó',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Roberto López Santodomingo',
-        description: 'Vocal del Alacantí',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Fabián Gómiz López',
-        description: 'Vocal de la Vega Baja',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Salva Soler Soriano',
-        description: 'Vocal de la Safor',
-        img: './../assets/logo-header.webp',
-      },
-      {
-        title: 'Miguel Anta',
-        description: 'Contacto con la FEMECV',
-        img: './../assets/logo-header.webp',
-      },
-    ],
+    directive: {
+      title: 'Junta Directiva',
+      members: [
+        {
+          title: 'Roberto López Santodomingo',
+          description: 'Presidente',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Miguel Anta',
+          description: 'Vicepresidente',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Yolanda López López',
+          description: 'Secretaria',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Alexander Tristán González Milovic',
+          description: 'Tesorero',
+          img: './../assets/logo-header.webp',
+        },
+      ],
+    },
+    vowels: {
+      title: 'Vocales',
+      members: [
+        {
+          title: 'Roy De Valera Paseca',
+          description: 'Vocal de la Marina Alta',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Jose Martin Anaya Ruiz',
+          description: 'Vocal de la Marina Baixa',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Miguel Ángel Vilaplana Torregrosa',
+          description: 'Vocal del Comtat y Foia de Alcoy',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Alejandro Perales Martínez Quintanilla',
+          description: 'Vocal de L´Alcoià',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Miguel Angel Navarro Hernández',
+          description: 'Vocal del Alto Vinalopó',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Francisco José Rubio Díaz, (Patxi)',
+          description: 'Vocal del Medio Vinalopó',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Daniel Fernández Castello',
+          description: 'Vocal del Bajo Vinalopó',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Roberto López Santodomingo',
+          description: 'Vocal del Alacantí',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Fabián Gómiz López',
+          description: 'Vocal de la Vega Baja',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Salva Soler Soriano',
+          description: 'Vocal de la Safor',
+          img: './../assets/logo-header.webp',
+        },
+        {
+          title: 'Miguel Anta',
+          description: 'Contacto con la FEMECV',
+          img: './../assets/logo-header.webp',
+        },
+      ],
+    },
   };
 
   protected readonly GALLERY_SETTINGS = GALLERY_SETTINGS;

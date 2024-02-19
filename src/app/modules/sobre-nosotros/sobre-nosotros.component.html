@@ -4,10 +4,14 @@
       <div class="col-lg-6 d-flex align-items-center">
         <div class="ps-lg-2">
           <div class="mb-lg-5 mb-3">
-            <h1 class="text-primary text-gradient fw-bold">{{ profile.title }}</h1>
-            <h3 class="fw-bold">{{ profile.description.title }}</h3>
+            <h1 class="text-primary text-gradient fw-bold">
+              {{ about.title }}
+            </h1>
+            <h3 class="fw-bold">
+              {{ about.description.title }}
+            </h3>
           </div>
-          <p *ngFor="let paragraph of profile.description.paragraphs"
+          <p *ngFor="let paragraph of about.description.paragraphs"
              [innerHTML]="paragraph">
           </p>
         </div>
@@ -18,12 +22,12 @@
           [onBeforeSlide]="onBeforeSlide"
         >
           <a
-            [attr.href]="profile.img.src"
-            [attr.data-sub-html]="profile.img.subHtml"
+            [attr.href]="about.img.src"
+            [attr.data-sub-html]="about.img.subHtml"
           >
             <img
-              [src]="profile.img.thumbnail"
-              [alt]="profile.title"
+              [src]="about.img.thumbnail"
+              [alt]="about.title"
               [style.max-width.%]="100"
             />
           </a>
@@ -34,11 +38,11 @@
       <div class="col-lg-6">
         <div class="ps-lg-2">
           <div class="mb-lg-5 mb-3">
-            <h2><b>
-              <span class="text-primary text-gradient">Junta Directiva</span>
-            </b></h2>
+            <h2 class="fw-bold text-primary text-gradient">
+              {{ about.directive.title }}
+            </h2>
           </div>
-          <ng-container *ngFor="let item of profile.directive">
+          <ng-container *ngFor="let item of about.directive.members">
             <div class="mb-5">
               <app-item-card [item]="item"></app-item-card>
             </div>
@@ -48,17 +52,17 @@
       <div class="col-lg-6 d-flex align-items-center">
         <img
           width="100%"
-          [src]="profile.description.img"
-          [alt]="profile.description.title">
+          [src]="about.description.img"
+          [alt]="about.description.title">
       </div>
       <div class="mt-5 ps-lg-2">
         <div class="mb-lg-5 mb-3">
-          <h2><b>
-            <span class="text-primary text-gradient">Vocales por comarca</span>
-          </b></h2>
+          <h2 class="fw-bold text-primary text-gradient">
+            {{ about.vowels.title }}
+          </h2>
         </div>
         <div class="row">
-          <ng-container *ngFor="let item of profile.members">
+          <ng-container *ngFor="let item of about.vowels.members">
             <div class="mb-5 col-lg-6">
               <app-item-card [item]="item"></app-item-card>
             </div>

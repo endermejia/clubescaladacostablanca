@@ -1,0 +1,11 @@
+p {
+  word-wrap: break-word;
+}
+
+::ng-deep {
+  .separator {
+    img {
+      max-width: 100%;
+    }
+  }
+}

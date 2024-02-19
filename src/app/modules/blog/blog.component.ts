@@ -18,6 +18,10 @@ export interface BlogModel {
   title: string;
 }
 
+export const BLOG_INFO: BlogModel = {
+  title: 'Novedades 📰',
+};
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -38,9 +42,7 @@ export class BlogComponent implements OnDestroy {
     img: './assets/logo-antiguo.webp',
   };
 
-  public readonly blog: BlogModel = {
-    title: 'Novedades 📰',
-  };
+  public readonly BLOG_INFO = BLOG_INFO;
   subscription?: Subscription;
 
   constructor(protected blogService: BlogService) {
