@@ -86,7 +86,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Miguel Ángel Vilaplana Torregrosa',
           description: 'Vocal del Comtat y Foia de Alcoy',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/vila.webp',
         },
         {
           title: 'Alejandro Perales Martínez Quintanilla',
