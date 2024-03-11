@@ -42,4 +42,14 @@ export class BlogService {
         }),
       );
   }
+
+  public getPreviousPostId(postId?: string): string | undefined {
+    const index = this.posts.findIndex((post) => post.id === postId);
+    return this.posts[index - 1]?.id;
+  }
+
+  public getNextPostId(postId?: string): string | undefined {
+    const index = this.posts.findIndex((post) => post.id === postId);
+    return this.posts[index + 1]?.id;
+  }
 }
