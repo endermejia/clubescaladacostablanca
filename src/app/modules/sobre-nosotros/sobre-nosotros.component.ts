@@ -50,13 +50,13 @@ export class SobreNosotrosComponent {
       members: [
         {
           title: 'Roberto López Santodomingo',
-          description: 'Presidente',
-          img: './../assets/logo-header.webp',
+          description: 'Presidente y vocal del Alacantí',
+          img: './../assets/socios/roberto.webp',
         },
         {
           title: 'Miguel Anta',
-          description: 'Vicepresidente',
-          img: './../assets/logo-header.webp',
+          description: 'Vicepresidente y contacto con la FEMECV',
+          img: './../assets/socios/anta.webp',
         },
         {
           title: 'Yolanda López López',
@@ -66,7 +66,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Alexander Tristán González Milovic',
           description: 'Tesorero',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/alexander.webp',
         },
       ],
     },
@@ -76,7 +76,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Roy De Valera Paseca',
           description: 'Vocal de la Marina Alta',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/roy.webp',
         },
         {
           title: 'Jose Martin Anaya Ruiz',
@@ -96,7 +96,7 @@ export class SobreNosotrosComponent {
         {
           title: 'Miguel Angel Navarro Hernández',
           description: 'Vocal del Alto Vinalopó',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/damacanis.webp',
         },
         {
           title: 'Francisco José Rubio Díaz, (Patxi)',
@@ -106,26 +106,16 @@ export class SobreNosotrosComponent {
         {
           title: 'Daniel Fernández Castello',
           description: 'Vocal del Bajo Vinalopó',
-          img: './../assets/logo-header.webp',
-        },
-        {
-          title: 'Roberto López Santodomingo',
-          description: 'Vocal del Alacantí',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/dan.webp',
         },
         {
           title: 'Fabián Gómiz López',
           description: 'Vocal de la Vega Baja',
-          img: './../assets/logo-header.webp',
+          img: './../assets/socios/fabian.webp',
         },
         {
           title: 'Salva Soler Soriano',
           description: 'Vocal de la Safor',
-          img: './../assets/logo-header.webp',
-        },
-        {
-          title: 'Miguel Anta',
-          description: 'Contacto con la FEMECV',
           img: './../assets/logo-header.webp',
         },
       ],
