@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
+## Environment Configuration
+
+Before running the application, you need to set up the environment files:
+
+1. Copy `src/app/environments/environment.sample.ts` to `src/app/environments/environment.ts` (for development) and `src/app/environments/environment.prod.ts` (for production).
+2. Replace the placeholder values with your actual values:
+   - `bloggerUrl`: The URL for your Blogger API (e.g., 'https://www.googleapis.com/blogger/v3/blogs/YOUR_BLOG_ID')
+   - `bloggerApiKey`: Your Blogger API key
+
+Note: The environment files are excluded from version control to protect sensitive information.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

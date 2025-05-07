@@ -21,7 +21,7 @@
     </div>
     <div class="col-6">
       <h3 class="fw-bold">{{ item.title }}</h3>
-      <h5>{{ item.description }}</h5>
+      <h5 [innerHTML]="item.description"></h5>
       <h6>
         {{ item.dateFrom | date: 'dd MMMM yyyy' }}
         <span *ngIf="item.dateFrom && item.dateTo">-</span>

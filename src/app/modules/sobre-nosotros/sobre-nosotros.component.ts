@@ -55,7 +55,7 @@ export class SobreNosotrosComponent {
         },
         {
           title: 'Miguel Anta',
-          description: 'Vicepresidente y contacto con la FEMECV',
+          description: 'Vicepresidente y contacto con la <a href="https://femecv.com/" target="_blank" aria-label="Federación de Deportes de Montaña y Escalada de la Comunidad Valenciana">FEMECV</a>',
           img: './../assets/socios/anta.webp',
         },
         {
