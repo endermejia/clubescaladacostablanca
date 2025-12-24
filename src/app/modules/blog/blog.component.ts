@@ -38,7 +38,7 @@ export class BlogComponent implements OnDestroy {
       ],
     },
     button: 'Acceder al formulario ❤',
-    link: 'https://docs.google.com/forms/d/1skvlePM2upFUe8HggAIv4KBxxdL2eG6vMBenE1acEVc',
+    link: 'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE',
     img: './assets/logo-antiguo.webp',
   };
 
