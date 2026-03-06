@@ -51,7 +51,6 @@ import { TranslateModule } from '@ngx-translate/core';
 ></app-sobre-nosotros>
 <app-contacto id="contacto" class="page-section"></app-contacto>
   `,
-  styleUrl: '../../styles.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {

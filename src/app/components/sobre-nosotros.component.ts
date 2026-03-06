@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ItemCardComponent } from './item-card.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ImageModalComponent } from './image-modal.component';
 
 @Component({
   selector: 'app-sobre-nosotros',
@@ -16,11 +18,9 @@ import { TranslateModule } from '@ngx-translate/core';
 
   <div class="row align-items-center mb-5 pb-5">
     <div class="col-lg-6 mb-4 mb-lg-0">
-      <a
-        href="/assets/image.png"
-        target="_blank"
-        [attr.data-sub-html]="'<h4>' + ('about.img_caption' | translate) + '</h4>'"
-        class="d-block position-relative gallery-item card-modern img-zoom"
+      <div
+        class="d-block position-relative gallery-item card-modern img-zoom cursor-pointer rounded-4 overflow-hidden"
+        (click)="openImage('/assets/image.png', 'about.img_caption')"
       >
         <img
           class="img-fluid w-100 rounded-4"
@@ -29,11 +29,11 @@ import { TranslateModule } from '@ngx-translate/core';
           style="min-height: 400px; width: 100%; object-fit: cover; display: block;"
         />
         <div
-          class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 opacity-0"
+          class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 opacity-0 transition-all"
         >
-          <i class="bi bi-arrows-fullscreen text-white fs-1"></i>
+          <i class="bi bi-zoom-in text-white fs-1"></i>
         </div>
-      </a>
+      </div>
     </div>
     <div class="col-lg-6 ps-lg-5">
       <h3 class="font-heading text-primary mb-4">
@@ -204,7 +204,25 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ItemCardComponent, TranslateModule],
+  styles: [`
+    .cursor-pointer { cursor: pointer; }
+    .transition-all { transition: all 0.3s ease; }
+    .gallery-item:hover .gallery-overlay { opacity: 1 !important; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .img-zoom img { transition: transform 0.5s ease; }
+  `]
 })
 export class SobreNosotrosComponent {
-  constructor() {}
+  private modalService = inject(NgbModal);
+  private translate = inject(TranslateService);
+
+  public openImage(src: string, captionKey: string): void {
+    const modalRef = this.modalService.open(ImageModalComponent, {
+      centered: true,
+      size: 'lg',
+      windowClass: 'image-zoom-modal'
+    });
+    modalRef.componentInstance.imgSrc = src;
+    modalRef.componentInstance.imgAlt = this.translate.instant(captionKey);
+  }
 }
