@@ -1,12 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgOptimizedImage } from '@angular/common';
+import {
+  LanguageService,
+  SUPPORTED_LANGUAGES,
+} from './services/language.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, TranslateModule, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
@@ -14,8 +19,9 @@ export class AppComponent {
   public readonly currentYear = new Date().getFullYear();
   public readonly hazteSocioUrl =
     'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
+  public readonly languages = SUPPORTED_LANGUAGES;
 
-  constructor() {
+  constructor(public langService: LanguageService) {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', () => {
         this.isScrolled = window.scrollY > 50;

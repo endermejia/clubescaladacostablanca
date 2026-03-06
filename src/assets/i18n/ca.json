@@ -1,0 +1,54 @@
+{
+  "general": {
+    "home": "Inici"
+  },
+  "nav": {
+    "news": "Actualitat",
+    "about": "Coneix el Club",
+    "join": "Uneix-te al Club",
+    "membership": "Fes-te Soci"
+  },
+  "hero": {
+    "title": "Club d'Escalada",
+    "subtitle": "Costa Blanca",
+    "description": "Descobreix la verticalitat de la Costa Blanca amb el club d'escalada amb més història de la comarca. Passió per la roca, compromís amb la muntanya.",
+    "cta_news": "Veure Actualitat",
+    "cta_join": "Fes-te Soci"
+  },
+  "blog": {
+    "title": "Actualitat del Club",
+    "subtitle": "Aventures, ressenyes i últimes notícies de les nostres activitats per la Costa Blanca.",
+    "load_more": "Veure més publicacions",
+    "load_less": "Veure menys",
+    "prev": "Anterior",
+    "next": "Següent",
+    "others": "Altres publicacions",
+    "read_more": "Llegir article",
+    "join_title": "Vols escalar amb nosaltres?",
+    "join_desc": "Si t'agrada l'escalada i vols compartir moments inoblidables a la muntanya, fes-te soci!",
+    "join_btn": "Uneix-te al Club"
+  },
+  "about": {
+    "title": "Coneix el Club",
+    "subtitle": "Molt més que una associació, som una comunitat d'amants de la roca."
+  },
+  "contact": {
+    "title": "Uneix-te al Club",
+    "subtitle": "Tens alguna pregunta? Vols informar-te sobre com ser soci? Estem ací per ajudar-te.",
+    "info_title": "Informació de Contacte",
+    "phone_label": "Telèfon / WhatsApp",
+    "social_text": "Segueix-nos a les nostres xarxes socials per estar al dia de les últimes notícies.",
+    "form_title": "Envia'ns un missatge",
+    "form_name": "Nom",
+    "form_email": "Correu electrònic",
+    "form_phone": "Telèfon",
+    "form_message": "Missatge",
+    "form_send": "Enviar missatge"
+  },
+  "footer": {
+    "tagline": "Passió per la roca, compromís amb la muntanya. El club de referència a la Costa Blanca.",
+    "collab": "Col·laborem amb:",
+    "follow": "Segueix-nos",
+    "rights": "Tots els drets reservats."
+  }
+}

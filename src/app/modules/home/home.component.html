@@ -8,21 +8,21 @@
   ></div>
   <div class="container hero-content">
     <h1 class="display-4 mb-4 font-heading text-white">
-      Club de Escalada <span class="text-secondary">Costa Blanca</span>
+      {{ "hero.title" | translate }}
+      <span class="text-secondary">{{ "hero.subtitle" | translate }}</span>
     </h1>
     <p class="lead mb-5 px-lg-5 text-white">
-      Descubre la verticalidad de la Costa Blanca con el club de escalada con
-      más historia de la comarca. Pasión por la roca, compromiso con la montaña.
+      {{ "hero.description" | translate }}
     </p>
     <div class="d-flex gap-3 justify-content-center flex-wrap">
-      <a href="#blog" class="btn-outline-white text-decoration-none"
-        >Ver Actualidad</a
-      >
+      <a href="#blog" class="btn-outline-white text-decoration-none">{{
+        "hero.cta_news" | translate
+      }}</a>
       <a
         [href]="hazteSocioUrl"
         target="_blank"
         class="btn-premium text-decoration-none"
-        >Hazte Socio</a
+        >{{ "hero.cta_join" | translate }}</a
       >
     </div>
   </div>

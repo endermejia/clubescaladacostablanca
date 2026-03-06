@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface ContactModel {
   title: string;
@@ -9,15 +10,6 @@ interface ContactModel {
 interface ContactFormModel {
   title: string;
   formspree: string;
-  name: string;
-  namePlaceholder: string;
-  email: string;
-  emailPlaceholder: string;
-  phone: string;
-  phonePlaceholder: string;
-  message: string;
-  messagePlaceholder: string;
-  sendButton: string;
 }
 
 @Component({
@@ -25,25 +17,17 @@ interface ContactFormModel {
   templateUrl: './contacto.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [TranslateModule],
 })
 export class ContactoComponent {
   public readonly contact: ContactModel = {
-    title: 'Puedes contactar con nosotros ...',
+    title: 'contact.title',
     email: 'clubescaladacostablanca@gmail.com',
   };
 
   public readonly contactForm: ContactFormModel = {
-    title: '... o enviando un mensaje',
+    title: 'contact.form_title',
     formspree: 'https://formspree.io/f/mwkydzgp',
-    name: 'Nombre',
-    namePlaceholder: '',
-    email: 'Email',
-    emailPlaceholder: '',
-    phone: 'Teléfono',
-    phonePlaceholder: '',
-    message: 'Mensaje',
-    messagePlaceholder: '',
-    sendButton: 'Enviar mensaje',
   };
 
   constructor() {}

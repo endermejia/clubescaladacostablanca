@@ -1,0 +1,54 @@
+{
+  "general": {
+    "home": "Inicio"
+  },
+  "nav": {
+    "news": "Actualidad",
+    "about": "Conoce el Club",
+    "join": "Únete al Club",
+    "membership": "Hazte Socio"
+  },
+  "hero": {
+    "title": "Club de Escalada",
+    "subtitle": "Costa Blanca",
+    "description": "Descubre la verticalidad de la Costa Blanca con el club de escalada con más historia de la comarca. Pasión por la roca, compromiso con la montaña.",
+    "cta_news": "Ver Actualidad",
+    "cta_join": "Hazte Socio"
+  },
+  "blog": {
+    "title": "Actualidad del Club",
+    "subtitle": "Aventuras, reseñas y últimas noticias de nuestras actividades por la Costa Blanca.",
+    "load_more": "Ver más publicaciones",
+    "load_less": "Ver menos",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "others": "Otras publicaciones",
+    "read_more": "Leer artículo",
+    "join_title": "¿Quieres escalar con nosotros?",
+    "join_desc": "Si te gusta la escalada y quieres compartir momentos inolvidables en la montaña, ¡hazte socio!",
+    "join_btn": "Únete al Club"
+  },
+  "about": {
+    "title": "Conoce el Club",
+    "subtitle": "Mucho más que una asociación, somos una comunidad de amantes de la roca."
+  },
+  "contact": {
+    "title": "Únete al Club",
+    "subtitle": "¿Tienes alguna duda? ¿Quieres informarte sobre cómo ser socio? Estamos aquí para ayudarte.",
+    "info_title": "Información de Contacto",
+    "phone_label": "Teléfono / WhatsApp",
+    "social_text": "Síguenos en nuestras redes sociales para estar al día de las últimas noticias.",
+    "form_title": "Envíanos un mensaje",
+    "form_name": "Nombre",
+    "form_email": "Email",
+    "form_phone": "Teléfono",
+    "form_message": "Mensaje",
+    "form_send": "Enviar mensaje"
+  },
+  "footer": {
+    "tagline": "Pasión por la roca, compromiso con la montaña. El club de referencia en la Costa Blanca.",
+    "collab": "Colaboramos con:",
+    "follow": "Síguenos",
+    "rights": "Todos los derechos reservados."
+  }
+}

@@ -1,38 +1,32 @@
 <article class="container">
   <!-- Section Title -->
   <div class="section-title">
-    <h2>Conoce el Club</h2>
+    <h2>{{ "about.title" | translate }}</h2>
     <p class="lead text-muted">
-      Mucho más que una asociación, somos una comunidad de amantes de la roca.
+      {{ "about.subtitle" | translate }}
     </p>
   </div>
 
   <div class="row align-items-center mb-5 pb-5">
     <div class="col-lg-6 mb-4 mb-lg-0">
-      <lightgallery
-        [settings]="GALLERY_SETTINGS"
-        [onBeforeSlide]="onBeforeSlide"
-        class="img-zoom card-modern"
+      <a
+        [attr.href]="about.img.src"
+        target="_blank"
+        [attr.data-sub-html]="about.img.subHtml"
+        class="d-block position-relative gallery-item card-modern img-zoom"
       >
-        <a
-          [attr.href]="about.img.src"
-          [attr.data-sub-html]="about.img.subHtml"
-          class="d-block position-relative gallery-item"
+        <img
+          class="img-fluid w-100 rounded-4"
+          src="/assets/image.png?v=2"
+          [alt]="about.title"
+          style="min-height: 400px; width: 100%; object-fit: cover; display: block;"
+        />
+        <div
+          class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 opacity-0"
         >
-          <img
-            class="img-fluid w-100 rounded-4"
-            style="min-height: 400px; object-fit: cover"
-            fill
-            [ngSrc]="about.img.thumbnail"
-            [alt]="about.title"
-          />
-          <div
-            class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 opacity-0"
-          >
-            <i class="bi bi-arrows-fullscreen text-white fs-1"></i>
-          </div>
-        </a>
-      </lightgallery>
+          <i class="bi bi-arrows-fullscreen text-white fs-1"></i>
+        </div>
+      </a>
     </div>
     <div class="col-lg-6 ps-lg-5">
       <h3 class="font-heading text-primary mb-4">
@@ -51,7 +45,7 @@
       <div class="position-relative d-inline-block card-modern p-4">
         <img
           class="img-fluid rounded-4"
-          [ngSrc]="about.description.img"
+          src="/assets/mapa-alicante.webp"
           [alt]="about.description.title"
           width="500"
           height="500"

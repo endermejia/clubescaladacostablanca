@@ -1,11 +1,8 @@
 <section class="container">
   <!-- Section Title -->
   <div class="section-title">
-    <h2>Actualidad del Club</h2>
-    <p class="lead text-muted">
-      Aventuras, reseñas y últimas noticias de nuestras actividades por la Costa
-      Blanca.
-    </p>
+    <h2>{{ "blog.title" | translate }}</h2>
+    <p class="lead text-muted">{{ "blog.subtitle" | translate }}</p>
   </div>
 
   <!-- Initial Posts (always visible) -->
@@ -51,7 +48,7 @@
   } @loading {
     <div class="d-flex justify-content-center py-5">
       <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Cargando...</span>
+        <span class="visually-hidden">{{ "blog.load_more" | translate }}</span>
       </div>
     </div>
   } @placeholder {
@@ -67,7 +64,8 @@
           id="btn-ver-mas"
           (click)="loadMore()"
         >
-          <i class="bi bi-chevron-down me-2"></i>Ver más publicaciones
+          <i class="bi bi-chevron-down me-2"></i
+          >{{ "blog.load_more" | translate }}
         </button>
       } @else {
         <button
@@ -75,7 +73,8 @@
           id="btn-ver-menos"
           (click)="visibleCount.set(3); showExtra.set(false)"
         >
-          <i class="bi bi-chevron-up me-2"></i>Ver menos
+          <i class="bi bi-chevron-up me-2"></i
+          >{{ "blog.load_less" | translate }}
         </button>
       }
     </div>
@@ -87,15 +86,14 @@
       <div class="row g-0 align-items-center">
         <div class="col-lg-6 p-5 py-lg-4">
           <h2 class="font-heading text-primary mb-4">
-            ¿Quieres escalar con nosotros?
+            {{ "blog.join_title" | translate }}
           </h2>
           <p class="lead mb-4">
-            Si te gusta la escalada y quieres compartir momentos inolvidables en
-            la montaña, ¡hazte socio!
+            {{ "blog.join_desc" | translate }}
           </p>
-          <a [href]="hazteSocio.link" target="_blank" class="btn-premium"
-            >Únete al Club</a
-          >
+          <a [href]="hazteSocio.link" target="_blank" class="btn-premium">{{
+            "blog.join_btn" | translate
+          }}</a>
         </div>
         <div class="col-lg-6 position-relative" style="min-height: 400px">
           <img

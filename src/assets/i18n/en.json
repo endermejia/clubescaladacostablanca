@@ -1,0 +1,54 @@
+{
+  "general": {
+    "home": "Home"
+  },
+  "nav": {
+    "news": "News",
+    "about": "About the Club",
+    "join": "Join Us",
+    "membership": "Become a Member"
+  },
+  "hero": {
+    "title": "Climbing Club",
+    "subtitle": "Costa Blanca",
+    "description": "Discover the vertical world of Costa Blanca with the most historic climbing club in the area. Passion for rock, commitment to the mountain.",
+    "cta_news": "Latest News",
+    "cta_join": "Become a Member"
+  },
+  "blog": {
+    "title": "Club News",
+    "subtitle": "Adventures, reviews and latest news from our activities across Costa Blanca.",
+    "load_more": "Load more posts",
+    "load_less": "Show less",
+    "prev": "Previous",
+    "next": "Next",
+    "others": "Other posts",
+    "read_more": "Read article",
+    "join_title": "Want to climb with us?",
+    "join_desc": "If you love climbing and want to share unforgettable moments on the mountain, join us!",
+    "join_btn": "Join the Club"
+  },
+  "about": {
+    "title": "About the Club",
+    "subtitle": "Much more than an association — we are a community of rock lovers."
+  },
+  "contact": {
+    "title": "Join the Club",
+    "subtitle": "Any questions? Want to learn more about becoming a member? We are here to help.",
+    "info_title": "Contact Information",
+    "phone_label": "Phone / WhatsApp",
+    "social_text": "Follow us on social media to stay up to date with the latest news.",
+    "form_title": "Send us a message",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_phone": "Phone",
+    "form_message": "Message",
+    "form_send": "Send message"
+  },
+  "footer": {
+    "tagline": "Passion for rock, commitment to the mountain. The reference climbing club in Costa Blanca.",
+    "collab": "We collaborate with:",
+    "follow": "Follow us",
+    "rights": "All rights reserved."
+  }
+}

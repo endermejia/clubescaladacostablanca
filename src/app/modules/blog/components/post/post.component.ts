@@ -3,14 +3,14 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService } from '../../blog.service';
 import { Post } from '../../../../models/blogger.model';
 import { Subscription } from 'rxjs';
-import { BLOG_INFO } from '../../blog.component';
 import { DatePipe } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, TranslateModule],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -45,6 +45,4 @@ export class PostComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
-
-  protected readonly BLOG_INFO = BLOG_INFO;
 }
