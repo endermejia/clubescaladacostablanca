@@ -1,35 +1,32 @@
 @if (postCard) {
-  <div class="d-flex flex-column h-100">
-    <div class="position-relative overflow-hidden w-100" style="height: 200px;">
-      <lightgallery
-        [settings]="GALLERY_SETTINGS"
-        [onBeforeSlide]="onBeforeSlide"
-        class="h-100 w-100 d-block"
-      >
-        <a
-          [attr.href]="postCard.img.src"
-          [attr.data-sub-html]="'<h4>' + postCard.title + '</h4>'"
-          class="d-block h-100 w-100 position-relative"
+  <div class="h-100 d-flex flex-column cursor-pointer" (click)="openPost()">
+    <div class="img-zoom position-relative" style="height: 240px">
+      <img
+        [ngSrc]="postCard.img.src"
+        fill
+        [alt]="postCard.title"
+        class="img-fluid"
+        style="object-fit: cover"
+      />
+      <div class="position-absolute top-0 end-0 m-3">
+        <span
+          class="badge bg-white text-primary rounded-pill px-3 py-2 shadow-sm font-heading small"
         >
-          <img
-            [ngSrc]="postCard.img.src"
-            fill
-            [alt]="postCard.title"
-            class="w-100 h-100"
-            style="object-fit: cover;"
-          />
-        </a>
-      </lightgallery>
-    </div>
-    <div class="p-4 d-flex flex-column flex-grow-1 cursor-pointer bg-white" (click)="openPost()">
-      <div class="mb-2">
-        <span class="badge bg-light text-secondary text-uppercase mb-2">
-          {{ postCard.date | date: "dd MMMM yyyy" }}
+          {{ postCard.date | date: "dd MMM yyyy" }}
         </span>
       </div>
-      <h3 class="h5 fw-bold mb-3 flex-grow-1 text-dark">{{ postCard.title }}</h3>
-      <div class="mt-auto pt-3 border-top text-primary fw-semibold d-flex align-items-center">
-        Leer más <i class="bi-arrow-right ms-2"></i>
+    </div>
+
+    <div class="p-4 d-flex flex-column flex-grow-1">
+      <h3 class="h5 font-heading text-primary mb-3">{{ postCard.title }}</h3>
+      <p class="text-muted small mb-4 flex-grow-1">
+        {{ postCard.description }}
+      </p>
+
+      <div
+        class="mt-auto d-flex align-items-center text-secondary font-heading small text-uppercase letter-spacing-1"
+      >
+        Leer artículo <i class="bi bi-chevron-right ms-2 mt-1"></i>
       </div>
     </div>
   </div>

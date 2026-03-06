@@ -1,99 +1,163 @@
-<section class="main-section mb-3 mb-lg-0 py-5">
-  <article class="bg-white p-4 p-lg-5 rounded-4 shadow-sm">
-    <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold text-gradient mb-3">{{ contact.title }}</h2>
-      <p class="text-muted fs-5">Ponte en contacto con nosotros para cualquier duda o consulta</p>
-    </div>
+<section class="container pb-5">
+  <!-- Section Title -->
+  <div class="section-title">
+    <h2>Únete al Club</h2>
+    <p class="lead text-muted">
+      ¿Tienes alguna duda? ¿Quieres informarte sobre cómo ser socio? Estamos
+      aquí para ayudarte.
+    </p>
+  </div>
 
-    <div class="row g-5">
-      <div class="col-lg-5">
-        <div class="bg-light p-4 rounded-4 h-100 shadow-sm d-flex flex-column justify-content-center">
-          <h3 class="h4 fw-bold mb-4 text-secondary">Información de contacto</h3>
-          <div class="d-flex align-items-center mb-4 overflow-hidden" style="text-overflow: ellipsis">
-            <div class="bg-white p-3 rounded-circle shadow-sm me-3">
-              <i class="bi-envelope fs-4 text-primary"></i>
+  <div class="row g-5">
+    <!-- Contact Info Cards -->
+    <div class="col-lg-5">
+      <div
+        class="card-modern bg-white p-5 h-100 d-flex flex-column justify-content-center"
+      >
+        <h3 class="font-heading text-primary mb-5">Información de Contacto</h3>
+
+        <div class="d-flex align-items-center mb-5">
+          <div class="bg-light p-4 rounded-circle me-4">
+            <i class="bi bi-envelope-at fs-3 text-secondary"></i>
+          </div>
+          <div>
+            <p
+              class="mb-1 text-muted small text-uppercase fw-bold letter-spacing-1"
+            >
+              Email
+            </p>
+            <a
+              href="mailto:{{ contact.email }}"
+              class="h6 font-heading text-primary text-decoration-none text-break w-100 d-block"
+            >
+              {{ contact.email }}
+            </a>
+          </div>
+        </div>
+
+        @if (contact.phone) {
+          <div class="d-flex align-items-center mb-5">
+            <div class="bg-light p-4 rounded-circle me-4">
+              <i class="bi bi-whatsapp fs-3 text-accent"></i>
             </div>
             <div>
-              <p class="mb-0 text-muted small">Email</p>
-              <a href="mailto:{{ contact.email }}" class="text-gradient fw-bold fs-5 text-break">
-                {{ contact.email }}
+              <p
+                class="mb-1 text-muted small text-uppercase fw-bold letter-spacing-1"
+              >
+                Teléfono / WhatsApp
+              </p>
+              <a
+                href="tel:{{ contact.phone }}"
+                class="h5 font-heading text-primary text-decoration-none"
+              >
+                {{ contact.phone }}
               </a>
             </div>
           </div>
-          @if (contact.phone) {
-            <div class="d-flex align-items-center">
-              <div class="bg-white p-3 rounded-circle shadow-sm me-3">
-                <i class="bi-phone fs-4 text-primary"></i>
-              </div>
-              <div>
-                <p class="mb-0 text-muted small">Teléfono</p>
-                <a href="tel:{{ contact.phone }}" class="text-gradient fw-bold fs-5">
-                  {{ contact.phone }}
-                </a>
-              </div>
-            </div>
-          }
-        </div>
-      </div>
+        }
 
-      <div class="col-lg-7">
-        <div class="p-lg-3">
-          <h3 class="h4 fw-bold mb-4">{{ contactForm.title }}</h3>
-          <form [action]="contactForm.formspree" method="POST" class="needs-validation">
-            <fieldset>
-              <div class="mb-4">
-                <label for="inputName" class="form-label fw-semibold text-secondary">{{ contactForm.name }}</label>
-                <input
-                  id="inputName"
-                  class="form-control form-control-lg bg-light border-0"
-                  type="text"
-                  [name]="contactForm.name"
-                  [placeholder]="contactForm.namePlaceholder"
-                  required
-                />
-              </div>
-              <div class="row g-4 mb-4">
-                <div class="col-md-6">
-                  <label for="inputEmail" class="form-label fw-semibold text-secondary">{{ contactForm.email }}</label>
-                  <input
-                    id="inputEmail"
-                    class="form-control form-control-lg bg-light border-0"
-                    type="email"
-                    [name]="contactForm.email"
-                    [placeholder]="contactForm.emailPlaceholder"
-                    required
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label for="inputTelephone" class="form-label fw-semibold text-secondary">{{ contactForm.phone }}</label>
-                  <input
-                    id="inputTelephone"
-                    class="form-control form-control-lg bg-light border-0"
-                    type="tel"
-                    [name]="contactForm.phone"
-                    [placeholder]="contactForm.phonePlaceholder"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="mb-4">
-                <label for="messageTextArea" class="form-label fw-semibold text-secondary">{{ contactForm.message }}</label>
-                <textarea
-                  id="messageTextArea"
-                  class="form-control bg-light border-0"
-                  rows="5"
-                  [name]="contactForm.message"
-                  [placeholder]="contactForm.messagePlaceholder"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm w-100 w-md-auto">
-                {{ contactForm.sendButton }} <i class="bi-send ms-2"></i>
-              </button>
-            </fieldset>
-          </form>
+        <div class="mt-4 pt-4 border-top">
+          <p class="small text-muted mb-3">
+            Síguenos en nuestras redes sociales para estar al día de las últimas
+            noticias.
+          </p>
+          <div class="social-icons d-flex gap-4">
+            <a
+              href="https://www.facebook.com/groups/929089841231971"
+              target="_blank"
+              class="text-primary fs-2"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/clubescaladacostablanca"
+              target="_blank"
+              class="text-primary fs-2"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </div>
         </div>
       </div>
     </div>
-  </article>
+
+    <!-- Contact Form -->
+    <div class="col-lg-7">
+      <div class="card-modern bg-white p-5">
+        <h3 class="font-heading text-primary mb-4">Envíanos un mensaje</h3>
+        <form
+          [action]="contactForm.formspree"
+          method="POST"
+          class="needs-validation"
+        >
+          <div class="mb-4">
+            <label
+              for="inputName"
+              class="form-label font-heading small text-muted text-uppercase"
+              >{{ contactForm.name }}</label
+            >
+            <input
+              id="inputName"
+              class="form-control form-control-lg bg-light border-0 rounded-3"
+              type="text"
+              name="name"
+              [placeholder]="contactForm.namePlaceholder"
+              required
+            />
+          </div>
+
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <label
+                for="inputEmail"
+                class="form-label font-heading small text-muted text-uppercase"
+                >{{ contactForm.email }}</label
+              >
+              <input
+                id="inputEmail"
+                class="form-control form-control-lg bg-light border-0 rounded-3"
+                type="email"
+                name="email"
+                [placeholder]="contactForm.emailPlaceholder"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label
+                for="inputTelephone"
+                class="form-label font-heading small text-muted text-uppercase"
+                >{{ contactForm.phone }}</label
+              >
+              <input
+                id="inputTelephone"
+                class="form-control form-control-lg bg-light border-0 rounded-3"
+                type="tel"
+                name="phone"
+                [placeholder]="contactForm.phonePlaceholder"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label
+              for="messageTextArea"
+              class="form-label font-heading small text-muted text-uppercase"
+              >{{ contactForm.message }}</label
+            >
+            <textarea
+              id="messageTextArea"
+              class="form-control bg-light border-0 rounded-3"
+              rows="5"
+              name="message"
+              [placeholder]="contactForm.messagePlaceholder"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-premium w-100 py-3">
+            {{ contactForm.sendButton }} <i class="bi bi-send-fill ms-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>

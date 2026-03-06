@@ -1,87 +1,111 @@
-<section class="d-flex align-items-center justify-content-center m-2">
-  <a routerLink="/">
-    <img
-      ngSrc="assets/header.webp"
-      alt="Club Escalada Costa Blanca"
-      width="560"
-      height="180"
-      priority
-      [style.max-width.rem]="35"
-      style="height: auto; width: 100%;"
-    />
-  </a>
-</section>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg sticky-top" [class.scrolled]="isScrolled">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img
+        src="assets/logo.webp"
+        alt="Club Escalada Costa Blanca"
+        height="50"
+        class="me-2"
+      />
+      <span class="font-heading text-primary h6 h5-md mb-0 ms-1 ms-md-2"
+        >Club Escalada <span class="text-secondary">Costa Blanca</span></span
+      >
+    </a>
 
-<header class="sticky-top bg-white">
-  <nav class="navbar navbar-expand">
-    <div class="container justify-content-center">
-      <ul class="navbar-nav navbar-expand fw-bold gap-lg-3 align-items-center">
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <i class="bi bi-list fs-1 text-primary"></i>
+    </button>
+
+    <div class="collapse navbar-collapse pb-4 pb-lg-0" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link" href="#blog">
-            Blog
-          </a>
+          <a class="nav-link" href="#blog" routerLinkActive="active"
+            >Actualidad</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#sobre-nosotros">
-            Sobre nosotros
-          </a>
+          <a class="nav-link" href="#sobre-nosotros" routerLinkActive="active"
+            >Conoce el Club</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contacto">
-            Contacto
-          </a>
+          <a class="nav-link" href="#contacto" routerLinkActive="active"
+            >Únete al Club</a
+          >
+        </li>
+        <li class="nav-item ms-lg-3 mt-4 mt-lg-0 mb-2 mb-lg-0">
+          <a
+            [href]="hazteSocioUrl"
+            target="_blank"
+            class="btn-premium text-decoration-none"
+            >Hazte Socio</a
+          >
         </li>
       </ul>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
+
 <main>
   <router-outlet></router-outlet>
-
-
-
 </main>
-<footer>
-  <div class="col-12 text-center">
-    <h3>Trabajamos en colaboración con:</h3>
-    <a href="https://femecv.com" target="_blank">
-      <img
-        ngSrc="assets/femecv.png"
-        alt="FEMECV"
-        width="300"
-        height="194"
-        class="img-fluid"
-        style="max-width: 300px; height: auto;"
-      />
-    </a>
-  </div>
-  <section
-    class="footer d-flex flex-column align-items-center justify-content-center mb-2"
-  >
-    <div class="d-flex">
-      @for (item of contact.items; track item) {
-        <a
-          class="footer-icon"
-          href="{{ item.link }}"
-          target="_blank"
-          title="{{ item.name }}"
-          itemprop="significantLink"
-        >
-          <i class="bi-{{ item.img }}"></i>
-        </a>
-      }
-    </div>
-    <div class="d-flex justify-content-center">
-      <a routerLink="/" class="footer-logo" title="Club Escalada Costa Blanca">
+
+<footer class="mt-5">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-4 text-center text-lg-start">
         <img
-          ngSrc="assets/header.webp"
+          src="assets/logo.webp"
           alt="Club Escalada Costa Blanca"
-          width="320"
-          height="103"
-          [style.max-width.rem]="20"
-          style="height: auto; width: 100%;"
+          height="80"
+          class="mb-3"
         />
-      </a>
+        <p class="small text-white-50">
+          Pasión por la roca, compromiso con la montaña. El club de referencia
+          en la Costa Blanca.
+        </p>
+      </div>
+
+      <div class="col-lg-4 text-center">
+        <h5 class="font-heading mb-4">Colaboramos con:</h5>
+        <a href="https://femecv.com" target="_blank" class="d-inline-block">
+          <img
+            src="assets/femecv.png"
+            alt="FEMECV"
+            height="80"
+            class="bg-white p-2 rounded"
+          />
+        </a>
+      </div>
+
+      <div class="col-lg-4 text-center text-lg-end">
+        <h5 class="font-heading mb-4">Síguenos</h5>
+        <div
+          class="social-icons d-flex justify-content-center justify-content-lg-end"
+        >
+          @for (item of contact.items; track item) {
+            <a href="{{ item.link }}" target="_blank" title="{{ item.name }}">
+              <i class="bi bi-{{ item.img }}"></i>
+            </a>
+          }
+        </div>
+      </div>
     </div>
-  </section>
+
+    <hr class="my-5 border-secondary opacity-25" />
+
+    <div class="row footer-links small text-center">
+      <div class="col-12">
+        <p class="mb-0 text-white-50">
+          © 2024 Club Escalada Costa Blanca. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>

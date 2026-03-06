@@ -6,10 +6,22 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
-  imports: [RouterModule, NgOptimizedImage],
+  imports: [RouterModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  public isScrolled = false;
+  public readonly hazteSocioUrl =
+    'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
+
+  constructor() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', () => {
+        this.isScrolled = window.scrollY > 50;
+      });
+    }
+  }
+
   public readonly contact = {
     items: [
       {
@@ -26,7 +38,7 @@ export class AppComponent {
         name: 'GitHub',
         link: 'https://github.com/endermejia/clubescaladacostablanca',
         img: 'github',
-      }
+      },
     ],
   };
 }

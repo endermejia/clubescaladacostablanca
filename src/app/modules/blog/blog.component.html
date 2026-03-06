@@ -1,57 +1,57 @@
-<section class="main-section">
-  <!-- Hero / Call to Action section -->
-  <article class="hero-section mb-5 py-5 rounded-4 shadow-sm bg-white overflow-hidden">
-    <div class="row g-0 align-items-center">
-      <div class="col-lg-6 px-4 px-lg-5 py-4 text-center text-lg-start">
-        <h2 class="display-5 fw-bold text-gradient mb-3">{{ hazteSocio.title }}</h2>
-        <h3 class="h4 text-muted mb-4">{{ hazteSocio.description.title }}</h3>
-        <div class="lead mb-4">
-          @for (
-            paragraph of hazteSocio.description.paragraphs;
-            track paragraph
-          ) {
-            <p>{{ paragraph }}</p>
-          }
+<section class="container">
+  <!-- Section Title -->
+  <div class="section-title">
+    <h2>Actualidad del Club</h2>
+    <p class="lead text-muted">
+      Aventuras, reseñas y últimas noticias de nuestras actividades por la
+      Costa Blanca.
+    </p>
+  </div>
+
+  <!-- Blog Cards Grid -->
+  <div class="row g-4 mt-2 mb-5">
+    @for (post of blogService.posts(); track post) {
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card-modern h-100">
+          <app-post-card
+            class="h-100 d-block"
+            [postCard]="{
+              title: post.title,
+              img: { src: post.images[0]?.url || 'assets/logo.webp' },
+              date: post?.published,
+              description: post.author.displayName,
+              id: post.id
+            }"
+          ></app-post-card>
         </div>
-        <a
-          [href]="hazteSocio.link"
-          target="_blank"
-          class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm"
-        >
-          {{ hazteSocio.button }}
-        </a>
       </div>
-      <div class="col-lg-6 position-relative" style="min-height: 400px;">
-        <img class="img-fluid rounded-start-4 shadow-sm" style="object-fit: cover;" fill [ngSrc]="hazteSocio.img" [alt]="hazteSocio.title" />
-      </div>
-    </div>
-  </article>
+    }
+  </div>
 
-  <hr class="my-5" />
-
-  <!-- Novedades / Blog Section -->
-  <article class="mt-5">
-    <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold text-gradient">{{ BLOG_INFO.title }}</h2>
-      <p class="text-muted fs-5">Últimas noticias y aventuras</p>
-    </div>
-
-    <div class="row g-4 mt-3">
-      @for (post of blogService.posts(); track post) {
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden post-card-hover">
-            <app-post-card class="h-100 d-block"
-              [postCard]="{
-                title: post.title,
-                img: { src: post.images[0]?.url ?? 'assets/logo.webp' },
-                date: post?.published,
-                description: post.author.displayName,
-                id: post.id
-              }"
-            ></app-post-card>
-          </div>
+  <!-- Join Us Banner (Restored with original image) -->
+  <article style="margin-top: 150px">
+    <div class="card-modern overflow-hidden bg-white">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg-6 p-5 py-lg-4">
+          <h2 class="font-heading text-primary mb-4">
+            ¿Quieres escalar con nosotros?
+          </h2>
+          <p class="lead mb-4">
+            Si te gusta la escalada y quieres compartir momentos inolvidables en
+            la montaña, ¡hazte socio!
+          </p>
+          <a [href]="hazteSocio.link" target="_blank" class="btn-premium"
+            >Únete al Club</a
+          >
         </div>
-      }
+        <div class="col-lg-6 position-relative" style="min-height: 400px">
+          <img
+            src="assets/logo-antiguo.webp"
+            class="img-fluid w-100 h-100 object-fit-cover position-absolute top-0 start-0"
+            alt="Hazte Socio"
+          />
+        </div>
+      </div>
     </div>
   </article>
 </section>

@@ -11,4 +11,7 @@ import { ContactoComponent } from '../contacto/contacto.component';
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {}
+export class HomeComponent {
+  public readonly hazteSocioUrl =
+    'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
+}
