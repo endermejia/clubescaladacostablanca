@@ -1,15 +1,16 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, signal, effect } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService } from '../services/blog.service';
 import { Post } from '../models/blogger.model';
 import { Subscription } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-post',
   template: `
-<section class="container py-5 mt-4">
+<section class="container py-5 mt-5 pt-5">
   <div class="row g-5">
     <!-- Main Content -->
     <article class="col-lg-8">
@@ -125,6 +126,8 @@ export class PostComponent implements OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     protected blogService: BlogService,
+    private titleService: Title,
+    private metaService: Meta,
   ) {
     this.subscriptions.push(
       this.activatedRoute.params.subscribe((params) => {
@@ -144,6 +147,32 @@ export class PostComponent implements OnDestroy {
         }
       }),
     );
+
+    effect(() => {
+      const post = this.blogService
+        .posts()
+        .find((p) => p.id === this.postId);
+      if (post) {
+        const title = `${post.title} | Club Escalada Costa Blanca`;
+        this.titleService.setTitle(title);
+
+        const description = post.content
+          .replace(/<[^>]*>/g, '')
+          .substring(0, 160);
+        this.metaService.updateTag({ name: 'description', content: description });
+        this.metaService.updateTag({ property: 'og:title', content: title });
+        this.metaService.updateTag({
+          property: 'og:description',
+          content: description,
+        });
+        if (post.images && post.images.length > 0) {
+          this.metaService.updateTag({
+            property: 'og:image',
+            content: post.images[0].url,
+          });
+        }
+      }
+    });
   }
 
   ngOnDestroy(): void {

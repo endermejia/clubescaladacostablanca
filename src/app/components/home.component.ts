@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { BlogComponent } from './blog.component';
 import { SobreNosotrosComponent } from './sobre-nosotros.component';
 import { ContactoComponent } from './contacto.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -53,7 +54,29 @@ import { TranslateModule } from '@ngx-translate/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   public readonly hazteSocioUrl =
     'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
+
+  constructor(
+    private titleService: Title,
+    private metaService: Meta,
+    private translate: TranslateService,
+  ) {}
+
+  ngOnInit(): void {
+    this.translate.get(['hero.title', 'hero.description']).subscribe((res) => {
+      const title = `Club Escalada Costa Blanca - ${res['hero.title']}`;
+      this.titleService.setTitle(title);
+      this.metaService.updateTag({
+        name: 'description',
+        content: res['hero.description'],
+      });
+      this.metaService.updateTag({ property: 'og:title', content: title });
+      this.metaService.updateTag({
+        property: 'og:description',
+        content: res['hero.description'],
+      });
+    });
+  }
 }
