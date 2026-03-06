@@ -30,7 +30,27 @@
   },
   "about": {
     "title": "About the Club",
-    "subtitle": "Much more than an association — we are a community of rock lovers."
+    "subtitle": "Much more than an association — we are a community of rock lovers.",
+    "img_caption": "Board of Directors at Puig Campana",
+    "eco_title": "For climbing compatible with the environment.",
+    "eco_p1": "We are a community committed to responsible climbing and respect for the environment.",
+    "eco_p2": "Our passion for this sport goes hand in hand with the care of the natural areas where we practice it. Collaborating with local organizations and authorities to ensure a balance between the enjoyment of climbing and the preservation of the environment.",
+    "eco_p3": "Join us in our quest for conscious and respectful adventure in the beautiful Costa Blanca.",
+    "board_title": "Board of Directors",
+    "board_pres_desc": "President and representative for Alacantí",
+    "board_vp_desc": "Vice President and contact with <a href=\"https://femecv.com/\" target=\"_blank\" aria-label=\"Valencian Community Mountain and Climbing Sports Federation\">FEMECV</a>",
+    "board_sec_desc": "Secretary",
+    "board_tres_desc": "Treasurer",
+    "vocal_title": "Representatives",
+    "vocal_ma_desc": "Representative for Marina Alta",
+    "vocal_mb_desc": "Representative for Marina Baixa",
+    "vocal_cfa_desc": "Representative for Comtat and Foia d'Alcoi",
+    "vocal_al_desc": "Representative for L´Alcoià",
+    "vocal_av_desc": "Representative for Alto Vinalopó",
+    "vocal_mv_desc": "Representative for Medio Vinalopó",
+    "vocal_bv_desc": "Representative for Bajo Vinalopó",
+    "vocal_vb_desc": "Representative for Vega Baja",
+    "vocal_sa_desc": "Representative for La Safor"
   },
   "contact": {
     "title": "Join the Club",

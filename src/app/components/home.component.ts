@@ -1,3 +1,19 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BlogComponent } from './blog.component';
+import { SobreNosotrosComponent } from './sobre-nosotros.component';
+import { ContactoComponent } from './contacto.component';
+import { TranslateModule } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [
+    BlogComponent,
+    SobreNosotrosComponent,
+    ContactoComponent,
+    TranslateModule,
+  ],
+  template: `
 <section class="hero-wrapper">
   <div
     class="hero-bg"
@@ -34,3 +50,11 @@
   class="page-section bg-alt"
 ></app-sobre-nosotros>
 <app-contacto id="contacto" class="page-section"></app-contacto>
+  `,
+  styleUrl: '../../styles.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class HomeComponent {
+  public readonly hazteSocioUrl =
+    'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
+}

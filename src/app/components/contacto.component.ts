@@ -1,3 +1,9 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+
+@Component({
+  selector: 'app-contacto',
+  template: `
 <section class="container pb-5">
   <!-- Section Title -->
   <div class="section-title">
@@ -28,34 +34,13 @@
               {{ "contact.form_email" | translate }}
             </p>
             <a
-              href="mailto:{{ contact.email }}"
+              href="mailto:clubescaladacostablanca@gmail.com"
               class="h6 font-heading text-primary text-decoration-none text-break w-100 d-block"
             >
-              {{ contact.email }}
+              clubescaladacostablanca@gmail.com
             </a>
           </div>
         </div>
-
-        @if (contact.phone) {
-          <div class="d-flex align-items-center mb-5">
-            <div class="bg-light p-4 rounded-circle me-4">
-              <i class="bi bi-whatsapp fs-3 text-accent"></i>
-            </div>
-            <div>
-              <p
-                class="mb-1 text-muted small text-uppercase fw-bold letter-spacing-1"
-              >
-                {{ "contact.phone_label" | translate }}
-              </p>
-              <a
-                href="tel:{{ contact.phone }}"
-                class="h5 font-heading text-primary text-decoration-none"
-              >
-                {{ contact.phone }}
-              </a>
-            </div>
-          </div>
-        }
 
         <div class="mt-4 pt-4 border-top">
           <p class="small text-muted mb-3">
@@ -86,7 +71,7 @@
           {{ "contact.form_title" | translate }}
         </h3>
         <form
-          [action]="contactForm.formspree"
+          action="https://formspree.io/f/mwkydzgp"
           method="POST"
           class="needs-validation"
         >
@@ -160,3 +145,11 @@
     </div>
   </div>
 </section>
+  `,
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [TranslateModule],
+})
+export class ContactoComponent {
+  constructor() {}
+}

@@ -30,7 +30,27 @@
   },
   "about": {
     "title": "Conoce el Club",
-    "subtitle": "Mucho más que una asociación, somos una comunidad de amantes de la roca."
+    "subtitle": "Mucho más que una asociación, somos una comunidad de amantes de la roca.",
+    "img_caption": "Junta Directiva en el Puig Campana",
+    "eco_title": "Por una escalada compatible con el medio.",
+    "eco_p1": "Somos una comunidad comprometida con la escalada responsable y el respeto por el medio ambiente.",
+    "eco_p2": "Nuestra pasión por este deporte va de la mano con el cuidado de las zonas naturales donde lo practicamos. Colaborando con organizaciones locales y autoridades para asegurar un equilibrio entre el disfrute de la escalada y la preservación del entorno.",
+    "eco_p3": "Únete a nosotros en nuestra búsqueda de aventura consciente y respetuosa en la hermosa Costa Blanca.",
+    "board_title": "Junta Directiva",
+    "board_pres_desc": "Presidente y vocal del Alacantí",
+    "board_vp_desc": "Vicepresidente y contacto con la <a href=\"https://femecv.com/\" target=\"_blank\" aria-label=\"Federación de Deportes de Montaña y Escalada de la Comunidad Valenciana\">FEMECV</a>",
+    "board_sec_desc": "Secretaria",
+    "board_tres_desc": "Tesorero",
+    "vocal_title": "Vocales",
+    "vocal_ma_desc": "Vocal de la Marina Alta",
+    "vocal_mb_desc": "Vocal de la Marina Baixa",
+    "vocal_cfa_desc": "Vocal del Comtat y Foia de Alcoy",
+    "vocal_al_desc": "Vocal de L´Alcoià",
+    "vocal_av_desc": "Vocal del Alto Vinalopó",
+    "vocal_mv_desc": "Vocal del Medio Vinalopó",
+    "vocal_bv_desc": "Vocal del Bajo Vinalopó",
+    "vocal_vb_desc": "Vocal de la Vega Baja",
+    "vocal_sa_desc": "Vocal de la Safor"
   },
   "contact": {
     "title": "Únete al Club",

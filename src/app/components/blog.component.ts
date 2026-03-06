@@ -1,3 +1,21 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  signal,
+  computed,
+} from '@angular/core';
+import { BlogService } from '../services/blog.service';
+import { Subscription } from 'rxjs';
+import { Post } from '../models/blogger.model';
+import { PostCardComponent } from './post-card.component';
+import { TranslateModule } from '@ngx-translate/core';
+
+const INITIAL_POSTS = 3;
+
+@Component({
+  selector: 'app-blog',
+  template: `
 <section class="container">
   <!-- Section Title -->
   <div class="section-title">
@@ -91,7 +109,7 @@
           <p class="lead mb-4">
             {{ "blog.join_desc" | translate }}
           </p>
-          <a [href]="hazteSocio.link" target="_blank" class="btn-premium">{{
+          <a href="https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE" target="_blank" class="btn-premium">{{
             "blog.join_btn" | translate
           }}</a>
         </div>
@@ -106,3 +124,43 @@
     </div>
   </article>
 </section>
+  `,
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PostCardComponent, TranslateModule],
+})
+export class BlogComponent implements OnDestroy {
+  subscription?: Subscription;
+
+  public visibleCount = signal(INITIAL_POSTS);
+  public showExtra = signal(false);
+
+  public readonly initialPosts = computed<Post[]>(() =>
+    this.blogService.posts().slice(0, INITIAL_POSTS),
+  );
+
+  public readonly extraPosts = computed<Post[]>(() =>
+    this.blogService.posts().slice(INITIAL_POSTS, this.visibleCount()),
+  );
+
+  public readonly allLoaded = computed(
+    () => this.visibleCount() >= this.blogService.posts().length,
+  );
+
+  constructor(protected blogService: BlogService) {
+    this.subscription = this.blogService
+      .getPosts()
+      .subscribe((posts: Post[]) => {
+        this.blogService.posts.set(posts);
+      });
+  }
+
+  public loadMore(): void {
+    this.showExtra.set(true);
+    this.visibleCount.update((v) => v + INITIAL_POSTS);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
+}
