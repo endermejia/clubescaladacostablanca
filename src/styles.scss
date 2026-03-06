@@ -7,14 +7,34 @@
 /* Lightgallery for image preview */
 @import "lightgallery/scss/lightgallery";
 
-/* Design System Variables */
-$primary: #1a3c5e; /* Deep Rock Blue */
-$secondary: #f39c12; /* Sunset Orange */
-$accent: #2ecc71; /* Forest Green */
-$dark: #0f172a; /* Midnight Slate */
-$light: #f8fafc; /* Soft Ash */
-$glass: rgba(255, 255, 255, 0.7);
-$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* ============================================================
+   DESIGN SYSTEM — Variables
+   ============================================================ */
+
+/* Brand Colors */
+$primary:        #1e73be; /* Vivid Sky Blue — buttons, headings, links */
+$primary-dark:   #0e4a82; /* Deep Blue — footer background */
+$secondary:      #f39c12; /* Sunset Orange — accents, hover, badges */
+$secondary-dark: #d68910; /* Darker Orange — for pressed states */
+
+/* Neutrals */
+$dark:           #0f172a; /* Midnight Slate — body text, icons */
+$gray-muted:     #64748b; /* Slate Gray — subtitles, placeholders */
+$light:          #f8fafc; /* Soft Ash — global background */
+$surface:        #f1f5f9; /* Light Surface — alternate section bg */
+
+/* Utility */
+$white:          #ffffff;
+$glass:          rgba(255, 255, 255, 0.7);
+$glass-thin:     rgba(255, 255, 255, 0.08);
+
+/* Transitions */
+$transition:     all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+/* Fix Bootstrap grey override for secondary text */
+.text-secondary {
+  color: $secondary !important;
+}
 
 /* Typography */
 body {
@@ -25,8 +45,19 @@ body {
     sans-serif;
   background-color: $light;
   color: $dark;
-  overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Global Constraints */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Prevent main content rows from causing horizontal scroll */
+main {
+  overflow-x: clip;
 }
 
 h1,
@@ -55,8 +86,8 @@ h4,
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   }
 
-  @media (max-width: 991px) {
-    background: white; /* Solid on mobile for reliability */
+  @media (max-width: 1199px) {
+    background: white; /* Solid on mobile/tablet for reliability */
     padding: 0.5rem 0;
   }
 }
@@ -78,7 +109,7 @@ h4,
     left: 8px;
     right: 8px;
     height: 3px;
-    background: linear-gradient(90deg, $primary, $secondary);
+    background: $secondary; /* Solid Orange Underline */
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -89,7 +120,7 @@ h4,
   }
 
   &:hover {
-    color: $primary !important;
+    color: $secondary !important; /* Orange hover for header links */
   }
 }
 
@@ -104,7 +135,6 @@ h4,
   overflow: hidden;
   color: white;
   text-align: center;
-  background-color: #000;
 
   .hero-bg {
     position: absolute;
@@ -112,7 +142,7 @@ h4,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("/assets/logo-antiguo.webp");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("/assets/hero_climber_alt.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -130,7 +160,7 @@ h4,
     padding: 3.5rem 2.5rem;
     animation: fadeInUp 1.2s ease-out;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-    background: rgba(255, 255, 255, 0.08); /* Minimalist glass overlay */
+    background: $glass-thin; /* Minimalist glass overlay */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 3rem;
@@ -142,6 +172,20 @@ h4,
       margin-bottom: 2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
+
+      span {
+        color: #ffffff !important; /* High contrast White */
+        background: $secondary; /* Solid Sunset Orange background */
+        padding: 0.1rem 0.8em;
+        border-radius: 0.8rem;
+        display: inline-block;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        text-shadow: none;
+        margin-left: 0.4rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: none;
+      }
     }
 
     p {
@@ -166,6 +210,19 @@ h4,
   }
 }
 
+/* Extra posts animation on @defer load */
+.extra-posts-grid {
+  .post-card-animated {
+    animation: fadeInUp 0.5s ease-out both;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{($i - 1) * 0.1}s;
+      }
+    }
+  }
+}
+
 /* Premium Buttons */
 .btn-premium {
   padding: 0.75rem 2rem;
@@ -174,17 +231,29 @@ h4,
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
-  border: 2px solid white;
-  background: linear-gradient(135deg, $primary, darken($primary, 10%));
+  border: 2px solid $primary;
+  background: $primary; /* Solid Blue */
   color: white !important;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: $transition;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-    filter: brightness(1.1);
-    border-color: white;
+    background: $secondary; /* Shift to Orange on hover */
+    border-color: $secondary;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    color: white !important;
+  }
+}
+
+.btn-secondary-brand {
+  @extend .btn-premium;
+  background: $secondary;
+  border-color: $secondary;
+  
+  &:hover {
+    background: $primary;
+    border-color: $primary;
   }
 }
 
@@ -196,7 +265,8 @@ h4,
   box-shadow: none;
 
   &:hover {
-    background: $primary;
+    background: $secondary; /* Orange on hover */
+    border-color: $secondary;
     color: white !important;
   }
 
@@ -216,9 +286,9 @@ h4,
   box-shadow: none;
 
   &:hover {
-    background: white;
-    color: $primary !important;
-    border-color: white;
+    background: $secondary; /* Orange on hover */
+    color: white !important;
+    border-color: $secondary;
     filter: none;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
@@ -228,10 +298,11 @@ h4,
 .page-section {
   display: block;
   padding: 6rem 0;
+  overflow-x: clip; /* clip horizontal only — allows vertical shadows to show */
   border-bottom: 1px solid rgba(0,0,0,0.03);
   
   &:nth-of-type(odd) {
-    background-color: #f1f5f9;
+    background-color: $surface;
   }
   
   &:nth-of-type(even) {
@@ -248,22 +319,27 @@ h4,
     position: relative;
 
     h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, $primary, $secondary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: $primary;
+      filter: none;
+    }
+
+    p {
+      color: $gray-muted;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-inline: auto;
     }
 
     &::after {
       content: "";
       display: block;
-      width: 60px;
-      height: 4px;
-      background: $secondary;
+      width: 80px;
+      height: 5px;
+      background: $secondary; /* Solid orange bar */
       margin: 0 auto;
-      border-radius: 2px;
+      border-radius: 99px;
     }
   }
 }
@@ -272,30 +348,32 @@ h4,
 .navbar-brand {
   img {
     height: 40px;
+    @media (max-width: 1199px) {
+    padding: 0.4rem 0;
+    min-height: 56px;
+  }
     @media (min-width: 768px) {
       height: 50px;
     }
   }
 
   span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.1;
+    white-space: nowrap; /* Prevent wrapping which might push icons out */
+    font-weight: 800;
+
+    .text-secondary {
+      color: $secondary !important; /* Brand orange, consistent with theme */
+    }
+
     @media (min-width: 768px) {
       font-size: 1.25rem;
     }
   }
 }
-.container {
-  overflow-x: hidden;
-}
-
-.row {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-}
-
 .card-modern {
-  border: none;
+  border: 2px solid transparent;
   border-radius: 1.5rem;
   overflow: hidden;
   background: white;
@@ -303,16 +381,23 @@ h4,
   transition: $transition;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-color: $secondary; /* Orange border on hover */
   }
 }
 
 /* Footer Styling */
 footer {
-  background: $dark;
-  color: white;
+  background: $primary-dark; /* Deep variant of primary blue */
+  color: rgba(255, 255, 255, 0.9);
   padding: 5rem 0 2rem;
+  border-top: 4px solid $secondary; /* Orange accent line connecting to the rest of the app */
+
+  h5 {
+    color: white;
+    font-weight: 700;
+  }
 
   .footer-links a {
     color: rgba(255, 255, 255, 0.7);
@@ -321,7 +406,7 @@ footer {
     font-weight: 400;
 
     &:hover {
-      color: $secondary;
+      color: $secondary; /* Orange on hover — consistent */
     }
   }
 
@@ -331,12 +416,21 @@ footer {
 
     a {
       transition: $transition;
-      color: white;
+      color: rgba(255, 255, 255, 0.8);
+
       &:hover {
-        color: $secondary;
-        transform: scale(1.1);
+        color: $secondary; /* Orange hover */
+        transform: scale(1.15);
       }
     }
+  }
+
+  hr {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  p.text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important;
   }
 }
 

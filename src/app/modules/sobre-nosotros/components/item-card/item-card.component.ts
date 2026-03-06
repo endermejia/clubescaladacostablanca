@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { GALLERY_SETTINGS, onBeforeSlide } from '../../../../models/gallery';
 import { LightgalleryModule } from 'lightgallery/angular';
-import { DatePipe, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 
 export interface ItemCardModel {
   title: string;
@@ -17,7 +17,7 @@ export interface ItemCardModel {
   templateUrl: './item-card.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [LightgalleryModule, DatePipe, NgOptimizedImage],
+  imports: [LightgalleryModule, NgOptimizedImage],
 })
 export class ItemCardComponent {
   @Input() public item: ItemCardModel | undefined;

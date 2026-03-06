@@ -4,14 +4,13 @@ import { BlogService } from '../../blog.service';
 import { Post } from '../../../../models/blogger.model';
 import { Subscription } from 'rxjs';
 import { BLOG_INFO } from '../../blog.component';
-import { PostCardComponent } from '../item-card/post-card.component';
 import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-  imports: [RouterLink, PostCardComponent, DatePipe],
+  imports: [RouterLink, DatePipe],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -28,14 +27,18 @@ export class PostComponent implements OnDestroy {
         this.postId = params['id'];
 
         // Fetch posts if they aren't loaded or if the current post isn't found
-        if (!this.blogService.posts().some((post: Post) => post.id === this.postId)) {
+        if (
+          !this.blogService
+            .posts()
+            .some((post: Post) => post.id === this.postId)
+        ) {
           this.subscriptions.push(
             this.blogService.getPosts().subscribe((posts: Post[]) => {
               this.blogService.posts.set(posts);
             }),
           );
         }
-      })
+      }),
     );
   }
 

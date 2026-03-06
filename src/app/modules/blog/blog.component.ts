@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  signal,
+  computed,
+} from '@angular/core';
 import { BlogService } from './blog.service';
 import { Subscription } from 'rxjs';
-import { NgOptimizedImage } from '@angular/common';
 import { Post } from '../../models/blogger.model';
 import { PostCardComponent } from './components/item-card/post-card.component';
 
@@ -24,12 +29,14 @@ export const BLOG_INFO: BlogModel = {
   title: 'Novedades 📰',
 };
 
+const INITIAL_POSTS = 3;
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PostCardComponent, NgOptimizedImage],
+  imports: [PostCardComponent],
 })
 export class BlogComponent implements OnDestroy {
   public readonly hazteSocio: HazteSocioModel = {
@@ -50,12 +57,38 @@ export class BlogComponent implements OnDestroy {
   public readonly BLOG_INFO = BLOG_INFO;
   subscription?: Subscription;
 
+  /** Number of posts currently visible */
+  public visibleCount = signal(INITIAL_POSTS);
+
+  /** Whether "Ver más" has been triggered at least once */
+  public showExtra = signal(false);
+
+  /** Posts displayed in the initial view */
+  public readonly initialPosts = computed<Post[]>(() =>
+    this.blogService.posts().slice(0, INITIAL_POSTS),
+  );
+
+  /** Extra posts loaded lazily after clicking "Ver más" */
+  public readonly extraPosts = computed<Post[]>(() =>
+    this.blogService.posts().slice(INITIAL_POSTS, this.visibleCount()),
+  );
+
+  /** Whether all posts are visible */
+  public readonly allLoaded = computed(
+    () => this.visibleCount() >= this.blogService.posts().length,
+  );
+
   constructor(protected blogService: BlogService) {
     this.subscription = this.blogService
       .getPosts()
       .subscribe((posts: Post[]) => {
         this.blogService.posts.set(posts);
       });
+  }
+
+  public loadMore(): void {
+    this.showExtra.set(true);
+    this.visibleCount.update((v) => v + INITIAL_POSTS);
   }
 
   ngOnDestroy(): void {

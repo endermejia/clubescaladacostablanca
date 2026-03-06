@@ -11,6 +11,7 @@ import { NgOptimizedImage } from '@angular/common';
 })
 export class AppComponent {
   public isScrolled = false;
+  public readonly currentYear = new Date().getFullYear();
   public readonly hazteSocioUrl =
     'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
 
