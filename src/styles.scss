@@ -1,3 +1,41 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use "@angular/material" as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";
 
@@ -6,30 +44,29 @@
 
 /* Lightgallery for image preview */
 
-
 /* ============================================================
    DESIGN SYSTEM — Variables
    ============================================================ */
 
 /* Brand Colors */
-$primary:        #1e73be; /* Vivid Sky Blue — buttons, headings, links */
-$primary-dark:   #0e4a82; /* Deep Blue — footer background */
-$secondary:      #f39c12; /* Sunset Orange — accents, hover, badges */
+$primary: #1e73be; /* Vivid Sky Blue — buttons, headings, links */
+$primary-dark: #0e4a82; /* Deep Blue — footer background */
+$secondary: #f39c12; /* Sunset Orange — accents, hover, badges */
 $secondary-dark: #d68910; /* Darker Orange — for pressed states */
 
 /* Neutrals */
-$dark:           #0f172a; /* Midnight Slate — body text, icons */
-$gray-muted:     #64748b; /* Slate Gray — subtitles, placeholders */
-$light:          #f8fafc; /* Soft Ash — global background */
-$surface:        #f1f5f9; /* Light Surface — alternate section bg */
+$dark: #0f172a; /* Midnight Slate — body text, icons */
+$gray-muted: #64748b; /* Slate Gray — subtitles, placeholders */
+$light: #f8fafc; /* Soft Ash — global background */
+$surface: #f1f5f9; /* Light Surface — alternate section bg */
 
 /* Utility */
-$white:          #ffffff;
-$glass:          rgba(255, 255, 255, 0.7);
-$glass-thin:     rgba(255, 255, 255, 0.08);
+$white: #ffffff;
+$glass: rgba(255, 255, 255, 0.7);
+$glass-thin: rgba(255, 255, 255, 0.08);
 
 /* Transitions */
-$transition:     all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 /* Fix Bootstrap grey override for secondary text */
 .text-secondary {
@@ -98,7 +135,7 @@ h4,
   padding: 0.2rem;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 99px;
-  
+
   .lang-btn {
     background: transparent;
     border: none;
@@ -175,7 +212,8 @@ h4,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("/assets/hero_climber_alt.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+      url("/assets/hero_climber_alt.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -283,7 +321,7 @@ h4,
   @extend .btn-premium;
   background: $secondary;
   border-color: $secondary;
-  
+
   &:hover {
     background: $primary;
     border-color: $primary;
@@ -332,12 +370,12 @@ h4,
   display: block;
   padding: 6rem 0;
   overflow-x: clip; /* clip horizontal only — allows vertical shadows to show */
-  border-bottom: 1px solid rgba(0,0,0,0.03);
-  
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
   &:nth-of-type(odd) {
     background-color: $surface;
   }
-  
+
   &:nth-of-type(even) {
     background-color: white;
   }
@@ -382,9 +420,9 @@ h4,
   img {
     height: 40px;
     @media (max-width: 1199px) {
-    padding: 0.4rem 0;
-    min-height: 56px;
-  }
+      padding: 0.4rem 0;
+      min-height: 56px;
+    }
     @media (min-width: 768px) {
       height: 50px;
     }
@@ -481,12 +519,12 @@ footer {
 }
 
 .breadcrumb-item {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  
+
   a {
     transition: color 0.3s;
     &:hover {

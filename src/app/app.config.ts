@@ -15,6 +15,7 @@ import {
   TranslateHttpLoader,
 } from '@ngx-translate/http-loader';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
 
 import { registerLocaleData } from '@angular/common';
@@ -34,6 +35,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
     provideClientHydration(),
+    provideAnimationsAsync(),
     {
       provide: LOCALE_ID,
       useValue: 'es',

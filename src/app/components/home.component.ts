@@ -5,6 +5,8 @@ import { ContactoComponent } from './contacto.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -13,6 +15,7 @@ import { Meta, Title } from '@angular/platform-browser';
     SobreNosotrosComponent,
     ContactoComponent,
     TranslateModule,
+    RouterLink,
   ],
   template: `
 <section class="hero-wrapper">
@@ -36,8 +39,7 @@ import { Meta, Title } from '@angular/platform-browser';
         "hero.cta_news" | translate
       }}</a>
       <a
-        [href]="hazteSocioUrl"
-        target="_blank"
+        routerLink="/inscripcion"
         class="btn-premium text-decoration-none"
         >{{ "hero.cta_join" | translate }}</a
       >
@@ -55,9 +57,6 @@ import { Meta, Title } from '@angular/platform-browser';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  public readonly hazteSocioUrl =
-    'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE';
-
   constructor(
     private titleService: Title,
     private metaService: Meta,

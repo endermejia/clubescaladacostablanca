@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { Post } from '../models/blogger.model';
 import { PostCardComponent } from './post-card.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 const INITIAL_POSTS = 3;
 
@@ -82,8 +83,7 @@ const INITIAL_POSTS = 3;
           id="btn-ver-mas"
           (click)="loadMore()"
         >
-          <i class="bi bi-chevron-down me-2"></i
-          >{{ "blog.load_more" | translate }}
+          <i class="bi bi-chevron-down me-2"></i>{{ "blog.load_more" | translate }}
         </button>
       } @else {
         <button
@@ -91,8 +91,7 @@ const INITIAL_POSTS = 3;
           id="btn-ver-menos"
           (click)="visibleCount.set(3); showExtra.set(false)"
         >
-          <i class="bi bi-chevron-up me-2"></i
-          >{{ "blog.load_less" | translate }}
+          <i class="bi bi-chevron-up me-2"></i>{{ "blog.load_less" | translate }}
         </button>
       }
     </div>
@@ -109,7 +108,7 @@ const INITIAL_POSTS = 3;
           <p class="lead mb-4">
             {{ "blog.join_desc" | translate }}
           </p>
-          <a href="https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE" target="_blank" class="btn-premium">{{
+          <a routerLink="/inscripcion" class="btn-premium">{{
             "blog.join_btn" | translate
           }}</a>
         </div>
@@ -127,7 +126,7 @@ const INITIAL_POSTS = 3;
   `,
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PostCardComponent, TranslateModule],
+  imports: [PostCardComponent, TranslateModule, RouterLink],
 })
 export class BlogComponent implements OnDestroy {
   subscription?: Subscription;

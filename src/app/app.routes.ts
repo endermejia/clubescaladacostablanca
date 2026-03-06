@@ -11,5 +11,12 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/post.component').then((m) => m.PostComponent),
   },
+  {
+    path: 'inscripcion',
+    loadComponent: () =>
+      import('./components/inscripcion.component').then(
+        (m) => m.InscripcionComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
