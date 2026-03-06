@@ -3,33 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'blog',
-    loadChildren: () =>
-      import('./modules/blog/blog.module').then((m) => m.BlogModule),
+    path: '',
+    loadComponent: () =>
+      import('./modules/home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path: 'sobre-nosotros',
-    loadChildren: () =>
-      import('./modules/sobre-nosotros/sobre-nosotros.module').then(
-        (m) => m.SobreNosotrosModule,
+    path: 'post/:id',
+    loadComponent: () =>
+      import('./modules/blog/components/post/post.component').then(
+        (m) => m.PostComponent
       ),
-  },
-  {
-    path: 'contacto',
-    loadChildren: () =>
-      import('./modules/contacto/contacto.module').then(
-        (m) => m.ContactoModule,
-      ),
-  },
-  {
-    path: '**',
-    redirectTo: '/blog',
-    pathMatch: 'full',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true, anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

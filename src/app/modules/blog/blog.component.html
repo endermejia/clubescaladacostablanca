@@ -1,48 +1,57 @@
 <section class="main-section">
-  <article>
-    <div class="row mt-3">
-      <div class="col-lg-6 d-flex align-items-center">
-        <div class="ps-lg-2">
-          <div class="mb-lg-5 mb-3 text-center">
-            <h2 class="fw-bold">{{ hazteSocio.title }}</h2>
-            <h3>{{ hazteSocio.description.title }}</h3>
-            <ng-container *ngFor="let paragraph of hazteSocio.description.paragraphs">
-              <p>{{ paragraph }}</p>
-            </ng-container>
-            <a
-              [href]="hazteSocio.link"
-              target="_blank"
-              class="btn btn-primary mt-3">
-              {{ hazteSocio.button }}
-            </a>
-          </div>
-          <p>
-          </p>
+  <!-- Hero / Call to Action section -->
+  <article class="hero-section mb-5 py-5 rounded-4 shadow-sm bg-white overflow-hidden">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 px-4 px-lg-5 py-4 text-center text-lg-start">
+        <h2 class="display-5 fw-bold text-gradient mb-3">{{ hazteSocio.title }}</h2>
+        <h3 class="h4 text-muted mb-4">{{ hazteSocio.description.title }}</h3>
+        <div class="lead mb-4">
+          @for (
+            paragraph of hazteSocio.description.paragraphs;
+            track paragraph
+          ) {
+            <p>{{ paragraph }}</p>
+          }
         </div>
+        <a
+          [href]="hazteSocio.link"
+          target="_blank"
+          class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow-sm"
+        >
+          {{ hazteSocio.button }}
+        </a>
       </div>
-      <div class="col-lg-6">
-        <img
-          width="100%"
-          [src]="hazteSocio.img"
-          [alt]="hazteSocio.title">
+      <div class="col-lg-6 position-relative" style="min-height: 400px;">
+        <img class="img-fluid rounded-start-4 shadow-sm" style="object-fit: cover;" fill [ngSrc]="hazteSocio.img" [alt]="hazteSocio.title" />
       </div>
     </div>
   </article>
-  <article>
-    <h2 class="text-center mb-5 fw-bold">{{ BLOG_INFO.title }}</h2>
-    <div class="row mt-3">
-      <ng-container *ngFor="let post of blogService.posts">
-        <div class="col-md-6 col-12 py-2">
-          <app-post-card
-            [postCard]="{
-            title: post.title,
-            img: {src: post.images[0]?.url ?? './assets/logo.webp'},
-            date: post?.published,
-            description: post.author.displayName,
-            id: post.id
-          }"></app-post-card>
+
+  <hr class="my-5" />
+
+  <!-- Novedades / Blog Section -->
+  <article class="mt-5">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold text-gradient">{{ BLOG_INFO.title }}</h2>
+      <p class="text-muted fs-5">Últimas noticias y aventuras</p>
+    </div>
+
+    <div class="row g-4 mt-3">
+      @for (post of blogService.posts(); track post) {
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden post-card-hover">
+            <app-post-card class="h-100 d-block"
+              [postCard]="{
+                title: post.title,
+                img: { src: post.images[0]?.url ?? 'assets/logo.webp' },
+                date: post?.published,
+                description: post.author.displayName,
+                id: post.id
+              }"
+            ></app-post-card>
+          </div>
         </div>
-      </ng-container>
+      }
     </div>
   </article>
 </section>

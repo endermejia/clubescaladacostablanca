@@ -1,36 +1,42 @@
-import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BlogService } from '../../blog.service';
 import { Post } from '../../../../models/blogger.model';
 import { Subscription } from 'rxjs';
 import { BLOG_INFO } from '../../blog.component';
+import { PostCardComponent } from '../item-card/post-card.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
+  imports: [RouterLink, PostCardComponent, DatePipe],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent implements OnDestroy {
   postId?: string;
-  subscriptions: Subscription[] = [
-    this.activatedRoute.params.subscribe((params) => {
-      this.postId = params['id'];
-      window.scrollTo(0, 0);
-    }),
-  ];
+  subscriptions: Subscription[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     protected blogService: BlogService,
   ) {
-    // window.scrollTo(0, 0);
-    if (!this.blogService.posts.some((post: Post) => post.id === this.postId)) {
-      this.subscriptions.push(
-        this.blogService.getPosts().subscribe((posts: Post[]) => {
-          this.blogService.posts = posts;
-        }),
-      );
-    }
+    this.subscriptions.push(
+      this.activatedRoute.params.subscribe((params) => {
+        this.postId = params['id'];
+
+        // Fetch posts if they aren't loaded or if the current post isn't found
+        if (!this.blogService.posts().some((post: Post) => post.id === this.postId)) {
+          this.subscriptions.push(
+            this.blogService.getPosts().subscribe((posts: Post[]) => {
+              this.blogService.posts.set(posts);
+            }),
+          );
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {

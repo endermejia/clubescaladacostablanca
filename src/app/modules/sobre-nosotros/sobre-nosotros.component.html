@@ -1,73 +1,97 @@
-<section class="main-section">
-  <article>
-    <div class="row flex-sm-row-reverse mt-lg-3">
-      <div class="col-lg-6 d-flex align-items-center">
-        <div class="ps-lg-2">
-          <div class="mb-lg-5 mb-3">
-            <h1 class="text-primary text-gradient fw-bold">
+<section class="main-section py-5">
+  <article class="bg-white p-4 p-lg-5 rounded-4 shadow-sm">
+    <div class="row flex-sm-row-reverse align-items-center mb-5 pb-4 border-bottom">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <div class="ps-lg-4">
+          <div class="mb-4">
+            <h1 class="display-5 text-gradient fw-bold mb-3">
               {{ about.title }}
             </h1>
-            <h3 class="fw-bold">
+            <h3 class="h4 text-muted fw-bold">
               {{ about.description.title }}
             </h3>
           </div>
-          <p *ngFor="let paragraph of about.description.paragraphs"
-             [innerHTML]="paragraph">
-          </p>
+          <div class="lead text-secondary">
+            @for (paragraph of about.description.paragraphs; track paragraph) {
+              <p [innerHTML]="paragraph"></p>
+            }
+          </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 mb-4 mb-lg-0">
         <lightgallery
           [settings]="GALLERY_SETTINGS"
           [onBeforeSlide]="onBeforeSlide"
+          class="d-block shadow rounded-4 overflow-hidden position-relative"
         >
           <a
             [attr.href]="about.img.src"
             [attr.data-sub-html]="about.img.subHtml"
+            class="d-block position-relative gallery-item"
+            style="min-height: 400px;"
           >
             <img
-              [src]="about.img.thumbnail"
+              class="img-fluid w-100"
+              style="object-fit: cover;"
+              fill
+              [ngSrc]="about.img.thumbnail"
               [alt]="about.title"
-              [style.max-width.%]="100"
             />
+            <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 opacity-0 transition-opacity">
+               <i class="bi-search text-white fs-1"></i>
+            </div>
           </a>
         </lightgallery>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-lg-6">
-        <div class="ps-lg-2">
-          <div class="mb-lg-5 mb-3">
-            <h2 class="fw-bold text-primary text-gradient">
+
+    <div class="row align-items-center mt-5">
+      <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+        <div class="text-center position-relative" style="min-height: 400px;">
+          <img
+            class="img-fluid rounded-4 shadow-sm"
+            [ngSrc]="about.description.img"
+            [alt]="about.description.title"
+            fill
+            style="object-fit: contain;"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="pe-lg-4">
+          <div class="mb-5 text-center text-lg-start">
+            <h2 class="display-6 fw-bold text-gradient">
               {{ about.directive.title }}
             </h2>
+            <p class="text-muted fs-5">Nuestro equipo</p>
           </div>
-          <ng-container *ngFor="let item of about.directive.members">
-            <div class="mb-5">
-              <app-item-card [item]="item"></app-item-card>
-            </div>
-          </ng-container>
+          <div class="row g-4">
+            @for (item of about.directive.members; track item) {
+              <div class="col-12">
+                <div class="card border-0 bg-light shadow-sm rounded-4 p-3 team-card">
+                  <app-item-card [item]="item"></app-item-card>
+                </div>
+              </div>
+            }
+          </div>
         </div>
       </div>
-      <div class="col-lg-6 d-flex align-items-center">
-        <img
-          width="100%"
-          [src]="about.description.img"
-          [alt]="about.description.title">
+    </div>
+
+    <div class="mt-5 pt-5 border-top">
+      <div class="mb-5 text-center">
+        <h2 class="display-6 fw-bold text-gradient">
+          {{ about.vowels.title }}
+        </h2>
       </div>
-      <div class="mt-5 ps-lg-2">
-        <div class="mb-lg-5 mb-3">
-          <h2 class="fw-bold text-primary text-gradient">
-            {{ about.vowels.title }}
-          </h2>
-        </div>
-        <div class="row">
-          <ng-container *ngFor="let item of about.vowels.members">
-            <div class="mb-5 col-lg-6">
+      <div class="row g-4 justify-content-center">
+        @for (item of about.vowels.members; track item) {
+          <div class="col-md-6 col-lg-4">
+            <div class="card border-0 bg-light shadow-sm rounded-4 p-3 h-100 team-card text-center">
               <app-item-card [item]="item"></app-item-card>
             </div>
-          </ng-container>
-        </div>
+          </div>
+        }
       </div>
     </div>
   </article>

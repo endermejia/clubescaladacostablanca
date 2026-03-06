@@ -1,35 +1,48 @@
-<ng-container *ngIf="item">
-  <div class="row">
-    <div class="col-6">
-      <div class="d-flex align-items-center justify-content-center">
+@if (item) {
+  <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start text-center text-sm-start h-100 w-100">
+    <div class="flex-shrink-0 mb-3 mb-sm-0 me-sm-4" style="width: 120px;">
+      <div class="ratio ratio-1x1 rounded-circle overflow-hidden shadow-sm border border-3 border-white">
         <lightgallery
           [settings]="GALLERY_SETTINGS"
           [onBeforeSlide]="onBeforeSlide"
+          class="h-100 w-100 d-block"
         >
           <a
             [attr.href]="item.img"
             [attr.data-sub-html]="'<h4>' + item.title + '</h4>'"
+            class="d-block h-100 w-100 position-relative"
           >
             <img
-              [src]="item.img"
+              [ngSrc]="item.img"
+              fill
               [alt]="item.title"
-              [style.max-width.%]="100"
+              class="w-100 h-100"
+              style="object-fit: cover;"
             />
           </a>
         </lightgallery>
       </div>
     </div>
-    <div class="col-6">
-      <h3 class="fw-bold">{{ item.title }}</h3>
-      <h5 [innerHTML]="item.description"></h5>
-      <h6>
-        {{ item.dateFrom | date: 'dd MMMM yyyy' }}
-        <span *ngIf="item.dateFrom && item.dateTo">-</span>
-        {{ item.dateTo === today ? 'Presente' : (item.dateTo | date: 'dd MMMM yyyy') }}
-      </h6>
-      <p *ngFor="let paragraph of item.paragraphs"
-         [innerHTML]="paragraph">
+    <div class="flex-grow-1">
+      <h3 class="h4 fw-bold text-dark mb-1">{{ item.title }}</h3>
+      <h5 class="h6 text-primary fw-semibold mb-2" [innerHTML]="item.description"></h5>
+      <p class="text-muted small mb-3">
+        <i class="bi-calendar3 me-1"></i>
+        {{ item.dateFrom | date: "MMMM yyyy" }}
+        @if (item.dateFrom && item.dateTo) {
+          <span> - </span>
+        }
+        {{
+          item.dateTo === today
+            ? "Presente"
+            : (item.dateTo | date: "MMMM yyyy")
+        }}
       </p>
+      <div class="text-secondary small">
+        @for (paragraph of item.paragraphs; track paragraph) {
+          <p class="mb-2" [innerHTML]="paragraph"></p>
+        }
+      </div>
     </div>
   </div>
-</ng-container>
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 interface ContactModel {
   title: string;
@@ -23,6 +23,8 @@ interface ContactFormModel {
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactoComponent {
   public readonly contact: ContactModel = {
@@ -44,7 +46,5 @@ export class ContactoComponent {
     sendButton: 'Enviar mensaje',
   };
 
-  constructor() {
-    window.scrollTo(0, 0);
-  }
+  constructor() {}
 }

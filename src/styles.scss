@@ -50,6 +50,58 @@ p {
   }
 }
 
+body {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.page-section {
+  display: block;
+  padding: 4rem 1rem;
+  min-height: 80vh;
+
+  @media (min-width: 768px) {
+    padding: 6rem 2rem;
+  }
+
+  > section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.post-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+}
+
+.hero-section {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.gallery-item {
+  .gallery-overlay {
+    transition: opacity 0.3s ease;
+  }
+  &:hover .gallery-overlay {
+    opacity: 1 !important;
+  }
+}
+
+.team-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08) !important;
+  }
+}
+
 .main-section {
   padding: 1rem;
   @media (min-width: 768px) {

@@ -1,10 +1,13 @@
 <section class="d-flex align-items-center justify-content-center m-2">
   <a routerLink="/">
     <img
-      src="./assets/header.webp"
+      ngSrc="assets/header.webp"
       alt="Club Escalada Costa Blanca"
-      width="100%"
+      width="560"
+      height="180"
+      priority
       [style.max-width.rem]="35"
+      style="height: auto; width: 100%;"
     />
   </a>
 </section>
@@ -14,23 +17,17 @@
     <div class="container justify-content-center">
       <ul class="navbar-nav navbar-expand fw-bold gap-lg-3 align-items-center">
         <li class="nav-item">
-          <a class="nav-link"
-             routerLinkActive="active"
-             routerLink="/blog">
+          <a class="nav-link" href="#blog">
             Blog
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
-             routerLinkActive="active"
-             routerLink="/sobre-nosotros">
+          <a class="nav-link" href="#sobre-nosotros">
             Sobre nosotros
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
-             routerLinkActive="active"
-             routerLink="/contacto">
+          <a class="nav-link" href="#contacto">
             Contacto
           </a>
         </li>
@@ -38,41 +35,52 @@
     </div>
   </nav>
 </header>
-<div class="container">
+<main>
   <router-outlet></router-outlet>
-</div>
+
+
+
+</main>
 <footer>
   <div class="col-12 text-center">
     <h3>Trabajamos en colaboración con:</h3>
     <a href="https://femecv.com" target="_blank">
       <img
-        src="./assets/femecv.png"
+        ngSrc="assets/femecv.png"
         alt="FEMECV"
+        width="300"
+        height="194"
         class="img-fluid"
-        style="max-width: 300px;">
+        style="max-width: 300px; height: auto;"
+      />
     </a>
   </div>
-  <section class="footer d-flex flex-column align-items-center justify-content-center mb-2">
+  <section
+    class="footer d-flex flex-column align-items-center justify-content-center mb-2"
+  >
     <div class="d-flex">
-      <ng-container *ngFor="let item of contact.items">
-        <a class="footer-icon"
-           href="{{item.link}}"
-           target="_blank"
-           title="{{item.name}}"
-           itemprop="significantLink">
-          <i class="bi-{{item.img}}"></i>
+      @for (item of contact.items; track item) {
+        <a
+          class="footer-icon"
+          href="{{ item.link }}"
+          target="_blank"
+          title="{{ item.name }}"
+          itemprop="significantLink"
+        >
+          <i class="bi-{{ item.img }}"></i>
         </a>
-      </ng-container>
+      }
     </div>
     <div class="d-flex justify-content-center">
-      <a routerLink="/"
-         class="footer-logo"
-         title="Club Escalada Costa Blanca">
-        <img src="./assets/header.webp"
-             alt="Club Escalada Costa Blanca"
-             width="100%"
-             [style.max-width.rem]="20"
-        >
+      <a routerLink="/" class="footer-logo" title="Club Escalada Costa Blanca">
+        <img
+          ngSrc="assets/header.webp"
+          alt="Club Escalada Costa Blanca"
+          width="320"
+          height="103"
+          [style.max-width.rem]="20"
+          style="height: auto; width: 100%;"
+        />
       </a>
     </div>
   </section>

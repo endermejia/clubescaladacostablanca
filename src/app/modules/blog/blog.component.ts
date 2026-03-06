@@ -1,7 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { BlogService } from './blog.service';
 import { Subscription } from 'rxjs';
+import { NgOptimizedImage } from '@angular/common';
 import { Post } from '../../models/blogger.model';
+import { PostCardComponent } from './components/item-card/post-card.component';
 
 export interface HazteSocioModel {
   title: string;
@@ -25,6 +27,9 @@ export const BLOG_INFO: BlogModel = {
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PostCardComponent, NgOptimizedImage],
 })
 export class BlogComponent implements OnDestroy {
   public readonly hazteSocio: HazteSocioModel = {
@@ -39,18 +44,17 @@ export class BlogComponent implements OnDestroy {
     },
     button: 'Acceder al formulario ❤',
     link: 'https://docs.google.com/forms/d/1LqRGAhFBM2Drh1osE3RsvVhZUTYPzs0-aiwtoTY66zE',
-    img: './assets/logo-antiguo.webp',
+    img: 'assets/logo-antiguo.webp',
   };
 
   public readonly BLOG_INFO = BLOG_INFO;
   subscription?: Subscription;
 
   constructor(protected blogService: BlogService) {
-    window.scrollTo(0, 0);
     this.subscription = this.blogService
       .getPosts()
       .subscribe((posts: Post[]) => {
-        this.blogService.posts = posts;
+        this.blogService.posts.set(posts);
       });
   }
 

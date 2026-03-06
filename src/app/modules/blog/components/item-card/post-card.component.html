@@ -1,30 +1,36 @@
-<ng-container *ngIf="postCard">
-  <div class="row">
-    <div class="col-3 d-flex align-items-center justify-content-center">
+@if (postCard) {
+  <div class="d-flex flex-column h-100">
+    <div class="position-relative overflow-hidden w-100" style="height: 200px;">
       <lightgallery
         [settings]="GALLERY_SETTINGS"
         [onBeforeSlide]="onBeforeSlide"
+        class="h-100 w-100 d-block"
       >
         <a
           [attr.href]="postCard.img.src"
           [attr.data-sub-html]="'<h4>' + postCard.title + '</h4>'"
+          class="d-block h-100 w-100 position-relative"
         >
           <img
-            [src]="postCard.img.src"
+            [ngSrc]="postCard.img.src"
+            fill
             [alt]="postCard.title"
-            [style.max-height.rem]="15"
-            [style.max-width.%]="100"
+            class="w-100 h-100"
+            style="object-fit: cover;"
           />
         </a>
       </lightgallery>
     </div>
-    <div class="col-9 cursor-pointer"
-         (click)="openPost()"
-    >
-      <h3 class="fw-bold">{{ postCard.title }}</h3>
-      <h5>
-        {{ postCard.date | date: 'dd MMMM yyyy' }}
-      </h5>
+    <div class="p-4 d-flex flex-column flex-grow-1 cursor-pointer bg-white" (click)="openPost()">
+      <div class="mb-2">
+        <span class="badge bg-light text-secondary text-uppercase mb-2">
+          {{ postCard.date | date: "dd MMMM yyyy" }}
+        </span>
+      </div>
+      <h3 class="h5 fw-bold mb-3 flex-grow-1 text-dark">{{ postCard.title }}</h3>
+      <div class="mt-auto pt-3 border-top text-primary fw-semibold d-flex align-items-center">
+        Leer más <i class="bi-arrow-right ms-2"></i>
+      </div>
     </div>
   </div>
-</ng-container>
+}

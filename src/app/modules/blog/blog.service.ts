@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -8,7 +8,7 @@ import { BlogData, Post } from '../../models/blogger.model';
   providedIn: 'root',
 })
 export class BlogService {
-  public posts: Post[] = [];
+  public posts = signal<Post[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -44,12 +44,14 @@ export class BlogService {
   }
 
   public getPreviousPostId(postId?: string): string | undefined {
-    const index = this.posts.findIndex((post) => post.id === postId);
-    return this.posts[index - 1]?.id;
+    const posts = this.posts();
+    const index = posts.findIndex((post) => post.id === postId);
+    return posts[index - 1]?.id;
   }
 
   public getNextPostId(postId?: string): string | undefined {
-    const index = this.posts.findIndex((post) => post.id === postId);
-    return this.posts[index + 1]?.id;
+    const posts = this.posts();
+    const index = posts.findIndex((post) => post.id === postId);
+    return posts[index + 1]?.id;
   }
 }

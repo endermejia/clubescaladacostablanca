@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { GALLERY_SETTINGS, onBeforeSlide } from '../../../../models/gallery';
 import { Router } from '@angular/router';
+import { LightgalleryModule } from 'lightgallery/angular';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 
 export interface PostCardModel {
   title: string;
@@ -16,6 +18,9 @@ export interface PostCardModel {
 @Component({
   selector: 'app-post-card',
   templateUrl: './post-card.component.html',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [LightgalleryModule, DatePipe, NgOptimizedImage],
 })
 export class PostCardComponent {
   @Input() public postCard: PostCardModel | undefined;
@@ -27,7 +32,7 @@ export class PostCardComponent {
 
   openPost(): void {
     if (this.postCard?.id) {
-      this.router.navigate(['blog', 'post', this.postCard.id]);
+      this.router.navigate(['post', this.postCard.id]);
     }
   }
 }

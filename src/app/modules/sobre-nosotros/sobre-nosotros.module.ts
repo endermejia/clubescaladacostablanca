@@ -7,12 +7,14 @@ import { ItemCardComponent } from './components/item-card/item-card.component';
 import { LightgalleryModule } from 'lightgallery/angular';
 
 @NgModule({
-  declarations: [SobreNosotrosComponent, ItemCardComponent],
   imports: [
     CommonModule,
     SobreNosotrosRoutingModule,
     NgOptimizedImage,
     LightgalleryModule,
+    SobreNosotrosComponent,
+    ItemCardComponent,
   ],
+  exports: [SobreNosotrosComponent],
 })
 export class SobreNosotrosModule {}
