@@ -1,0 +1,6 @@
+
+> club-escalada-costa-blanca@0.0.0 start
+> ng serve
+
+An unhandled exception occurred: Port 4200 is already in use. Use '--port' to specify a different port.
+See "/tmp/ng-uqfGsw/angular-errors.log" for further details.

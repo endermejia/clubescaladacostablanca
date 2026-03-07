@@ -1,0 +1,800 @@
+
+> club-escalada-costa-blanca@0.0.0 start
+> ng serve
+
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files   | Names         |  Raw size
+vendor.js             | vendor        |   3.40 MB |
+styles.css, styles.js | styles        | 742.16 kB |
+polyfills.js          | polyfills     | 244.53 kB |
+main.js               | main          |  87.87 kB |
+scripts.js            | scripts       |  60.62 kB |
+runtime.js            | runtime       |   6.95 kB |
+
+                      | Initial total |   4.54 MB
+
+Build at: 2026-03-06T07:44:22.651Z - Hash: d40dd89c417cbd58 - Time: 11705ms
+
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 87.92 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T07:53:15.375Z - Hash: aa2dfe930b7bf8bb - Time: 1378ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+runtime.js          | runtime |  6.95 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T07:53:24.636Z - Hash: 7a6cb94b231d64a3 - Time: 6326ms
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 4, column 8 of file:///app/src/styles.scss:4:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+4 | @import 'bootstrap/scss/bootstrap';
+
+
+src/styles.scss 5:9  root stylesheet
+
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 9, column 8 of file:///app/src/styles.scss:9:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+9 | @import 'lightgallery/scss/lightgallery';
+
+
+src/styles.scss 10:9  root stylesheet
+
+
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 88.87 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T07:54:51.871Z - Hash: 6d19e3a255f52ad4 - Time: 850ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+runtime.js          | runtime |  6.95 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T07:55:18.827Z - Hash: 0dcee72ba03be2db - Time: 4295ms
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 4, column 8 of file:///app/src/styles.scss:4:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+4 | @import 'bootstrap/scss/bootstrap';
+
+
+src/styles.scss 5:9  root stylesheet
+
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 9, column 8 of file:///app/src/styles.scss:9:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+9 | @import 'lightgallery/scss/lightgallery';
+
+
+src/styles.scss 10:9  root stylesheet
+
+
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 90.61 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T07:55:52.420Z - Hash: 135d2c859915ad6d - Time: 987ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+runtime.js          | runtime |  6.95 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T07:55:58.538Z - Hash: 8af1a9874bc71cbf - Time: 2239ms
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 4, column 8 of file:///app/src/styles.scss:4:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+4 | @import 'bootstrap/scss/bootstrap';
+
+
+src/styles.scss 5:9  root stylesheet
+
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 9, column 8 of file:///app/src/styles.scss:9:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+9 | @import 'lightgallery/scss/lightgallery';
+
+
+src/styles.scss 10:9  root stylesheet
+
+
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 93.26 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T07:56:38.684Z - Hash: 3b28b71ee9020b39 - Time: 899ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 93.93 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T07:58:34.271Z - Hash: cc37bdcf7c15a9c8 - Time: 923ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 94.58 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T07:59:05.199Z - Hash: 5a026b265695c2a5 - Time: 669ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 94.64 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:04:18.553Z - Hash: 1926221ce89c9c68 - Time: 771ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.09 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:04:39.737Z - Hash: dc0dbaffbd07bee6 - Time: 706ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.28 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:05:00.189Z - Hash: b20b5b86a5905a2d - Time: 1049ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.28 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:05:36.004Z - Hash: 103efa57e76ea806 - Time: 955ms
+
+Warning: [96msrc/app/modules/blog/blog.component.ts[0m:[93m30[0m:[93m32[0m - [93mwarning[0m[90m NG8113: [0mNgOptimizedImage is not used within the template of BlogComponent
+
+[7m30[0m   imports: [PostCardComponent, NgOptimizedImage],
+[7m  [0m [93m                               ~~~~~~~~~~~~~~~~[0m
+
+
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.42 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:08:15.335Z - Hash: 4c35b9803e329df5 - Time: 738ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.42 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:10:49.530Z - Hash: b623ec0dbbf0f698 - Time: 870ms
+
+Warning: [96msrc/app/modules/blog/components/item-card/post-card.component.ts[0m:[93m21[0m:[93m43[0m - [93mwarning[0m[90m NG8113: [0mNgOptimizedImage is not used within the template of PostCardComponent
+
+[7m21[0m   imports: [LightgalleryModule, DatePipe, NgOptimizedImage],
+[7m  [0m [93m                                          ~~~~~~~~~~~~~~~~[0m
+
+
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.58 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:10:54.462Z - Hash: 2acc101e193db30b - Time: 516ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.58 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:11:50.275Z - Hash: e587302e9d183375 - Time: 1365ms
+
+Warning: [96msrc/app/modules/sobre-nosotros/sobre-nosotros.component.ts[0m:[93m35[0m:[93m52[0m - [93mwarning[0m[90m NG8113: [0mNgOptimizedImage is not used within the template of SobreNosotrosComponent
+
+[7m35[0m   imports: [LightgalleryModule, ItemCardComponent, NgOptimizedImage],
+[7m  [0m [93m                                                   ~~~~~~~~~~~~~~~~[0m
+
+
+
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.75 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:12:44.836Z - Hash: 30a85dc218a28ee2 - Time: 693ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.73 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:13:24.870Z - Hash: 5c456bca76f84963 - Time: 737ms
+
+Error: [96msrc/app/modules/sobre-nosotros/components/item-card/item-card.component.html[0m:[93m16[0m:[93m15[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'ngSrc' since it isn't a known property of 'img'.
+
+[7m16[0m               [ngSrc]="item.img"
+[7m  [0m [91m              ~~~~~~~~~~~~~~~~~~[0m
+
+  [96msrc/app/modules/sobre-nosotros/components/item-card/item-card.component.ts[0m:[93m17[0m:[93m16[0m
+    [7m17[0m   templateUrl: './item-card.component.html',
+    [7m  [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ItemCardComponent.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.91 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:13:46.568Z - Hash: 863c1c6c7a45ce64 - Time: 1734ms
+
+✔ Compiled successfully.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names     |  Raw size
+polyfills.js        | polyfills | 128.76 kB |
+runtime.js          | runtime   |   6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:37:50.644Z - Hash: 953b7bb1bc263a23 - Time: 3865ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+runtime.js          | runtime |  6.95 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T08:37:55.114Z - Hash: 8423d2fa4649a7e6 - Time: 4389ms
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 4, column 8 of file:///app/src/styles.scss:4:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+4 | @import 'bootstrap/scss/bootstrap';
+
+
+src/styles.scss 5:9  root stylesheet
+
+
+./src/styles.scss - Warning: Module Warning (from ./node_modules/sass-loader/dist/cjs.js):
+Deprecation Warning on line 9, column 8 of file:///app/src/styles.scss:9:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+9 | @import 'lightgallery/scss/lightgallery';
+
+
+src/styles.scss 10:9  root stylesheet
+
+
+
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.85 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:41:51.255Z - Hash: 7552cbf192ced7ba - Time: 1143ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 95.83 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:41:52.998Z - Hash: faa29d3accd0b469 - Time: 1209ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 94.86 kB |
+runtime.js          | runtime |  6.95 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:46:42.968Z - Hash: af4e66a85a8fde14 - Time: 641ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                       | Names                       | Raw size
+main.js                                   | main                        | 95.18 kB |
+runtime.js                                | runtime                     | 13.19 kB |
+
+Lazy chunk files                          | Names                       | Raw size
+src_app_modules_home_home_component_ts.js | modules-home-home-component |  2.76 kB |
+
+4 unchanged chunks
+
+Build at: 2026-03-06T08:47:18.126Z - Hash: 265fcddb3089b3cf - Time: 1006ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 94.24 kB |
+runtime.js          | runtime | 13.19 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T08:47:55.394Z - Hash: 1676528427447213 - Time: 559ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m24[0m:[93m18[0m - [91merror[0m[90m NG6008: [0mComponent AppComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead?
+
+[7m24[0m   declarations: [AppComponent],
+[7m  [0m [91m                 ~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 94.27 kB |
+runtime.js          | runtime | 13.19 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T08:49:42.045Z - Hash: 1bd35ce47fe52de0 - Time: 789ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m24[0m:[93m18[0m - [91merror[0m[90m NG6008: [0mComponent AppComponent is standalone, and cannot be declared in an NgModule. Did you mean to import it instead?
+
+[7m24[0m   declarations: [AppComponent],
+[7m  [0m [91m                 ~~~~~~~~~~~~[0m
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files | Names   | Raw size
+main.js             | main    | 94.27 kB |
+runtime.js          | runtime | 13.19 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T08:50:55.304Z - Hash: ac70cf1fe1867598 - Time: 700ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m25[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m25[0m   bootstrap: [AppComponent],
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m23[0m:[93m1[0m
+    [7m 23[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 24[0m   declarations: [],
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 43[0m })
+    [7m   [0m [96m~~[0m
+    [7m 44[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                                       | Names                                       |  Raw size
+vendor.js                                                 | vendor                                      |   2.15 MB |
+main.js                                                   | main                                        |  13.88 kB |
+runtime.js                                                | runtime                                     |  13.19 kB |
+
+Lazy chunk files                                          | Names                                       |  Raw size
+default-src_app_modules_blog_blog_component_ts.js         | modules-home-home-component                 | 163.77 kB |
+src_app_modules_home_home_component_ts.js                 | modules-home-home-component                 |  37.03 kB |
+src_app_modules_blog_components_post_post_component_ts.js | modules-blog-components-post-post-component |  10.09 kB |
+
+3 unchanged chunks
+
+Build at: 2026-03-06T08:50:57.161Z - Hash: 2ae989d1fb55935e - Time: 989ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                                       | Names                                       | Raw size
+main.js                                                   | main                                        | 13.88 kB |
+runtime.js                                                | runtime                                     | 13.19 kB |
+
+Lazy chunk files                                          | Names                                       | Raw size
+src_app_modules_blog_components_post_post_component_ts.js | modules-blog-components-post-post-component | 10.18 kB |
+
+6 unchanged chunks
+
+Build at: 2026-03-06T08:52:57.221Z - Hash: 34633556559c57ab - Time: 674ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                                       | Names                                       |  Raw size
+runtime.js                                                | runtime                                     |  13.19 kB |
+
+Lazy chunk files                                          | Names                                       |  Raw size
+default-src_app_modules_blog_blog_component_ts.js         | modules-home-home-component                 | 163.77 kB |
+src_app_modules_home_home_component_ts.js                 | modules-home-home-component                 |  37.03 kB |
+src_app_modules_blog_components_post_post_component_ts.js | modules-blog-components-post-post-component |  10.18 kB |
+
+5 unchanged chunks
+
+Build at: 2026-03-06T08:55:24.626Z - Hash: 618516f78b6ebbe4 - Time: 722ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                               | Names                       |  Raw size
+runtime.js                                        | runtime                     |  13.19 kB |
+
+Lazy chunk files                                  | Names                       |  Raw size
+default-src_app_modules_blog_blog_component_ts.js | modules-home-home-component | 163.79 kB |
+
+7 unchanged chunks
+
+Build at: 2026-03-06T08:56:38.543Z - Hash: 604b86fc48cf3a7f - Time: 797ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                       | Names                       | Raw size
+runtime.js                                | runtime                     | 13.19 kB |
+
+Lazy chunk files                          | Names                       | Raw size
+src_app_modules_home_home_component_ts.js | modules-home-home-component | 37.03 kB |
+
+7 unchanged chunks
+
+Build at: 2026-03-06T08:57:54.636Z - Hash: e9a3ed9679195e0d - Time: 639ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                       | Names                       | Raw size
+runtime.js                                | runtime                     | 13.19 kB |
+
+Lazy chunk files                          | Names                       | Raw size
+src_app_modules_home_home_component_ts.js | modules-home-home-component | 37.06 kB |
+
+7 unchanged chunks
+
+Build at: 2026-03-06T08:59:07.772Z - Hash: 240f16e46a6dce98 - Time: 725ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.
+[32m✔[39m Browser application bundle generation complete.
+
+Initial chunk files                       | Names                       | Raw size
+runtime.js                                | runtime                     | 13.19 kB |
+
+Lazy chunk files                          | Names                       | Raw size
+src_app_modules_home_home_component_ts.js | modules-home-home-component | 37.06 kB |
+
+7 unchanged chunks
+
+Build at: 2026-03-06T09:00:31.454Z - Hash: b5ce39faf90af1fd - Time: 723ms
+
+Error: Module not found: Error: Can't resolve 'zone.js' in '/app'
+
+Error: [96msrc/app/app.module.ts[0m:[93m33[0m:[93m15[0m - [91merror[0m[90m NG6009: [0mThe `AppComponent` class is a standalone component, which can not be used in the `@NgModule.bootstrap` array. Use the `bootstrapApplication` function for bootstrap instead.
+
+[7m33[0m   bootstrap: [AppComponent]
+[7m  [0m [91m              ~~~~~~~~~~~~[0m
+
+  [96msrc/app/app.module.ts[0m:[93m19[0m:[93m1[0m
+    [7m 19[0m @NgModule({
+    [7m   [0m [96m~~~~~~~~~~~[0m
+    [7m 20[0m   imports: [
+    [7m   [0m [96m~~~~~~~~~~~~[0m
+    [7m...[0m
+    [7m 34[0m })
+    [7m   [0m [96m~~[0m
+    [7m 35[0m export class AppModule {}
+    [7m   [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    The 'bootstrap' array is present on this NgModule.
+
+
+
+
+✖ Failed to compile.

@@ -1,96 +1,534 @@
-/* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use "@angular/material" as mat;
 
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
-//bootstap icons
-@import 'bootstrap-icons/font/bootstrap-icons.css';
+/* Importing Bootstrap Icons. */
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
-@import 'lightgallery/scss/lightgallery';
+/* Lightgallery for image preview */
 
-$angle: 150deg;
-$primary-color: #202020;
-$secondary-color: #2c2c2c;
+/* ============================================================
+   DESIGN SYSTEM — Variables
+   ============================================================ */
 
-.btn {
-  border: none !important;
-  background: linear-gradient(
-      $angle,
-      $primary-color,
-      $secondary-color
-  );
+/* Brand Colors */
+$primary: #1e73be; /* Vivid Sky Blue — buttons, headings, links */
+$primary-dark: #0e4a82; /* Deep Blue — footer background */
+$secondary: #f39c12; /* Sunset Orange — accents, hover, badges */
+$secondary-dark: #d68910; /* Darker Orange — for pressed states */
 
-  transition: all 0.3s ease-in-out;
+/* Neutrals */
+$dark: #0f172a; /* Midnight Slate — body text, icons */
+$gray-muted: #64748b; /* Slate Gray — subtitles, placeholders */
+$light: #f8fafc; /* Soft Ash — global background */
+$surface: #f1f5f9; /* Light Surface — alternate section bg */
 
-  &:hover {
-    opacity: 0.8;
+/* Utility */
+$white: #ffffff;
+$glass: rgba(255, 255, 255, 0.7);
+$glass-thin: rgba(255, 255, 255, 0.08);
+
+/* Transitions */
+$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+/* Fix Bootstrap grey override for secondary text */
+.text-secondary {
+  color: $secondary !important;
+}
+
+/* Typography */
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: $light;
+  color: $dark;
+  line-height: 1.6;
+}
+
+/* Global Constraints */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Prevent main content rows from causing horizontal scroll */
+main {
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Header */
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.9); /* Slightly more solid */
+  transition: $transition;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.8rem 0;
+  z-index: 1050; /* Ensure it stays on top */
+
+  &.scrolled {
+    padding: 0.5rem 0;
+    background: white; /* Solid white on scroll for better contrast */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 1199px) {
+    background: white; /* Solid on mobile/tablet for reliability */
+    padding: 0.5rem 0;
   }
 }
 
-a {
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
+/* Language Switcher */
+.lang-switcher {
+  display: flex;
+  padding: 0.2rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 99px;
 
-  &:hover {
-    opacity: 0.5;
+  .lang-btn {
+    background: transparent;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 99px;
+    font-size: 1.1rem;
+    filter: grayscale(1);
+    opacity: 0.6;
+    transition: $transition;
+    line-height: 1;
+
+    &:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    &.active {
+      filter: grayscale(0);
+      opacity: 1;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
   }
-
-  &[type="button"] {
-    @extend .text-gradient;
-  }
-
-}
-
-p {
-  font-size: 1.3rem;
-  @media (min-width: 768px) {
-    text-align: justify;
-  }
-}
-
-.main-section {
-  padding: 1rem;
-  @media (min-width: 768px) {
-    padding: 2rem;
-  }
-}
-
-.footer-icon {
-  @extend .text-gradient;
-  margin: 0 0.5em 0 0.5rem;
-  font-size: 2.5rem;
-}
-
-.text-gradient {
-  background: -webkit-linear-gradient(
-      $angle,
-      $primary-color,
-      $secondary-color
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
 }
 
 .nav-link {
+  font-weight: 600;
+  color: $dark !important;
   text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  margin: 0 0.5rem;
+  position: relative;
+  transition: $transition;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 8px;
+    right: 8px;
+    height: 3px;
+    background: $secondary; /* Solid Orange Underline */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after,
+  &.active::after {
+    transform: scaleX(1);
+  }
+
+  &:hover {
+    color: $secondary !important; /* Orange hover for header links */
+  }
 }
 
-.nav-link.active {
-  border-image-source: linear-gradient(
-      $angle,
-      $primary-color,
-      $secondary-color
-  );
-  border-image-slice: 1;
-  border-bottom: 5px solid transparent;
+/* Hero Section Enhancement */
+.hero-wrapper {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+      url("/assets/hero_climber_alt.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: scale(1.05); /* Slight scale for movement effect */
+    transition: transform 10s ease-out;
+  }
+
+  &:hover .hero-bg {
+    transform: scale(1);
+  }
+
+  .hero-content {
+    max-width: 900px;
+    padding: 3.5rem 2.5rem;
+    animation: fadeInUp 1.2s ease-out;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    background: $glass-thin; /* Minimalist glass overlay */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+
+      span {
+        color: #ffffff !important; /* High contrast White */
+        background: $secondary; /* Solid Sunset Orange background */
+        padding: 0.1rem 0.8em;
+        border-radius: 0.8rem;
+        display: inline-block;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        text-shadow: none;
+        margin-left: 0.4rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: none;
+      }
+    }
+
+    p {
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      font-weight: 600;
+      color: #fff !important;
+      margin-inline: auto;
+      max-width: 750px;
+      line-height: 1.4;
+    }
+  }
 }
 
-.form-control {
-  margin-bottom: 1rem;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.cursor-pointer {
-  cursor: pointer;
+/* Extra posts animation on @defer load */
+.extra-posts-grid {
+  .post-card-animated {
+    animation: fadeInUp 0.5s ease-out both;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{($i - 1) * 0.1}s;
+      }
+    }
+  }
+}
+
+/* Premium Buttons */
+.btn-premium {
+  padding: 0.75rem 2rem;
+  border-radius: 99px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  border: 2px solid $primary;
+  background: $primary; /* Solid Blue */
+  color: white !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: $secondary; /* Shift to Orange on hover */
+    border-color: $secondary;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    color: white !important;
+  }
+}
+
+.btn-secondary-brand {
+  @extend .btn-premium;
+  background: $secondary;
+  border-color: $secondary;
+
+  &:hover {
+    background: $primary;
+    border-color: $primary;
+  }
+}
+
+.btn-outline-premium {
+  @extend .btn-premium;
+  background: transparent;
+  border: 2px solid $primary;
+  color: $primary !important;
+  box-shadow: none;
+
+  &:hover {
+    background: $secondary; /* Orange on hover */
+    border-color: $secondary;
+    color: white !important;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn-outline-white {
+  @extend .btn-premium;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  box-shadow: none;
+
+  &:hover {
+    background: $secondary; /* Orange on hover */
+    color: white !important;
+    border-color: $secondary;
+    filter: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Page Section & Grid */
+.page-section {
+  display: block;
+  padding: 6rem 0;
+  overflow-x: clip; /* clip horizontal only — allows vertical shadows to show */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
+  &:nth-of-type(odd) {
+    background-color: $surface;
+  }
+
+  &:nth-of-type(even) {
+    background-color: white;
+  }
+
+  &.bg-alt {
+    background-color: white;
+  }
+
+  .section-title {
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+
+    h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: $primary;
+      filter: none;
+    }
+
+    p {
+      color: $gray-muted;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 5px;
+      background: $secondary; /* Solid orange bar */
+      margin: 0 auto;
+      border-radius: 99px;
+    }
+  }
+}
+
+/* Header & Navigation Fixes */
+.navbar-brand {
+  img {
+    height: 40px;
+    @media (max-width: 1199px) {
+      padding: 0.4rem 0;
+      min-height: 56px;
+    }
+    @media (min-width: 768px) {
+      height: 50px;
+    }
+  }
+
+  span {
+    font-size: 0.85rem;
+    line-height: 1.1;
+    white-space: nowrap; /* Prevent wrapping which might push icons out */
+    font-weight: 800;
+
+    .text-secondary {
+      color: $secondary !important; /* Brand orange, consistent with theme */
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+  }
+}
+.card-modern {
+  border: 2px solid transparent;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-color: $secondary; /* Orange border on hover */
+  }
+}
+
+/* Footer Styling */
+footer {
+  background: $primary-dark; /* Deep variant of primary blue */
+  color: rgba(255, 255, 255, 0.9);
+  padding: 5rem 0 2rem;
+  border-top: 4px solid $secondary; /* Orange accent line connecting to the rest of the app */
+
+  h5 {
+    color: white;
+    font-weight: 700;
+  }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 400;
+
+    &:hover {
+      color: $secondary; /* Orange on hover — consistent */
+    }
+  }
+
+  .social-icons {
+    font-size: 1.8rem;
+    gap: 1.5rem;
+
+    a {
+      transition: $transition;
+      color: rgba(255, 255, 255, 0.8);
+
+      &:hover {
+        color: $secondary; /* Orange hover */
+        transform: scale(1.15);
+      }
+    }
+  }
+
+  hr {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  p.text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+}
+
+/* Utilities */
+.text-justify {
+  text-align: justify;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.breadcrumb-item {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  a {
+    transition: color 0.3s;
+    &:hover {
+      color: $secondary !important;
+    }
+  }
 }
