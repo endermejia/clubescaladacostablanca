@@ -102,6 +102,7 @@
         "NOMBRE_CLUB": "Origin club name",
         "SUBIR_LICENCIA": "Upload your current license image",
         "TIPO_LICENCIA": "License type",
+        "INFO_FEDME": "FEDME Enabling: If you participate in FEDME competitions and activities or use mountain huts with a discount.",
         "VER_TARIFAS": "View all rates and modalities 2026 (PDF)",
         "FORMATO_LICENCIA": "License format",
         "FORMATO": {
@@ -112,6 +113,11 @@
         "WHATSAPP_CHECK": "I want to join the WhatsApp group C.E.C.B. MEMBERS 2026",
         "WHATSAPP_INFO": "You will be added to the 'Information' group by default.",
         "PRIVACIDAD_CHECK": "I accept the privacy policy and data processing",
+        "ERROR": {
+            "REQUERIDO": "This field is required",
+            "EMAIL": "Invalid email",
+            "PRIVACIDAD": "You must accept the privacy policy"
+        },
         "ERROR_PRIVACIDAD": "You must accept the privacy policy",
         "RESUMEN_DATOS": "Registration Summary",
         "SITUACION_RESUMEN": "Situation",
@@ -145,10 +151,10 @@
             "INFANTIL_FAM": "Child Family",
             "INFANTIL_FAM_FEDME": "Child Family FEDME Enabled",
             "AUTONOMICA": { "TITULO": "Autonomous", "DESC": "Basic regional license" },
-            "MOD_A": { "TITULO": "Modality A", "DESC": "Spain coverage (Recommended)" },
+            "MOD_A": { "TITULO": "Modality A", "DESC": "National Coverage" },
             "MOD_A_FAM": { "TITULO": "Modality A Family", "DESC": "Discount applied if parent is also licensed" },
             "MOD_B": { "TITULO": "Modality B", "DESC": "Spain, French Pyrenees, Andorra and Portugal" },
-            "MOD_C": { "TITULO": "Modality C", "DESC": "World (Up to 7000 meters)" }
+            "MOD_C": { "TITULO": "Modality C", "DESC": "Worldwide Coverage" }
         }
     }
 }

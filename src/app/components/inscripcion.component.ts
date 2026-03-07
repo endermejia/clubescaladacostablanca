@@ -191,9 +191,9 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
       <mat-card class="p-4">
         <h2 class="text-center mb-4">{{ 'INSCRIPCION.TITULO' | translate }}</h2>
 
-        <mat-stepper [orientation]="(stepperOrientation$ | async)!" #stepper>
+        <mat-stepper [orientation]="(stepperOrientation$ | async)!" #stepper (selectionChange)="onStepChange($event)">
           <!-- PASO 1: DATOS PERSONALES -->
-          <mat-step [stepControl]="personalDataForm">
+          <mat-step [stepControl]="personalDataForm" [errorMessage]="'INSCRIPCION.ERROR.REQUERIDO' | translate">
             <form [formGroup]="personalDataForm">
               <ng-template matStepLabel>{{ 'INSCRIPCION.PASO1.TITULO' | translate }}</ng-template>
 
@@ -202,12 +202,18 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.NOMBRE' | translate }}</mat-label>
                     <input matInput formControlName="nombre" required>
+                    @if (personalDataForm.get('nombre')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.APELLIDOS' | translate }}</mat-label>
                     <input matInput formControlName="apellidos" required>
+                    @if (personalDataForm.get('apellidos')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
               </div>
@@ -220,6 +226,9 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                       <mat-option value="Mujer">{{ 'INSCRIPCION.MUJER' | translate }}</mat-option>
                       <mat-option value="Hombre">{{ 'INSCRIPCION.HOMBRE' | translate }}</mat-option>
                     </mat-select>
+                    @if (personalDataForm.get('genero')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
@@ -228,12 +237,18 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                     <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
+                    @if (personalDataForm.get('fechaNacimiento')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.DNI' | translate }}</mat-label>
                     <input matInput formControlName="dni" required>
+                    @if (personalDataForm.get('dni')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
               </div>
@@ -243,12 +258,18 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.DOMICILIO' | translate }}</mat-label>
                     <input matInput formControlName="domicilio" required>
+                    @if (personalDataForm.get('domicilio')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
                 <div class="col-md-4">
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.CP' | translate }}</mat-label>
                     <input matInput formControlName="cp" required>
+                    @if (personalDataForm.get('cp')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
               </div>
@@ -258,12 +279,18 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.POBLACION' | translate }}</mat-label>
                     <input matInput formControlName="poblacion" required>
+                    @if (personalDataForm.get('poblacion')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.PROVINCIA' | translate }}</mat-label>
                     <input matInput formControlName="provincia" required>
+                    @if (personalDataForm.get('provincia')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
               </div>
@@ -273,12 +300,21 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.EMAIL' | translate }}</mat-label>
                     <input matInput type="email" formControlName="email" required>
+                    @if (personalDataForm.get('email')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
+                    @if (personalDataForm.get('email')?.hasError('email')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.EMAIL' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.TELEFONO' | translate }}</mat-label>
                     <input matInput type="tel" formControlName="telefono" required>
+                    @if (personalDataForm.get('telefono')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
                 </div>
               </div>
@@ -290,7 +326,7 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
           </mat-step>
 
           <!-- PASO 2: MODALIDAD Y LICENCIA -->
-          <mat-step [stepControl]="licenciaForm">
+          <mat-step [stepControl]="licenciaForm" [errorMessage]="'INSCRIPCION.ERROR.REQUERIDO' | translate">
             <form [formGroup]="licenciaForm">
               <ng-template matStepLabel>{{ 'INSCRIPCION.PASO2.TITULO' | translate }}</ng-template>
 
@@ -311,6 +347,9 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                     <mat-form-field appearance="outline" class="w-100">
                       <mat-label>{{ 'INSCRIPCION.NOMBRE_CLUB' | translate }}</mat-label>
                       <input matInput formControlName="nombreClub">
+                      @if (licenciaForm.get('nombreClub')?.hasError('required')) {
+                        <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                      }
                     </mat-form-field>
                   </div>
                   <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -331,8 +370,11 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'INSCRIPCION.TIPO_LICENCIA' | translate }}</mat-label>
                     <mat-select formControlName="licenciaElegida">
+                      <mat-select-trigger>
+                        {{ getLicenciaName(licenciaForm.get('licenciaElegida')?.value) }}
+                      </mat-select-trigger>
                       @for (modalidad of tarifas; track modalidad.id) {
-                        <mat-optgroup [label]="modalidad.nombre | translate" [class]="'mod-' + modalidad.id">
+                        <mat-optgroup [label]="(modalidad.nombre | translate) + ' - ' + (modalidad.descripcion | translate)" [class]="'mod-' + modalidad.id">
                           @for (cat of modalidad.categorias; track cat.categoria) {
                             <ng-container>
                               <mat-option disabled class="category-divider" [class]="'mod-' + modalidad.id">
@@ -348,7 +390,15 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                         </mat-optgroup>
                       }
                     </mat-select>
+                    @if (licenciaForm.get('licenciaElegida')?.hasError('required')) {
+                      <mat-error>{{ 'INSCRIPCION.ERROR.REQUERIDO' | translate }}</mat-error>
+                    }
                   </mat-form-field>
+
+                  <div class="alert alert-info py-2 px-3 small mb-3">
+                    <i class="bi bi-info-circle me-2"></i>
+                    {{ 'INSCRIPCION.INFO_FEDME' | translate }}
+                  </div>
 
                   <div class="mb-4">
                     <label class="d-block mb-2"><strong>{{ 'INSCRIPCION.FORMATO_LICENCIA' | translate }}</strong></label>
@@ -378,7 +428,7 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
           </mat-step>
 
           <!-- PASO 3: COMUNICACIONES Y PRIVACIDAD -->
-          <mat-step [stepControl]="privacyForm">
+          <mat-step [stepControl]="privacyForm" [errorMessage]="'INSCRIPCION.ERROR.REQUERIDO' | translate">
             <form [formGroup]="privacyForm">
               <ng-template matStepLabel>{{ 'INSCRIPCION.PASO3.TITULO' | translate }}</ng-template>
 
@@ -395,9 +445,7 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                   {{ 'INSCRIPCION.PRIVACIDAD_CHECK' | translate }} *
                 </mat-checkbox>
                 @if (privacyForm.get('aceptarPrivacidad')?.touched && privacyForm.get('aceptarPrivacidad')?.invalid) {
-                  <div class="text-danger small ms-4">
-                    {{ 'INSCRIPCION.ERROR_PRIVACIDAD' | translate }}
-                  </div>
+                  <mat-error class="ms-4 small d-block mt-1">{{ 'INSCRIPCION.ERROR.PRIVACIDAD' | translate }}</mat-error>
                 }
               </div>
 
@@ -476,6 +524,13 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
     </div>
   `,
   styles: [`
+    :host ::ng-deep .mat-step-header.mat-accent .mat-step-icon-invalid {
+      background-color: #f44336;
+      color: #fff;
+    }
+    :host ::ng-deep .mat-step-header.mat-accent .mat-step-label-invalid {
+      color: #f44336;
+    }
     .fw-mono { font-family: 'Courier New', Courier, monospace; }
     mat-stepper { background: transparent; }
     .optgroup-subtitle { margin-top: -8px; margin-bottom: 4px; }
@@ -536,11 +591,16 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
       pointer-events: none;
       border-bottom: 1px solid #eee;
     }
+
+    mat-form-field {
+      margin-bottom: 16px;
+    }
   `]
 })
 export class InscripcionComponent implements OnInit {
   private fb = inject(FormBuilder);
   private breakpointObserver = inject(BreakpointObserver);
+  private translate = inject(TranslateService);
 
   personalDataForm!: FormGroup;
   licenciaForm!: FormGroup;
@@ -560,6 +620,29 @@ export class InscripcionComponent implements OnInit {
 
   ngOnInit() {
     this.initForms();
+  }
+
+  onStepChange(event: any) {
+    const prevIndex = event.previouslySelectedIndex;
+    let formToValidate: FormGroup | null = null;
+
+    if (prevIndex === 0) formToValidate = this.personalDataForm;
+    else if (prevIndex === 1) formToValidate = this.licenciaForm;
+    else if (prevIndex === 2) formToValidate = this.privacyForm;
+
+    if (formToValidate) {
+      this.markFormGroupTouched(formToValidate);
+    }
+  }
+
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      control.markAsDirty();
+      if ((control as any).controls) {
+        this.markFormGroupTouched(control as FormGroup);
+      }
+    });
   }
 
   initForms() {
@@ -637,7 +720,12 @@ export class InscripcionComponent implements OnInit {
     for (const mod of this.tarifas) {
       for (const cat of mod.categorias) {
         const found = cat.opciones.find(o => o.id === id);
-        if (found) return found.nombre;
+        if (found) {
+          const modalidadNombre = this.translate.instant(mod.nombre);
+          const opcionNombre = this.translate.instant(found.nombre);
+          const precio = found.precio.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          return `${modalidadNombre} - ${opcionNombre} - ${precio}€`;
+        }
       }
     }
     return '';
@@ -666,6 +754,10 @@ export class InscripcionComponent implements OnInit {
   }
 
   finalizar() {
+    this.markFormGroupTouched(this.personalDataForm);
+    this.markFormGroupTouched(this.licenciaForm);
+    this.markFormGroupTouched(this.privacyForm);
+
     if (this.personalDataForm.valid && this.licenciaForm.valid && this.privacyForm.valid) {
       console.log('Formulario Final:', {
         personal: this.personalDataForm.value,

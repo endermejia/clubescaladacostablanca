@@ -102,6 +102,7 @@
         "NOMBRE_CLUB": "Nombre del club de origen",
         "SUBIR_LICENCIA": "Subir imagen de tu licencia actual",
         "TIPO_LICENCIA": "Tipo de licencia",
+        "INFO_FEDME": "Habilitación FEDME: Si participas en competiciones y actividades FEDME o utilizas los refugios con descuento.",
         "VER_TARIFAS": "Ver todas las tarifas y modalidades 2026 (PDF)",
         "FORMATO_LICENCIA": "Formato de la licencia",
         "FORMATO": {
@@ -112,6 +113,11 @@
         "WHATSAPP_CHECK": "Deseo unirme al grupo de WhatsApp C.E.C.B. SOCIOS 2026",
         "WHATSAPP_INFO": "Al grupo de 'Información' se te añadirá por defecto.",
         "PRIVACIDAD_CHECK": "Acepto la política de privacidad y tratamiento de datos",
+        "ERROR": {
+            "REQUERIDO": "Este campo es obligatorio",
+            "EMAIL": "Email no válido",
+            "PRIVACIDAD": "Debes aceptar la política de privacidad"
+        },
         "ERROR_PRIVACIDAD": "Debes aceptar la política de privacidad",
         "RESUMEN_DATOS": "Resumen de tu inscripción",
         "SITUACION_RESUMEN": "Situación",
@@ -145,10 +151,10 @@
             "INFANTIL_FAM": "Infantil Familiar",
             "INFANTIL_FAM_FEDME": "Infantil Familiar Habilitada FEDME",
             "AUTONOMICA": { "TITULO": "Autonómica", "DESC": "Licencia básica autonómica" },
-            "MOD_A": { "TITULO": "Modalidad A", "DESC": "Cobertura España (Recomendada)" },
+            "MOD_A": { "TITULO": "Modalidad A", "DESC": "Cobertura Nacional" },
             "MOD_A_FAM": { "TITULO": "Modalidad A Familiar", "DESC": "Descuento aplicado si padre/madre se federan" },
             "MOD_B": { "TITULO": "Modalidad B", "DESC": "España, Pirineo Francés, Andorra y Portugal" },
-            "MOD_C": { "TITULO": "Modalidad C", "DESC": "Mundo (Hasta 7000 metros)" }
+            "MOD_C": { "TITULO": "Modalidad C", "DESC": "Cobertura Mundial" }
         }
     }
 }
