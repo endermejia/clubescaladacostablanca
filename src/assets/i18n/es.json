@@ -109,7 +109,9 @@
             "DIGITAL": "Digital",
             "FISICO": "Físico"
         },
-        "SUBIR_DNI_MENOR": "Subir DNI del menor / Libro de familia",
+        "SUBIR_DNI_MENOR": "DNI del menor o Libro de Familia",
+        "SUBIR_ACREDITACION_PADRE": "Acreditación de padre/madre (DNI o Libro de Familia)",
+        "INFO_MOD_FAMILIAR": "Si estás cumplimentando este formulario para federar a un menor en la categoría 'A Familiar', es imprescindible adjuntar una imagen del documento (DNI o Libro de Familia) que acredite la tutoría. Además, recuerda que es requisito que el adulto esté federado (o en proceso de hacerlo) en la FEMECV.",
         "WHATSAPP_CHECK": "Deseo unirme al grupo de WhatsApp C.E.C.B. SOCIOS 2026",
         "WHATSAPP_INFO": "Al grupo de 'Información' se te añadirá por defecto.",
         "PRIVACIDAD_CHECK": "Acepto la política de privacidad y tratamiento de datos",
