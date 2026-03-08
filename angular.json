@@ -29,14 +29,28 @@
               "src/robots.txt",
               "src/sitemap.xml"
             ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-            ],
+              "styles": [
+                "src/styles.scss",
+                "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
             "configurations": {
               "production": {
+                "optimization": {
+                  "scripts": true,
+                  "styles": {
+                    "minify": true,
+                    "inlineCritical": true
+                  },
+                  "fonts": true
+                },
+                "outputHashing": "all",
+                "sourceMap": false,
+                "namedChunks": false,
+                "extractLicenses": true,
+                "vendorChunk": false,
+                "buildOptimizer": true,
                 "fileReplacements": [
                   {
                     "replace": "src/app/environments/environment.ts",
@@ -54,8 +68,7 @@
                     "maximumWarning": "5kb",
                     "maximumError": "10kb"
                   }
-                ],
-                "outputHashing": "all"
+                ]
               },
             "development": {
               "buildOptimizer": false,

@@ -7,9 +7,6 @@
 /* Importing Bootstrap SCSS file. */
 @use "bootstrap/scss/bootstrap";
 
-/* Importing Bootstrap Icons. */
-@import "bootstrap-icons/font/bootstrap-icons.css";
-
 html {
   height: 100%;
   @include mat.theme(
