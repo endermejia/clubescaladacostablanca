@@ -8,6 +8,7 @@ import {
   provideHttpClient,
   withFetch,
   withInterceptorsFromDi,
+  withJsonpSupport,
 } from '@angular/common/http';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import {
@@ -33,7 +34,11 @@ export const appConfig: ApplicationConfig = {
         anchorScrolling: 'enabled',
       }),
     ),
-    provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    provideHttpClient(
+      withFetch(),
+      withInterceptorsFromDi(),
+      withJsonpSupport(),
+    ),
     provideClientHydration(),
     provideAnimationsAsync(),
     {
