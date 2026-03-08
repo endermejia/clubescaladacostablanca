@@ -24,28 +24,35 @@ const INITIAL_POSTS = 3;
         <p class="lead text-muted">{{ 'blog.subtitle' | translate }}</p>
       </div>
 
-      <!-- Initial Posts (always visible) -->
+      <!-- Initial Posts (loaded on viewport) -->
       <div class="row g-4 mt-2">
         @for (post of initialPosts(); track post.id) {
           <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-modern h-100">
-              <app-post-card
-                class="h-100 d-block"
-                [postCard]="{
-                  title: post.title,
-                  img: { src: post.images[0]?.url || 'assets/logo.webp' },
-                  date: post?.published,
-                  description: post.author.displayName,
-                  id: post.id
-                }"
-              ></app-post-card>
-            </div>
+            @defer (on viewport) {
+              <div class="card-modern h-100">
+                <app-post-card
+                  class="h-100 d-block"
+                  [postCard]="{
+                    title: post.title,
+                    img: { src: post.images[0]?.url || 'assets/logo.webp' },
+                    date: post?.published,
+                    description: post.author.displayName,
+                    id: post.id
+                  }"
+                ></app-post-card>
+              </div>
+            } @placeholder {
+              <div
+                class="card-modern h-100"
+                style="min-height: 400px; background: rgba(0,0,0,0.03); border-radius: 1rem;"
+              ></div>
+            }
           </div>
         }
       </div>
 
       <!-- Extra Posts loaded lazily with @defer -->
-      @defer (when showExtra()) {
+      @defer (when showExtra(); on viewport) {
         <div class="row g-4 mt-0 extra-posts-grid">
           @for (post of extraPosts(); track post.id) {
             <div class="col-lg-4 col-md-6 col-12 post-card-animated">
@@ -73,7 +80,7 @@ const INITIAL_POSTS = 3;
           </div>
         </div>
       } @placeholder {
-        <div></div>
+        <div style="min-height: 100px"></div>
       }
 
       <!-- Ver más / Ver menos button -->

@@ -42,18 +42,33 @@ export class BlogService {
             labels: entry.category?.map((c) => c.term) ?? [],
             images:
               content.match(/<img.*?src=".*?"/g)?.map((img) => {
+                const url =
+                  img
+                    .match(/src=".*?"/)?.[0]
+                    .replace('src="', '')
+                    .replace('"', '') ?? '';
                 return {
-                  url:
-                    img
-                      .match(/src=".*?"/)?.[0]
-                      .replace('src="', '')
-                      .replace('"', '') ?? '',
+                  url: this.optimizeBloggerImageUrl(url, 640),
                 };
               }) ?? [],
           } as Post;
         });
       }),
     );
+  }
+
+  private optimizeBloggerImageUrl(url: string, width: number): string {
+    if (
+      !url ||
+      (!url.includes('blogger.googleusercontent.com') &&
+        !url.includes('bp.blogspot.com'))
+    ) {
+      return url;
+    }
+    // Blogger URLs often have /s1600/ or similar. Replace with /w{width}/
+    return url
+      .replace(/\/s\d+\//, `/w${width}/`)
+      .replace(/\/s\d+-/, `/w${width}-`);
   }
 
   public getPreviousPostId(postId?: string): string | undefined {

@@ -6,6 +6,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -16,16 +17,21 @@ import { RouterLink } from '@angular/router';
     ContactoComponent,
     TranslateModule,
     RouterLink,
+    NgOptimizedImage,
   ],
   template: `
     <section class="hero-wrapper">
-      <div
-        class="hero-bg"
-        style='
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
-        url("assets/hero_climber_alt.jpg");
-    '
-      ></div>
+      <div class="hero-bg-container">
+        <img
+          ngSrc="assets/hero_climber_alt.jpg"
+          alt="Climber on Costa Blanca"
+          fill
+          priority
+          fetchpriority="high"
+          class="hero-bg-img"
+        />
+        <div class="hero-overlay"></div>
+      </div>
       <div class="container hero-content">
         <h1 class="display-4 mb-4 font-heading text-white">
           {{ 'hero.title' | translate }}
@@ -48,11 +54,27 @@ import { RouterLink } from '@angular/router';
     </section>
 
     <app-blog id="blog" class="page-section"></app-blog>
-    <app-sobre-nosotros
-      id="sobre-nosotros"
-      class="page-section bg-alt"
-    ></app-sobre-nosotros>
-    <app-contacto id="contacto" class="page-section"></app-contacto>
+
+    @defer (on viewport) {
+      <app-sobre-nosotros
+        id="sobre-nosotros"
+        class="page-section bg-alt"
+      ></app-sobre-nosotros>
+    } @placeholder {
+      <div
+        class="page-section bg-alt"
+        style="min-height: 800px; background: rgba(0,0,0,0.02);"
+      ></div>
+    }
+
+    @defer (on viewport) {
+      <app-contacto id="contacto" class="page-section"></app-contacto>
+    } @placeholder {
+      <div
+        class="page-section"
+        style="min-height: 600px; background: white;"
+      ></div>
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

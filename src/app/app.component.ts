@@ -16,13 +16,18 @@ import {
       [class.scrolled]="isScrolled"
     >
       <div class="container-fluid px-4">
-        <a class="navbar-brand d-flex align-items-center" routerLink="/">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          routerLink="/"
+          aria-label="Ir a la página de inicio"
+        >
           <img
             ngSrc="assets/logo.webp"
-            alt="Club Escalada Costa Blanca"
+            alt="Club Escalada Costa Blanca Logo"
             width="50"
             height="50"
             priority
+            fetchpriority="high"
             class="me-2"
             style="width: auto; height: 50px"
           />
@@ -39,8 +44,11 @@ import {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Abrir menú de navegación"
         >
-          <i class="bi bi-list fs-1 text-primary"></i>
+          <i class="bi bi-list fs-1 text-primary" aria-hidden="true"></i>
         </button>
 
         <div class="collapse navbar-collapse pb-4 pb-xl-0" id="navbarNav">
@@ -102,7 +110,7 @@ import {
           <div class="col-lg-4 text-center text-lg-start">
             <img
               ngSrc="assets/logo.webp"
-              alt="Club Escalada Costa Blanca"
+              alt="Club Escalada Costa Blanca Logo"
               height="80"
               class="mb-3"
               width="80"
@@ -114,7 +122,12 @@ import {
 
           <div class="col-lg-4 text-center">
             <h5 class="font-heading mb-4">{{ 'footer.collab' | translate }}</h5>
-            <a href="https://femecv.com" target="_blank" class="d-inline-block">
+            <a
+              href="https://femecv.com"
+              target="_blank"
+              rel="noopener"
+              class="d-inline-block"
+            >
               <img
                 src="https://www.femecv.com/themes/custom/femecv/img/femecv-blanco.svg"
                 alt="FEMECV"
@@ -132,9 +145,11 @@ import {
                 <a
                   href="{{ item.link }}"
                   target="_blank"
+                  rel="noopener"
+                  [attr.aria-label]="'Seguir en ' + item.name"
                   title="{{ item.name }}"
                 >
-                  <i class="bi bi-{{ item.img }}"></i>
+                  <i class="bi bi-{{ item.img }}" aria-hidden="true"></i>
                 </a>
               }
             </div>

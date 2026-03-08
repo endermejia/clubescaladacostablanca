@@ -50,14 +50,18 @@ import { TranslateModule } from '@ngx-translate/core';
             <a
               href="https://www.facebook.com/groups/929089841231971"
               target="_blank"
+              rel="noopener"
               class="text-primary fs-2"
-              ><i class="bi bi-facebook"></i
+              aria-label="Facebook del Club"
+              ><i class="bi bi-facebook" aria-hidden="true"></i
             ></a>
             <a
               href="https://www.instagram.com/clubescaladacostablanca"
               target="_blank"
+              rel="noopener"
               class="text-primary fs-2"
-              ><i class="bi bi-instagram"></i
+              aria-label="Instagram del Club"
+              ><i class="bi bi-instagram" aria-hidden="true"></i
             ></a>
           </div>
         </div>
