@@ -18,6 +18,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { map, Observable } from 'rxjs';
 
@@ -291,6 +293,8 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
     MatDatepickerModule,
     MatCardModule,
     MatIconModule,
+    MatSnackBarModule,
+    MatTooltipModule,
     AsyncPipe,
     CurrencyPipe,
   ],
@@ -895,7 +899,10 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                 </h5>
                 <p>{{ 'INSCRIPCION.TRANSFERENCIA_INSTRUCCION' | translate }}</p>
                 <div
-                  class="bg-dark text-white p-3 rounded text-center fs-5 fw-mono mb-3"
+                  class="bg-dark text-white p-3 rounded text-center fs-5 fw-mono mb-3 iban-container"
+                  (click)="copyAccountToClipboard()"
+                  [matTooltip]="'INSCRIPCION.COPIAR_IBAN' | translate"
+                  matTooltipPosition="above"
                 >
                   ES54 3005 0067 1127 0304 4426
                 </div>
@@ -1050,6 +1057,13 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
       mat-form-field {
         margin-bottom: 16px;
       }
+      .iban-container {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      .iban-container:hover {
+        background-color: #333 !important;
+      }
     `,
   ],
 })
@@ -1057,6 +1071,7 @@ export class InscripcionComponent implements OnInit {
   private fb = inject(FormBuilder);
   private breakpointObserver = inject(BreakpointObserver);
   private translate = inject(TranslateService);
+  private snackBar = inject(MatSnackBar);
 
   personalDataForm!: FormGroup;
   licenciaForm!: FormGroup;
@@ -1187,6 +1202,21 @@ export class InscripcionComponent implements OnInit {
       'No deseo federarme': 'INSCRIPCION.SITUACION.NO_FEDERARME',
     };
     return mapping[value] || value;
+  }
+
+  copyAccountToClipboard() {
+    const iban = 'ES54 3005 0067 1127 0304 4426';
+    navigator.clipboard.writeText(iban).then(() => {
+      this.snackBar.open(
+        this.translate.instant('INSCRIPCION.IBAN_COPIADO'),
+        this.translate.instant('INSCRIPCION.CERRAR'),
+        {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        },
+      );
+    });
   }
 
   getLicenciaName(id: string): string {
