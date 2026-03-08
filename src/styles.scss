@@ -82,6 +82,13 @@ body {
   line-height: 1.6;
 }
 
+/* Prevent FOUC: show app-root once styles are loaded */
+app-root {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity 0.3s ease-in; /* Optional: smooth fade-in */
+}
+
 /* Global Constraints */
 html,
 body {
