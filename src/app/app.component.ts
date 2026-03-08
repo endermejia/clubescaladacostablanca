@@ -26,9 +26,11 @@ import {
             class="me-2"
             style="width: auto; height: 50px"
           />
-          <span class="font-heading text-primary h6 h5-md mb-0 ms-1 ms-md-2"
+          <span class="font-heading text-secondary h6 h5-md mb-0 ms-1 ms-md-2"
             >Club Escalada
-            <span class="text-secondary">Costa Blanca</span></span
+            <span class="text-primary d-block d-md-inline"
+              >Costa Blanca</span
+            ></span
           >
         </a>
 

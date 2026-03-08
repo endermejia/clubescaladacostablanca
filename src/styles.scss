@@ -436,15 +436,16 @@ h4,
   span {
     font-size: 0.85rem;
     line-height: 1.1;
-    white-space: nowrap; /* Prevent wrapping which might push icons out */
+    white-space: normal; /* Allow wrapping on mobile */
     font-weight: 800;
 
-    .text-secondary {
-      color: $secondary !important; /* Brand orange, consistent with theme */
+    .text-primary {
+      color: $primary !important; /* Costa Blanca now blue */
     }
 
     @media (min-width: 768px) {
       font-size: 1.25rem;
+      white-space: nowrap; /* Prevent wrapping on desktop */
     }
   }
 }
