@@ -4,6 +4,11 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use "@angular/material" as mat;
+/* Importing Bootstrap SCSS file. */
+@use "bootstrap/scss/bootstrap";
+
+/* Importing Bootstrap Icons. */
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
 html {
   height: 100%;
@@ -36,11 +41,6 @@ body {
   margin: 0;
   height: 100%;
 }
-/* Importing Bootstrap SCSS file. */
-@import "bootstrap/scss/bootstrap";
-
-/* Importing Bootstrap Icons. */
-@import "bootstrap-icons/font/bootstrap-icons.css";
 
 /* Lightgallery for image preview */
 
@@ -307,6 +307,7 @@ h4,
   color: white !important;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: $transition;
+  text-decoration: none !important;
 
   &:hover {
     transform: translateY(-2px);
@@ -531,4 +532,14 @@ footer {
       color: $secondary !important;
     }
   }
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Sidebar Hover Effect */
+aside .cursor-pointer:hover {
+  opacity: 0.8;
+  transform: translateX(4px);
+  transition: all 0.2s ease-in-out;
 }

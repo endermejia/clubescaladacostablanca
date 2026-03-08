@@ -26,7 +26,7 @@
     "read_more": "Leer artículo",
     "join_title": "¿Quieres escalar con nosotros?",
     "join_desc": "Si te gusta la escalada y quieres compartir momentos inolvidables en la montaña, ¡hazte socio!",
-    "join_btn": "Únete al Club"
+    "join_btn": "Únete al Club!"
   },
   "about": {
     "title": "Conoce el Club",
@@ -63,7 +63,7 @@
     "form_email": "Email",
     "form_phone": "Teléfono",
     "form_message": "Mensaje",
-    "form_send": "Enviar mensaje"
+    "form_send": "Enviar mensaje!"
   },
   "footer": {
     "tagline": "Pasión por la roca, compromiso con la montaña. El club de referencia en la Costa Blanca.",
