@@ -116,7 +116,7 @@ h4,
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.9); /* Slightly more solid */
-  transition: $transition;
+  transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding: 0.8rem 0;
   z-index: 1050; /* Ensure it stays on top */

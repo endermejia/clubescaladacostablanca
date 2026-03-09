@@ -132,6 +132,8 @@ import {
                 src="https://www.femecv.com/themes/custom/femecv/img/femecv-blanco.svg"
                 alt="FEMECV"
                 height="80"
+                class="img-fluid"
+                style="max-width: 100%; height: auto; max-height: 80px;"
               />
             </a>
           </div>
