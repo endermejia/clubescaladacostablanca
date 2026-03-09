@@ -29,47 +29,47 @@
               "src/robots.txt",
               "src/sitemap.xml"
             ],
-              "styles": [
-                "src/styles.scss",
-                "node_modules/bootstrap-icons/font/bootstrap-icons.css"
-              ],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+            ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
-            "configurations": {
-              "production": {
-                "optimization": {
-                  "scripts": true,
-                  "styles": {
-                    "minify": true,
-                    "inlineCritical": true
-                  },
-                  "fonts": true
+          "configurations": {
+            "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": true
                 },
-                "outputHashing": "all",
-                "sourceMap": false,
-                "namedChunks": false,
-                "extractLicenses": true,
-                "vendorChunk": false,
-                "buildOptimizer": true,
-                "fileReplacements": [
-                  {
-                    "replace": "src/app/environments/environment.ts",
-                    "with": "src/app/environments/environment.prod.ts"
-                  }
-                ],
-                "budgets": [
-                  {
-                    "type": "initial",
-                    "maximumWarning": "2mb",
-                    "maximumError": "5mb"
-                  },
-                  {
-                    "type": "anyComponentStyle",
-                    "maximumWarning": "5kb",
-                    "maximumError": "10kb"
-                  }
-                ]
+                "fonts": true
               },
+              "outputHashing": "none",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/environments/environment.ts",
+                  "with": "src/app/environments/environment.prod.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "5kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -102,7 +102,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [ ],
+            "polyfills": [],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -125,7 +125,7 @@
           },
           "configurations": {
             "production": {
-              "outputHashing": "media"
+              "outputHashing": "none"
             },
             "development": {
               "buildOptimizer": false,

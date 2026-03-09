@@ -53,28 +53,25 @@ import { NgOptimizedImage } from '@angular/common';
       </div>
     </section>
 
-    <app-blog id="blog" class="page-section"></app-blog>
+    <section id="blog" class="page-section">
+      <app-blog></app-blog>
+    </section>
 
-    @defer (on viewport) {
-      <app-sobre-nosotros
-        id="sobre-nosotros"
-        class="page-section bg-alt"
-      ></app-sobre-nosotros>
-    } @placeholder {
-      <div
-        class="page-section bg-alt"
-        style="min-height: 800px; background: rgba(0,0,0,0.02);"
-      ></div>
-    }
+    <section id="sobre-nosotros" class="page-section bg-alt">
+      @defer (on viewport) {
+        <app-sobre-nosotros></app-sobre-nosotros>
+      } @placeholder {
+        <div style="min-height: 800px; background: rgba(0,0,0,0.02);"></div>
+      }
+    </section>
 
-    @defer (on viewport) {
-      <app-contacto id="contacto" class="page-section"></app-contacto>
-    } @placeholder {
-      <div
-        class="page-section"
-        style="min-height: 600px; background: white;"
-      ></div>
-    }
+    <section id="contacto" class="page-section">
+      @defer (on viewport) {
+        <app-contacto></app-contacto>
+      } @placeholder {
+        <div style="min-height: 600px; background: white;"></div>
+      }
+    </section>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

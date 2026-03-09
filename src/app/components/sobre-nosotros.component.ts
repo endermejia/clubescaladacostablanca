@@ -188,7 +188,7 @@ export class SobreNosotrosComponent {
     {
       name: 'Jose Martin Anaya Ruiz',
       key: 'about.vocal_mb_desc',
-      img: '/assets/logo-header.webp',
+      img: '/assets/socios/anaya.webp',
     },
     {
       name: 'Miguel Ángel Vilaplana Torregrosa',
