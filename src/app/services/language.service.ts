@@ -9,9 +9,9 @@ export const SUPPORTED_LANGUAGES: {
   label: string;
   flag: string;
 }[] = [
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
-  { code: 'en', label: 'English', flag: 'ᴇɴ' },
-  { code: 'ca', label: 'Valencià', flag: 'ᴠᴀ  ' }, // va con mayusculas pequeñas como las otras de GB y ES
+  { code: 'es', label: 'Español', flag: 'es' },
+  { code: 'en', label: 'English', flag: 'en' },
+  { code: 'ca', label: 'Valencià', flag: 'va' },
 ];
 
 const STORAGE_KEY = 'app_lang';
