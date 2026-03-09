@@ -15,13 +15,18 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { map, Observable } from 'rxjs';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { map, Observable, firstValueFrom, startWith } from 'rxjs';
+
+import { InscripcionService } from '../services/inscripcion.service';
 
 export interface OpcionLicencia {
   id: string;
@@ -277,6 +282,73 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
   },
 ];
 
+export const PROVINCIAS_ESPANA = [
+  'Álava',
+  'Albacete',
+  'Alicante',
+  'Almería',
+  'Asturias',
+  'Ávila',
+  'Badajoz',
+  'Barcelona',
+  'Burgos',
+  'Cáceres',
+  'Cádiz',
+  'Cantabria',
+  'Castellón',
+  'Ciudad Real',
+  'Córdoba',
+  'Cuenca',
+  'Gerona',
+  'Granada',
+  'Guadalajara',
+  'Guipúzcoa',
+  'Huelva',
+  'Huesca',
+  'Islas Baleares',
+  'Jaén',
+  'La Coruña',
+  'La Rioja',
+  'Las Palmas',
+  'León',
+  'Lérida',
+  'Lugo',
+  'Madrid',
+  'Málaga',
+  'Murcia',
+  'Navarra',
+  'Orense',
+  'Palencia',
+  'Pontevedra',
+  'Salamanca',
+  'Santa Cruz de Tenerife',
+  'Segovia',
+  'Sevilla',
+  'Soria',
+  'Tarragona',
+  'Teruel',
+  'Toledo',
+  'Valencia',
+  'Valladolid',
+  'Vizcaya',
+  'Zamora',
+  'Zaragoza',
+  'Ceuta',
+  'Melilla',
+];
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
+
 @Component({
   selector: 'app-inscripcion',
   standalone: true,
@@ -295,10 +367,16 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
     MatIconModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatAutocompleteModule,
+
     AsyncPipe,
     CurrencyPipe,
   ],
-  providers: [provideNativeDateAdapter()],
+  providers: [
+    provideMomentDateAdapter(MY_DATE_FORMATS),
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+  ],
+
   template: `
     <div class="container mt-5 pt-5 mb-5">
       <mat-card class="p-4">
@@ -461,7 +539,21 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                     <mat-label>{{
                       'INSCRIPCION.PROVINCIA' | translate
                     }}</mat-label>
-                    <input matInput formControlName="provincia" required />
+                    <input
+                      type="text"
+                      matInput
+                      formControlName="provincia"
+                      [matAutocomplete]="auto"
+                      required
+                    />
+                    <mat-autocomplete #auto="matAutocomplete">
+                      @for (
+                        option of filteredProvincias$ | async;
+                        track option
+                      ) {
+                        <mat-option [value]="option">{{ option }}</mat-option>
+                      }
+                    </mat-autocomplete>
                     @if (
                       personalDataForm.get('provincia')?.hasError('required')
                     ) {
@@ -917,7 +1009,12 @@ export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
                 <button mat-button matStepperPrevious>
                   {{ 'INSCRIPCION.ANTERIOR' | translate }}
                 </button>
-                <button mat-flat-button color="accent" (click)="finalizar()">
+                <button
+                  mat-flat-button
+                  color="accent"
+                  (click)="finalizar()"
+                  [disabled]="isSending || isSent"
+                >
                   {{ 'INSCRIPCION.FINALIZAR' | translate }}
                 </button>
               </div>
@@ -1072,16 +1169,22 @@ export class InscripcionComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
   private translate = inject(TranslateService);
   private snackBar = inject(MatSnackBar);
+  private inscripcionService = inject(InscripcionService);
 
   personalDataForm!: FormGroup;
   licenciaForm!: FormGroup;
   privacyForm!: FormGroup;
 
   stepperOrientation$: Observable<'horizontal' | 'vertical'>;
+  isSending = false;
+  isSent = false;
 
   tarifas = TARIFAS_LICENCIAS_2026;
+  provincias = PROVINCIAS_ESPANA;
   cuotaSocioBase = CUOTA_SOCIO_BASE;
   suplementoFisica = SUPLEMENTO_TARJETA_FISICA;
+
+  filteredProvincias$!: Observable<string[]>;
 
   constructor() {
     this.stepperOrientation$ = this.breakpointObserver
@@ -1131,6 +1234,13 @@ export class InscripcionComponent implements OnInit {
       telefono: ['', Validators.required],
     });
 
+    this.filteredProvincias$ = this.personalDataForm
+      .get('provincia')!
+      .valueChanges.pipe(
+        startWith(''),
+        map((value) => this._filterProvincias(value || '')),
+      );
+
     this.licenciaForm = this.fb.group({
       situacion: ['Nueva', Validators.required],
       nombreClub: [''],
@@ -1154,12 +1264,17 @@ export class InscripcionComponent implements OnInit {
       if (value === 'Otro Club') {
         nombreClub?.setValidators([Validators.required]);
         licenciaElegida?.clearValidators();
+        licenciaElegida?.setValue('');
       } else if (value === 'Nueva' || value === 'Renovación') {
         nombreClub?.clearValidators();
         licenciaElegida?.setValidators([Validators.required]);
+        if (!licenciaElegida?.value) {
+          licenciaElegida?.setValue('a_adu_base');
+        }
       } else {
         nombreClub?.clearValidators();
         licenciaElegida?.clearValidators();
+        licenciaElegida?.setValue('');
       }
       nombreClub?.updateValueAndValidity();
       licenciaElegida?.updateValueAndValidity();
@@ -1187,6 +1302,31 @@ export class InscripcionComponent implements OnInit {
       const file = event.target.files[0];
       this.licenciaForm.get(controlName)?.setValue(file);
     }
+  }
+
+  private async fileToBase64(
+    file: File,
+  ): Promise<{ data: string; name: string; mimeType: string }> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64String = (reader.result as string).split(',')[1];
+        resolve({
+          data: base64String,
+          name: file.name,
+          mimeType: file.type,
+        });
+      };
+      reader.onerror = (error) => reject(error);
+    });
+  }
+
+  private _filterProvincias(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.provincias.filter((option) =>
+      option.toLowerCase().includes(filterValue),
+    );
   }
 
   isModalidadAFamiliarSelected(): boolean {
@@ -1262,7 +1402,7 @@ export class InscripcionComponent implements OnInit {
     return total;
   }
 
-  finalizar() {
+  async finalizar() {
     this.markFormGroupTouched(this.personalDataForm);
     this.markFormGroupTouched(this.licenciaForm);
     this.markFormGroupTouched(this.privacyForm);
@@ -1272,17 +1412,85 @@ export class InscripcionComponent implements OnInit {
       this.licenciaForm.valid &&
       this.privacyForm.valid
     ) {
-      console.log('Formulario Final:', {
-        personal: this.personalDataForm.value,
-        licencia: this.licenciaForm.value,
-        privacidad: this.privacyForm.value,
-        total: this.calculateTotal(),
-      });
-      alert(
-        '¡Inscripción enviada correctamente! Recuerda realizar la transferencia bancaria.',
-      );
+      this.isSending = true;
+      try {
+        const archivos: any = {};
+
+        // Procesar archivos adjuntos
+        const fileControls = [
+          'imagenLicencia',
+          'dniMenor',
+          'acreditacionPadre',
+        ];
+        for (const controlName of fileControls) {
+          const file = this.licenciaForm.get(controlName)?.value;
+          if (file instanceof File) {
+            const fileData = await this.fileToBase64(file);
+            archivos[controlName] = fileData;
+          }
+        }
+
+        const personal = { ...this.personalDataForm.value };
+        if (personal.fechaNacimiento) {
+          const date = new Date(personal.fechaNacimiento);
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          personal.fechaNacimiento = `${year}-${month}-${day}`;
+        }
+
+        const formData = {
+          personal: personal,
+          licencia: {
+            ...this.licenciaForm.value,
+            licenciaElegidaNombre: this.getLicenciaName(
+              this.licenciaForm.value.licenciaElegida,
+            ),
+          },
+          privacidad: this.privacyForm.value,
+          total: this.calculateTotal().toFixed(2).replace('.', ','),
+          archivos: archivos,
+        };
+
+        this.snackBar.open(this.translate.instant('INSCRIPCION.ENVIANDO'), '', {
+          duration: 0,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+
+        await firstValueFrom(
+          this.inscripcionService.enviarInscripcion(formData),
+        );
+
+        this.isSent = true;
+        this.snackBar.dismiss();
+
+        this.snackBar.open(this.translate.instant('INSCRIPCION.EXITO'), 'OK', {
+          duration: 10000,
+          panelClass: ['snackbar-success'],
+        });
+      } catch (error) {
+        console.error('Error enviando inscripción:', error);
+        this.snackBar.dismiss();
+        this.snackBar.open(
+          this.translate.instant('INSCRIPCION.ERROR_ENVIO'),
+          'OK',
+          {
+            duration: 10000,
+            panelClass: ['snackbar-error'],
+          },
+        );
+      } finally {
+        this.isSending = false;
+      }
     } else {
-      alert('Por favor, completa todos los campos obligatorios.');
+      this.snackBar.open(
+        this.translate.instant('INSCRIPCION.ERROR_FORMULARIO'),
+        'OK',
+        {
+          duration: 5000,
+        },
+      );
     }
   }
 }
