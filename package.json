@@ -10,7 +10,8 @@
     "dev:ssr": "ng run club-escalada-costa-blanca:serve-ssr",
     "serve:ssr": "node dist/club-escalada-costa-blanca/server/main.js",
     "build:ssr": "ng build && ng run club-escalada-costa-blanca:server",
-    "prerender": "ng run club-escalada-costa-blanca:prerender"
+    "prerender": "ng run club-escalada-costa-blanca:prerender",
+    "optimize-images": "node scripts/optimize-images.js"
   },
   "private": true,
   "dependencies": {
@@ -55,6 +56,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "sharp": "^0.34.5",
     "typescript": "~5.9.3"
   }
 }

@@ -11,6 +11,7 @@ import { Post } from '../models/blogger.model';
 import { PostCardComponent } from './post-card.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { getThumbnailPath, handleImageError } from '../utils/image-utils';
 
 const INITIAL_POSTS = 3;
 
@@ -34,7 +35,11 @@ const INITIAL_POSTS = 3;
                   class="h-100 d-block"
                   [postCard]="{
                     title: post.title,
-                    img: { src: post.images[0]?.url || 'assets/logo.webp' },
+                    img: {
+                      src:
+                        post.images[0]?.url ||
+                        getThumbnailPath('assets/logo.webp')
+                    },
                     date: post?.published,
                     description: post.author.displayName,
                     id: post.id
@@ -61,7 +66,11 @@ const INITIAL_POSTS = 3;
                   class="h-100 d-block"
                   [postCard]="{
                     title: post.title,
-                    img: { src: post.images[0]?.url || 'assets/logo.webp' },
+                    img: {
+                      src:
+                        post.images[0]?.url ||
+                        getThumbnailPath('assets/logo.webp')
+                    },
                     date: post?.published,
                     description: post.author.displayName,
                     id: post.id
@@ -125,9 +134,10 @@ const INITIAL_POSTS = 3;
             </div>
             <div class="col-lg-6 position-relative" style="min-height: 400px">
               <img
-                src="assets/logo-antiguo.webp"
+                [src]="getThumbnailPath('assets/logo-antiguo.webp')"
                 class="img-fluid w-100 h-100 object-fit-cover position-absolute top-0 start-0"
                 alt="Hazte Socio"
+                (error)="onImageError($event, 'assets/logo-antiguo.webp')"
               />
             </div>
           </div>
@@ -168,6 +178,14 @@ export class BlogComponent implements OnDestroy {
   public loadMore(): void {
     this.showExtra.set(true);
     this.visibleCount.update((v) => v + INITIAL_POSTS);
+  }
+
+  public getThumbnailPath(src: string): string {
+    return getThumbnailPath(src);
+  }
+
+  public onImageError(event: any, originalSrc: string): void {
+    handleImageError(event, originalSrc);
   }
 
   ngOnDestroy(): void {

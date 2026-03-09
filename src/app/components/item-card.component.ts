@@ -4,6 +4,7 @@ import {
   Input,
   inject,
 } from '@angular/core';
+import { getThumbnailPath, handleImageError } from '../utils/image-utils';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ImageModalComponent } from './image-modal.component';
 
@@ -21,11 +22,12 @@ import { ImageModalComponent } from './image-modal.component';
           (click)="openImage()"
         >
           <img
-            [src]="imgSrc"
+            [src]="thumbSrc"
             width="100"
             height="100"
             [alt]="title"
             style="width: 100px; height: 100px; object-fit: cover; display: block"
+            (error)="onImageError($event)"
           />
           @if (hasImage) {
             <div
@@ -84,8 +86,16 @@ export class ItemCardComponent {
     return this.img || '/assets/logo-header.webp';
   }
 
+  public get thumbSrc(): string {
+    return getThumbnailPath(this.img);
+  }
+
   public get hasImage(): boolean {
     return !!this.img && this.img !== '/assets/logo-header.webp';
+  }
+
+  public onImageError(event: any): void {
+    handleImageError(event, this.imgSrc);
   }
 
   public openImage(): void {

@@ -4,6 +4,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgOptimizedImage } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ImageModalComponent } from './image-modal.component';
+import { getThumbnailPath, handleImageError } from '../utils/image-utils';
 
 @Component({
   selector: 'app-sobre-nosotros',
@@ -26,10 +27,11 @@ import { ImageModalComponent } from './image-modal.component';
           >
             <img
               class="img-fluid w-100 rounded-4"
-              ngSrc="assets/image.png"
+              [ngSrc]="getThumb('assets/image.png')"
               alt="Integrantes del Club Escalada Costa Blanca"
               fill
               style="object-fit: cover; display: block;"
+              (error)="onImageError($event, 'assets/image.png')"
             />
             <div
               class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-25 opacity-0 transition-all"
@@ -61,11 +63,12 @@ import { ImageModalComponent } from './image-modal.component';
           <div class="position-relative d-inline-block card-modern p-4">
             <img
               class="img-fluid rounded-4"
-              ngSrc="assets/mapa-alicante.webp"
+              [ngSrc]="getThumb('assets/mapa-alicante.webp')"
               [alt]="'about.eco_title' | translate"
               width="500"
               height="500"
               style="object-fit: contain"
+              (error)="onImageError($event, 'assets/mapa-alicante.webp')"
             />
           </div>
         </div>
@@ -226,6 +229,14 @@ export class SobreNosotrosComponent {
       img: '/assets/logo-header.webp',
     },
   ];
+
+  public getThumb(src: string): string {
+    return getThumbnailPath(src);
+  }
+
+  public onImageError(event: any, originalSrc: string): void {
+    handleImageError(event, originalSrc);
+  }
 
   public openImage(src: string, captionKey: string): void {
     const modalRef = this.modalService.open(ImageModalComponent, {

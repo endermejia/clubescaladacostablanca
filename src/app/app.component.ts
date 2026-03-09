@@ -6,6 +6,7 @@ import {
   LanguageService,
   SUPPORTED_LANGUAGES,
 } from './services/language.service';
+import { getThumbnailPath, handleImageError } from './utils/image-utils';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ import {
             height="50"
             priority
             fetchpriority="high"
+            (error)="onImageError($event, 'assets/logo.webp')"
             class="me-2"
             style="width: auto; height: 50px"
           />
@@ -109,11 +111,12 @@ import {
         <div class="row g-4 align-items-center">
           <div class="col-lg-4 text-center text-lg-start">
             <img
-              ngSrc="assets/logo.webp"
+              [ngSrc]="getThumbnailPath('assets/logo.webp')"
               alt="Club Escalada Costa Blanca Logo"
               height="80"
               class="mb-3"
               width="80"
+              (error)="onImageError($event, 'assets/logo.webp')"
             />
             <p class="small text-white-50">
               {{ 'footer.tagline' | translate }}
@@ -206,4 +209,12 @@ export class AppComponent {
       },
     ],
   };
+
+  public getThumbnailPath(src: string): string {
+    return getThumbnailPath(src);
+  }
+
+  public onImageError(event: any, originalSrc: string): void {
+    handleImageError(event, originalSrc);
+  }
 }
