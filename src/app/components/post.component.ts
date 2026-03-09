@@ -54,7 +54,7 @@ import { Meta, Title } from '@angular/platform-browser';
               </header>
 
               <div
-                class="post-content lead text-justify mb-5"
+                class="post-content lead mb-5"
                 [innerHTML]="post.content"
               ></div>
 

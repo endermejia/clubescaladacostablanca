@@ -43,13 +43,13 @@ import { ImageModalComponent } from './image-modal.component';
             {{ 'about.eco_title' | translate }}
           </h3>
           <div class="lead">
-            <p class="text-justify mb-4">
+            <p class="mb-4">
               {{ 'about.eco_p1' | translate }}
             </p>
-            <p class="text-justify mb-4">
+            <p class="mb-4">
               {{ 'about.eco_p2' | translate }}
             </p>
-            <p class="text-justify mb-4">
+            <p class="mb-4">
               {{ 'about.eco_p3' | translate }}
             </p>
           </div>

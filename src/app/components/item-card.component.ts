@@ -46,7 +46,7 @@ import { ImageModalComponent } from './image-modal.component';
         }
         <div class="small">
           @for (paragraph of paragraphs; track paragraph) {
-            <p class="text-justify mb-2 text-muted" [innerHTML]="paragraph"></p>
+            <p class="mb-2 text-muted" [innerHTML]="paragraph"></p>
           }
         </div>
       </div>

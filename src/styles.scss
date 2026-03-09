@@ -128,6 +128,8 @@ h4,
   }
 
   @media (max-width: 1199px) {
+    position: sticky !important;
+    top: 0;
     background: white; /* Solid on mobile/tablet for reliability */
     padding: 0.5rem 0;
   }
@@ -201,8 +203,13 @@ h4,
 /* Hero Section Enhancement */
 .hero-wrapper {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  height: 100vh; /* Fallback */
+  height: 100dvh;
+  @media (max-width: 1199px) {
+    /* Subtract mobile navbar approximate height (approx 70px) to keep total at 100dvh */
+    height: calc(100dvh - 70px);
+  }
+  min-height: 500px; /* Reduced to fit better on small screens with sticky header */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -524,10 +531,6 @@ footer {
 }
 
 /* Utilities */
-.text-justify {
-  text-align: justify;
-}
-
 .text-truncate-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
