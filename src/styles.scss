@@ -8,7 +8,6 @@
 @use "bootstrap/scss/bootstrap";
 
 html {
-  height: 100%;
   @include mat.theme(
     (
       color: (
@@ -36,7 +35,6 @@ body {
 
   // Reset the user agent margin.
   margin: 0;
-  height: 100%;
 }
 
 /* Lightgallery for image preview */
@@ -90,6 +88,10 @@ app-root {
 }
 
 /* Global Constraints */
+html {
+  scroll-padding-top: 90px;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -128,8 +130,9 @@ h4,
   }
 
   @media (max-width: 1199px) {
-    position: sticky !important;
+    position: fixed !important;
     top: 0;
+    width: 100%;
     background: white; /* Solid on mobile/tablet for reliability */
     padding: 0.5rem 0;
   }
@@ -205,11 +208,7 @@ h4,
   position: relative;
   height: 100vh; /* Fallback */
   height: 100dvh;
-  @media (max-width: 1199px) {
-    /* Subtract mobile navbar approximate height (approx 70px) to keep total at 100dvh */
-    height: calc(100dvh - 70px);
-  }
-  min-height: 500px; /* Reduced to fit better on small screens with sticky header */
+  padding-top: 80px; /* Space for fixed header */
   display: flex;
   align-items: center;
   justify-content: center;

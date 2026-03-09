@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import {
   LanguageService,
   SUPPORTED_LANGUAGES,
@@ -23,7 +28,7 @@ import { getThumbnailPath, handleImageError } from './utils/image-utils';
           aria-label="Ir a la página de inicio"
         >
           <img
-            ngSrc="assets/logo.webp"
+            [ngSrc]="getThumbnailPath('assets/logo.webp')"
             alt="Club Escalada Costa Blanca Logo"
             width="50"
             height="50"
@@ -53,25 +58,38 @@ import { getThumbnailPath, handleImageError } from './utils/image-utils';
           <i class="bi bi-list fs-1 text-primary" aria-hidden="true"></i>
         </button>
 
-        <div class="collapse navbar-collapse pb-4 pb-xl-0" id="navbarNav">
+        <div
+          #navbarNav
+          class="collapse navbar-collapse pb-4 pb-xl-0"
+          id="navbarNav"
+        >
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="#blog" routerLinkActive="active">{{
-                'nav.news' | translate
-              }}</a>
+              <a
+                class="nav-link"
+                href="#blog"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+                >{{ 'nav.news' | translate }}</a
+              >
             </li>
             <li class="nav-item">
               <a
                 class="nav-link"
                 href="#sobre-nosotros"
                 routerLinkActive="active"
+                (click)="closeMenu()"
                 >{{ 'nav.about' | translate }}</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contacto" routerLinkActive="active">{{
-                'nav.join' | translate
-              }}</a>
+              <a
+                class="nav-link"
+                href="#contacto"
+                routerLinkActive="active"
+                (click)="closeMenu()"
+                >{{ 'nav.join' | translate }}</a
+              >
             </li>
 
             <!-- Language Switcher -->
@@ -94,6 +112,7 @@ import { getThumbnailPath, handleImageError } from './utils/image-utils';
               <a
                 routerLink="/inscripcion"
                 class="btn-premium text-decoration-none"
+                (click)="closeMenu()"
                 >{{ 'nav.membership' | translate }}</a
               >
             </li>
@@ -145,7 +164,7 @@ import { getThumbnailPath, handleImageError } from './utils/image-utils';
             <div
               class="social-icons d-flex justify-content-center justify-content-lg-end"
             >
-              @for (item of contact.items; track item) {
+              @for (item of contact.items; track item.name) {
                 <a
                   href="{{ item.link }}"
                   target="_blank"
@@ -178,12 +197,14 @@ import { getThumbnailPath, handleImageError } from './utils/image-utils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  private platformId = inject(PLATFORM_ID);
+
   public isScrolled = false;
   public readonly currentYear = new Date().getFullYear();
   public readonly languages = SUPPORTED_LANGUAGES;
 
   constructor(public langService: LanguageService) {
-    if (typeof window !== 'undefined') {
+    if (isPlatformBrowser(this.platformId)) {
       window.addEventListener('scroll', () => {
         this.isScrolled = window.scrollY > 50;
       });
@@ -216,5 +237,12 @@ export class AppComponent {
 
   public onImageError(event: any, originalSrc: string): void {
     handleImageError(event, originalSrc);
+  }
+
+  public closeMenu(): void {
+    const menu = document.getElementById('navbarNav');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
   }
 }
