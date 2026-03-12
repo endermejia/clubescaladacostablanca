@@ -31,7 +31,10 @@ export class BlogService {
             published: entry.published.$t,
             updated: entry.updated.$t,
             title: entry.title.$t,
-            content: content.replace(/<a href/g, '<a target="_blank" href'),
+            content: content.replace(
+              /<a href/g,
+              '<a target="_blank" rel="noopener" href',
+            ),
             url: entry.link.find((l) => l.rel === 'alternate')?.href ?? '',
             author: {
               displayName: entry.author[0].name.$t,

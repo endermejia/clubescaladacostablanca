@@ -694,6 +694,7 @@ export const MY_DATE_FORMATS = {
                     <a
                       href="https://www.femecv.com/sites/default/files/2026-03/Tarifas%20licencias%202026%20-%20web%20castellano%20%281%29.pdf"
                       target="_blank"
+                      rel="noopener"
                       class="small text-decoration-none"
                     >
                       <i class="bi bi-file-pdf"></i>
