@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -62,7 +62,7 @@ export interface PostCardModel {
 export class PostCardComponent {
   @Input() public postCard: PostCardModel | undefined;
 
-  constructor(private router: Router) {}
+  private router = inject(Router);
 
   public getThumbnailPath(src: string): string {
     return getThumbnailPath(src);
