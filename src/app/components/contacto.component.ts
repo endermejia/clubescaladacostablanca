@@ -154,6 +154,4 @@ import { TranslateModule } from '@ngx-translate/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TranslateModule],
 })
-export class ContactoComponent {
-  constructor() {}
-}
+export class ContactoComponent {}
