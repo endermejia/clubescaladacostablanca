@@ -1185,6 +1185,8 @@ export class InscripcionComponent implements OnInit {
   cuotaSocioBase = CUOTA_SOCIO_BASE;
   suplementoFisica = SUPLEMENTO_TARJETA_FISICA;
 
+  precioLicenciaMap = new Map<string, number>();
+
   filteredProvincias$!: Observable<string[]>;
 
   constructor() {
@@ -1195,6 +1197,17 @@ export class InscripcionComponent implements OnInit {
 
   ngOnInit() {
     this.initForms();
+    this.initPrecioLicenciaMap();
+  }
+
+  private initPrecioLicenciaMap() {
+    for (const mod of this.tarifas) {
+      for (const cat of mod.categorias) {
+        for (const opc of cat.opciones) {
+          this.precioLicenciaMap.set(opc.id, opc.precio);
+        }
+      }
+    }
   }
 
   onStepChange(event: any) {
@@ -1381,13 +1394,7 @@ export class InscripcionComponent implements OnInit {
   getLicenciaPrice(): number {
     const id = this.licenciaForm.get('licenciaElegida')?.value;
     if (!id) return 0;
-    for (const mod of this.tarifas) {
-      for (const cat of mod.categorias) {
-        const found = cat.opciones.find((o) => o.id === id);
-        if (found) return found.precio;
-      }
-    }
-    return 0;
+    return this.precioLicenciaMap.get(id) || 0;
   }
 
   calculateTotal(): number {
