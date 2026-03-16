@@ -349,6 +349,31 @@ export const MY_DATE_FORMATS = {
   },
 };
 
+export interface LicenciaMapData {
+  modalidadNombre: string;
+  opcionNombre: string;
+  precio: number;
+  precioFormateado: string;
+}
+
+export const LICENCIAS_MAP = new Map<string, LicenciaMapData>();
+
+for (const mod of TARIFAS_LICENCIAS_2026) {
+  for (const cat of mod.categorias) {
+    for (const opc of cat.opciones) {
+      LICENCIAS_MAP.set(opc.id, {
+        modalidadNombre: mod.nombre,
+        opcionNombre: opc.nombre,
+        precio: opc.precio,
+        precioFormateado: opc.precio.toLocaleString('de-DE', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+      });
+    }
+  }
+}
+
 @Component({
   selector: 'app-inscripcion',
   standalone: true,
@@ -1361,19 +1386,11 @@ export class InscripcionComponent implements OnInit {
   }
 
   getLicenciaName(id: string): string {
-    for (const mod of this.tarifas) {
-      for (const cat of mod.categorias) {
-        const found = cat.opciones.find((o) => o.id === id);
-        if (found) {
-          const modalidadNombre = this.translate.instant(mod.nombre);
-          const opcionNombre = this.translate.instant(found.nombre);
-          const precio = found.precio.toLocaleString('de-DE', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          });
-          return `${modalidadNombre} - ${opcionNombre} - ${precio}€`;
-        }
-      }
+    const data = LICENCIAS_MAP.get(id);
+    if (data) {
+      const modalidadNombre = this.translate.instant(data.modalidadNombre);
+      const opcionNombre = this.translate.instant(data.opcionNombre);
+      return `${modalidadNombre} - ${opcionNombre} - ${data.precioFormateado}€`;
     }
     return '';
   }
@@ -1381,13 +1398,8 @@ export class InscripcionComponent implements OnInit {
   getLicenciaPrice(): number {
     const id = this.licenciaForm.get('licenciaElegida')?.value;
     if (!id) return 0;
-    for (const mod of this.tarifas) {
-      for (const cat of mod.categorias) {
-        const found = cat.opciones.find((o) => o.id === id);
-        if (found) return found.precio;
-      }
-    }
-    return 0;
+    const data = LICENCIAS_MAP.get(id);
+    return data ? data.precio : 0;
   }
 
   calculateTotal(): number {
