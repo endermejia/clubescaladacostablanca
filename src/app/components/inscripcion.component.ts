@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { map, Observable, firstValueFrom, startWith } from 'rxjs';
 
@@ -1210,7 +1211,7 @@ export class InscripcionComponent implements OnInit {
     }
   }
 
-  onStepChange(event: any) {
+  onStepChange(event: StepperSelectionEvent) {
     const prevIndex = event.previouslySelectedIndex;
     let formToValidate: FormGroup | null = null;
 
