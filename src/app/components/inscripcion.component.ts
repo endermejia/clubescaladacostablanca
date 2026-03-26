@@ -49,6 +49,7 @@ export interface ModalidadLicencia {
 
 export const CUOTA_SOCIO_BASE = 15.0;
 export const SUPLEMENTO_TARJETA_FISICA = 2.0;
+export const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
 
 export const TARIFAS_LICENCIAS_2026: ModalidadLicencia[] = [
   {
@@ -679,8 +680,16 @@ export const MY_DATE_FORMATS = {
                     }}</label>
                     <input
                       type="file"
+                      accept=".jpg,.jpeg,.png,.pdf"
                       (change)="onFileChange($event, 'imagenLicencia')"
                     />
+                    @if (
+                      licenciaForm.get('imagenLicencia')?.hasError('invalidType')
+                    ) {
+                      <mat-error class="small mt-1">{{
+                        'INSCRIPCION.ERROR.TIPO_ARCHIVO' | translate
+                      }}</mat-error>
+                    }
                   </div>
                 </div>
               }
@@ -799,6 +808,7 @@ export const MY_DATE_FORMATS = {
                     >
                     <input
                       type="file"
+                      accept=".jpg,.jpeg,.png,.pdf"
                       (change)="onFileChange($event, 'dniMenor')"
                     />
                     @if (
@@ -807,6 +817,11 @@ export const MY_DATE_FORMATS = {
                     ) {
                       <mat-error class="small mt-1">{{
                         'INSCRIPCION.ERROR.REQUERIDO' | translate
+                      }}</mat-error>
+                    }
+                    @if (licenciaForm.get('dniMenor')?.hasError('invalidType')) {
+                      <mat-error class="small mt-1">{{
+                        'INSCRIPCION.ERROR.TIPO_ARCHIVO' | translate
                       }}</mat-error>
                     }
                   </div>
@@ -819,6 +834,7 @@ export const MY_DATE_FORMATS = {
                     >
                     <input
                       type="file"
+                      accept=".jpg,.jpeg,.png,.pdf"
                       (change)="onFileChange($event, 'acreditacionPadre')"
                     />
                     @if (
@@ -829,6 +845,13 @@ export const MY_DATE_FORMATS = {
                     ) {
                       <mat-error class="small mt-1">{{
                         'INSCRIPCION.ERROR.REQUERIDO' | translate
+                      }}</mat-error>
+                    }
+                    @if (
+                      licenciaForm.get('acreditacionPadre')?.hasError('invalidType')
+                    ) {
+                      <mat-error class="small mt-1">{{
+                        'INSCRIPCION.ERROR.TIPO_ARCHIVO' | translate
                       }}</mat-error>
                     }
                   </div>
@@ -1315,7 +1338,15 @@ export class InscripcionComponent implements OnInit {
   onFileChange(event: any, controlName: string) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.licenciaForm.get(controlName)?.setValue(file);
+      const control = this.licenciaForm.get(controlName);
+      if (ALLOWED_FILE_TYPES.includes(file.type)) {
+        control?.setValue(file);
+        control?.setErrors(null);
+      } else {
+        control?.setValue(null);
+        control?.setErrors({ invalidType: true });
+        event.target.value = '';
+      }
     }
   }
 

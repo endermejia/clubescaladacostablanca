@@ -118,7 +118,8 @@
     "ERROR": {
       "REQUERIDO": "Este campo es obligatorio",
       "EMAIL": "Email no válido",
-      "PRIVACIDAD": "Debes aceptar la política de privacidad"
+      "PRIVACIDAD": "Debes aceptar la política de privacidad",
+      "TIPO_ARCHIVO": "Tipo de archivo no permitido (solo JPG, PNG o PDF)"
     },
     "ERROR_PRIVACIDAD": "Debes aceptar la política de privacidad",
     "RESUMEN_DATOS": "Resumen de tu inscripción",
