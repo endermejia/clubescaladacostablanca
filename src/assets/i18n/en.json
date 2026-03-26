@@ -118,7 +118,8 @@
     "ERROR": {
       "REQUERIDO": "This field is required",
       "EMAIL": "Invalid email",
-      "PRIVACIDAD": "You must accept the privacy policy"
+      "PRIVACIDAD": "You must accept the privacy policy",
+      "TIPO_ARCHIVO": "File type not allowed (only JPG, PNG or PDF)"
     },
     "ERROR_PRIVACIDAD": "You must accept the privacy policy",
     "RESUMEN_DATOS": "Registration Summary",

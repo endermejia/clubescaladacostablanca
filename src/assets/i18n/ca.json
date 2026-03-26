@@ -118,7 +118,8 @@
     "ERROR": {
       "REQUERIDO": "Aquest camp és obligatori",
       "EMAIL": "Email no vàlid",
-      "PRIVACIDAD": "Has d'acceptar la política de privadesa"
+      "PRIVACIDAD": "Has d'acceptar la política de privadesa",
+      "TIPO_ARCHIVO": "Tipus de fitxer no permès (només JPG, PNG o PDF)"
     },
     "ERROR_PRIVACIDAD": "Has d'acceptar la política de privadesa",
     "RESUMEN_DATOS": "Resum de la teva inscripció",
