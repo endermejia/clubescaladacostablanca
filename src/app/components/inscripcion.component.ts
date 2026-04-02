@@ -47,6 +47,13 @@ export interface ModalidadLicencia {
   categorias: CategoriaLicencia[];
 }
 
+export interface LicenciaInfo {
+  modalidadNombre: string;
+  opcionNombre: string;
+  precio: number;
+  precioFormatted: string;
+}
+
 export const CUOTA_SOCIO_BASE = 15.0;
 export const SUPLEMENTO_TARJETA_FISICA = 2.0;
 export const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
@@ -1209,7 +1216,7 @@ export class InscripcionComponent implements OnInit {
   cuotaSocioBase = CUOTA_SOCIO_BASE;
   suplementoFisica = SUPLEMENTO_TARJETA_FISICA;
 
-  precioLicenciaMap = new Map<string, number>();
+  licenciaInfoMap = new Map<string, LicenciaInfo>();
 
   filteredProvincias$!: Observable<string[]>;
 
@@ -1221,14 +1228,22 @@ export class InscripcionComponent implements OnInit {
 
   ngOnInit() {
     this.initForms();
-    this.initPrecioLicenciaMap();
+    this.initLicenciaInfoMap();
   }
 
-  private initPrecioLicenciaMap() {
+  private initLicenciaInfoMap() {
     for (const mod of this.tarifas) {
       for (const cat of mod.categorias) {
         for (const opc of cat.opciones) {
-          this.precioLicenciaMap.set(opc.id, opc.precio);
+          this.licenciaInfoMap.set(opc.id, {
+            modalidadNombre: mod.nombre,
+            opcionNombre: opc.nombre,
+            precio: opc.precio,
+            precioFormatted: opc.precio.toLocaleString('de-DE', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            }),
+          });
         }
       }
     }
@@ -1406,19 +1421,11 @@ export class InscripcionComponent implements OnInit {
   }
 
   getLicenciaName(id: string): string {
-    for (const mod of this.tarifas) {
-      for (const cat of mod.categorias) {
-        const found = cat.opciones.find((o) => o.id === id);
-        if (found) {
-          const modalidadNombre = this.translate.instant(mod.nombre);
-          const opcionNombre = this.translate.instant(found.nombre);
-          const precio = found.precio.toLocaleString('de-DE', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          });
-          return `${modalidadNombre} - ${opcionNombre} - ${precio}€`;
-        }
-      }
+    const data = this.licenciaInfoMap.get(id);
+    if (data) {
+      const modalidadNombre = this.translate.instant(data.modalidadNombre);
+      const opcionNombre = this.translate.instant(data.opcionNombre);
+      return `${modalidadNombre} - ${opcionNombre} - ${data.precioFormatted}€`;
     }
     return '';
   }
@@ -1426,7 +1433,7 @@ export class InscripcionComponent implements OnInit {
   getLicenciaPrice(): number {
     const id = this.licenciaForm.get('licenciaElegida')?.value;
     if (!id) return 0;
-    return this.precioLicenciaMap.get(id) || 0;
+    return this.licenciaInfoMap.get(id)?.precio || 0;
   }
 
   calculateTotal(): number {
