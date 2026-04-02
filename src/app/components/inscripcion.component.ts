@@ -387,8 +387,8 @@ export const MY_DATE_FORMATS = {
   ],
 
   template: `
-    <div class="container mt-5 pt-5 mb-5">
-      <mat-card class="p-4">
+    <div class="container px-2 px-md-3 mt-5 pt-5 mb-5">
+      <mat-card class="p-2 p-md-4">
         <h2 class="text-center mb-4">{{ 'INSCRIPCION.TITULO' | translate }}</h2>
 
         <mat-stepper
@@ -663,7 +663,7 @@ export const MY_DATE_FORMATS = {
 
               <!-- Lógica condicional: Otro Club -->
               @if (licenciaForm.get('situacion')?.value === 'Otro Club') {
-                <div class="row mt-3 border p-3 rounded bg-light mb-3">
+                <div class="row mt-3 border p-2 p-md-3 rounded bg-light mb-3">
                   <div class="col-md-6">
                     <mat-form-field appearance="outline" class="w-100">
                       <mat-label>{{
@@ -800,7 +800,7 @@ export const MY_DATE_FORMATS = {
 
               <!-- Lógica condicional: Modalidad A Familiar -->
               @if (isModalidadAFamiliarSelected()) {
-                <div class="row mt-3 border p-3 rounded bg-light mb-3">
+                <div class="row mt-3 border p-2 p-md-3 rounded bg-light mb-3">
                   <div class="col-12 mb-3">
                     <div
                       class="alert alert-warning py-2 px-3 small border-warning"
@@ -977,7 +977,7 @@ export const MY_DATE_FORMATS = {
                 </div>
               </div>
 
-              <mat-card class="bg-light p-4 mb-4 border-0">
+              <mat-card class="bg-light p-2 p-md-4 mb-4 border-0">
                 <h4 class="mb-3 text-center">
                   {{ 'INSCRIPCION.TOTAL_PAGAR' | translate }}
                 </h4>
@@ -1016,7 +1016,7 @@ export const MY_DATE_FORMATS = {
                 </div>
               </mat-card>
 
-              <mat-card class="border-primary border p-4 mb-4 shadow-sm">
+              <mat-card class="border-primary border p-2 p-md-4 mb-4 shadow-sm">
                 <h5 class="text-primary mb-3">
                   <mat-icon class="align-middle me-2">payments</mat-icon
                   >{{ 'INSCRIPCION.INFO_PAGO_TITULO' | translate }}
