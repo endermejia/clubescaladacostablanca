@@ -41,14 +41,13 @@ import { ImageModalComponent } from './image-modal.component';
       <div class="flex-grow-1">
         <h4 class="h5 font-heading text-primary mb-1">{{ title }}</h4>
         @if (description) {
-          <div
-            class="h6 font-heading text-secondary mb-3"
-            [innerHTML]="description"
-          ></div>
+          <div class="h6 font-heading text-secondary mb-3">
+            {{ description }}
+          </div>
         }
         <div class="small">
           @for (paragraph of paragraphs; track paragraph) {
-            <p class="mb-2 text-muted" [innerHTML]="paragraph"></p>
+            <p class="mb-2 text-muted">{{ paragraph }}</p>
           }
         </div>
       </div>
