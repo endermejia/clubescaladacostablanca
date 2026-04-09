@@ -9,6 +9,7 @@ import { BlogData, Post, BloggerFeedResponse } from '../models/blogger.model';
   providedIn: 'root',
 })
 export class BlogService {
+  private static readonly IMG_SRC_REGEX = /<img[^>]+src="([^">]+)"/g;
   public posts = signal<Post[]>([]);
 
   constructor(
@@ -43,17 +44,12 @@ export class BlogService {
               },
             },
             labels: entry.category?.map((c) => c.term) ?? [],
-            images:
-              content.match(/<img.*?src=".*?"/g)?.map((img) => {
-                const url =
-                  img
-                    .match(/src=".*?"/)?.[0]
-                    .replace('src="', '')
-                    .replace('"', '') ?? '';
-                return {
-                  url: this.optimizeBloggerImageUrl(url, 640),
-                };
-              }) ?? [],
+            images: Array.from(
+              content.matchAll(BlogService.IMG_SRC_REGEX),
+              (match) => ({
+                url: this.optimizeBloggerImageUrl(match[1], 640),
+              }),
+            ),
           } as Post;
         });
       }),
