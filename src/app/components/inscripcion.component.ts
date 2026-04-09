@@ -1272,7 +1272,7 @@ export class InscripcionComponent implements OnInit {
     });
   }
 
-  initForms() {
+  private initPersonalDataForm() {
     this.personalDataForm = this.fb.group({
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
@@ -1293,7 +1293,9 @@ export class InscripcionComponent implements OnInit {
         startWith(''),
         map((value) => this._filterProvincias(value || '')),
       );
+  }
 
+  private initLicenciaForm() {
     this.licenciaForm = this.fb.group({
       situacion: ['Nueva', Validators.required],
       nombreClub: [''],
@@ -1303,12 +1305,16 @@ export class InscripcionComponent implements OnInit {
       dniMenor: [null],
       acreditacionPadre: [null],
     });
+  }
 
+  private initPrivacyForm() {
     this.privacyForm = this.fb.group({
       unirseWhatsapp: [false],
       aceptarPrivacidad: [false, Validators.requiredTrue],
     });
+  }
 
+  private setupConditionalValidators() {
     // Validaciones condicionales para Situación
     this.licenciaForm.get('situacion')?.valueChanges.subscribe((value) => {
       const nombreClub = this.licenciaForm.get('nombreClub');
@@ -1348,6 +1354,13 @@ export class InscripcionComponent implements OnInit {
       dniMenor?.updateValueAndValidity();
       acreditacionPadre?.updateValueAndValidity();
     });
+  }
+
+  initForms() {
+    this.initPersonalDataForm();
+    this.initLicenciaForm();
+    this.initPrivacyForm();
+    this.setupConditionalValidators();
   }
 
   onFileChange(event: any, controlName: string) {
