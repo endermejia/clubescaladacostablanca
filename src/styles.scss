@@ -65,7 +65,7 @@ $transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 /* Fix Bootstrap grey override for secondary text */
 .text-secondary {
-  color: $secondary !important;
+  color: $gray-muted !important;
 }
 
 /* Typography */
