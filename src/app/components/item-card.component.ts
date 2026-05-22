@@ -43,6 +43,9 @@ import { ImageModalComponent } from './image-modal.component';
         @if (description) {
           <div class="h6 font-heading text-secondary mb-3">
             {{ description }}
+            @if (linkUrl && linkText) {
+              <a [href]="linkUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="linkAriaLabel ? linkAriaLabel : null">{{ linkText }}</a>
+            }
           </div>
         }
         <div class="small">
@@ -78,6 +81,9 @@ export class ItemCardComponent {
   @Input() public img: string = '';
   @Input() public description?: string;
   @Input() public paragraphs?: string[];
+  @Input() public linkUrl?: string;
+  @Input() public linkText?: string;
+  @Input() public linkAriaLabel?: string;
 
   private modalService = inject(NgbModal);
 
