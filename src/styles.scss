@@ -570,3 +570,9 @@ aside .cursor-pointer:hover {
   --mat-snack-bar-button-color: #ffffff;
 }
 
+
+/* Fix for bold text not rendering properly in Blogger posts */
+.post-content b,
+.post-content strong {
+  font-weight: bold !important;
+}
