@@ -85,6 +85,9 @@ import { getThumbnailPath, handleImageError } from '../utils/image-utils';
                       [title]="member.name"
                       [description]="member.key | translate"
                       [img]="member.img"
+                      [linkUrl]="member.linkUrl"
+                      [linkText]="member.linkText"
+                      [linkAriaLabel]="member.linkAriaLabel"
                     >
                     </app-item-card>
                   </div>
@@ -159,7 +162,7 @@ export class SobreNosotrosComponent {
   private modalService = inject(NgbModal);
   private translate = inject(TranslateService);
 
-  public readonly boardMembers = [
+  public readonly boardMembers: {name: string, key: string, img: string, linkUrl?: string, linkText?: string, linkAriaLabel?: string}[] = [
     {
       name: 'Roberto López Santodomingo',
       key: 'about.board_pres_desc',
@@ -169,6 +172,9 @@ export class SobreNosotrosComponent {
       name: 'Miguel Anta',
       key: 'about.board_vp_desc',
       img: '/assets/socios/anta.webp',
+      linkUrl: 'https://femecv.com/',
+      linkText: 'FEMECV',
+      linkAriaLabel: 'Federación de Deportes de Montaña y Escalada de la Comunidad Valenciana',
     },
     {
       name: 'Yolanda López López',
